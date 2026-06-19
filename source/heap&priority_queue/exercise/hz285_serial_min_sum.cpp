@@ -14,7 +14,7 @@
 样例输出
 3 3 4 */
 //序列m小和
-#include <iostream>
+/* #include <iostream>
 #include <vector>
 #include <set>
 #include <string>
@@ -58,4 +58,49 @@ int main(void){
     }
     system("pause");
     return 0;
+} */
+
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <vector>
+using namespace std;
+typedef pair<int,int> PII;
+int main(void){
+    int n = 0;
+    int m = 0;
+    cin>>n;
+    cin>>m;
+    set<PII> s;
+    int tot = 0;
+    s.insert(PII(0,tot++));
+    for(int i=0;i<n;i++){
+        vector<int> temp;
+        for(auto x:s){
+            temp.push_back(x.first);
+        }
+        s.clear();
+        for(int j=0;j<m;j++){
+            int cur_number = 0;
+            cin>>cur_number;
+            for(auto x:temp){
+                if(s.size()<m or x-cur_number>s.begin()->first){
+                    s.insert(PII(x-cur_number,tot++));
+                    if(s.size()>m){
+                        s.erase(s.begin());
+                    }
+                }
+            }
+        }
+    }
+
+    int flag = 0;
+    for(auto iter = s.rbegin();iter !=s.rend();iter++){
+        if(flag == 1) cout<<" ";
+        cout<<-iter->first;
+        flag = 1;
+    }
+    system("pause");
+    return 0;
+
 }
