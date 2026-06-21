@@ -1,5 +1,3 @@
-//选择排序算法
-//把待排序区最小的那个元素放到待排序区的头
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -40,39 +38,39 @@ int* get_rand_data(int n){
     return ret;
 }
 
-
 void swap(int* a,int* b){
     int temp = *a;
     *a = *b;
     *b = temp;
     return;
 }
-//选择排序
-void selection_sort(int* arr,int l,int r){
-    for(int i = l;i<r-1;i++){
-        int index = i;
-        for(int j = i+1;j<r;j++){
-            if(arr[j] < arr[index]) index = j;
+
+//插入排序
+void insert_sort(int* arr,int l,int r){
+    for(int i = l+1;i<r;i++){
+        int j = i;
+        while(j>l and arr[j]<arr[j-1]){
+            swap(&arr[j],&arr[j-1]);
+            j--;
         }
-        swap(&arr[i],&arr[index]);
     }
     return;
 }
 
-
 void test01(){
-    int *arr = get_rand_data(SMALL_DATA_N);
-    TEST(selection_sort,arr,SMALL_DATA_N);
+    int* arr = get_rand_data(SMALL_DATA_N);
+    TEST(insert_sort,arr,SMALL_DATA_N);
     free(arr);
     return;
 }
 
 void test02(){
-    int *arr = get_rand_data(BIG_DATA_N);
-    TEST(selection_sort,arr,BIG_DATA_N);
+    int* arr = get_rand_data(BIG_DATA_N);
+    TEST(insert_sort,arr,BIG_DATA_N);
     free(arr);
     return;
 }
+
 
 int main(void){
     srand(time(0));

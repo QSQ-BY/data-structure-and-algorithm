@@ -142,9 +142,6 @@ void test01(){
         }
         cout<<pos_sum<<endl;
     }
-
-    
-
 }
 
 int main(void){
