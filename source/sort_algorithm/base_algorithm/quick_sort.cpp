@@ -45,70 +45,51 @@ void swap(int* a,int* b){
     return;
 }
 
-void unsupervised_insert_sort(int* arr,int l,int r,int step){
-    int index = l;
-    for(int i = l+step;i<r;i += step){
-        if(arr[i] < arr[index]) index = i;
-    }
-    while(index > l){
-        swap(&arr[index],&arr[index-step]);
-        index-= step;
-    }
-    for(int i = l+step;i<r;i+=step){
-        int j = i;
-        while(arr[j]<arr[j-step]){
-            swap(&arr[j],&arr[j-step]);
-            j-=step;
+//快速排序
+void quick_sort(int* arr,int l,int r){
+    if(arr == nullptr) return;
+    if(r-l <= 2){
+        if(r-l<=1) return;
+        else{
+            if(arr[l] <= arr[l+1]) return;
+            else swap(&arr[l],&arr[l+1]);
         }
     }
-}
 
-//希尔排序
-void shell_sort(int* arr,int l,int r){
-    int k = 2;
-    int n = r-l;
-    int step = n/k;
-    
-    do{
-        if(step == 0) step = 1;
-        else step = n/k;
-        int len = l+step;
-        for(int i = l;i<len;i++){
-            unsupervised_insert_sort(arr,i,r,step);
+    //分区过程 partition
+    int left_index = l;
+    int right_index = r-1;
+    int base_number = arr[left_index];
+    while(left_index != right_index){
+        while(left_index<right_index and base_number <= arr[right_index]) right_index--;
+        if(left_index < right_index){
+            arr[left_index] = arr[right_index];
+            left_index++;
         }
-        k = k*2;
-    }while(step != 1);
-    return;
 
-}
-
-void shell_sort_hibbard(int *arr,int l,int r){
-    int step = 1;
-    int n = r-l;
-    while(step<=n/2) step = step*2+1;
-    do{
-        step = step/2;
-        int len = l+step;
-        for(int i = l;i<len;i++){
-            unsupervised_insert_sort(arr,i,r,step);
+        while(left_index < right_index and base_number>= arr[left_index]) left_index++;
+        if(left_index < right_index){
+            arr[right_index] = arr[left_index];
+            right_index--;
         }
-        
-    }while(step>1);
+    }
+    arr[left_index] = base_number;
+    quick_sort(arr,l,left_index);
+    quick_sort(arr,left_index+1,r);
     return;
 }
+
 
 void test01(){
     int* arr = get_rand_data(SMALL_DATA_N);
-    TEST(shell_sort_hibbard,arr,SMALL_DATA_N);
-    TEST(shell_sort,arr,SMALL_DATA_N);
+    TEST(quick_sort,arr,SMALL_DATA_N);
     free(arr);
     return;
 }
 
 void test02(){
     int* arr = get_rand_data(BIG_DATA_N);
-    TEST(shell_sort_hibbard,arr,BIG_DATA_N);
-    TEST(shell_sort,arr,BIG_DATA_N);
+    TEST(quick_sort,arr,BIG_DATA_N);
     free(arr);
     return;
 }
