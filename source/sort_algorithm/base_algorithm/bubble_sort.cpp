@@ -38,11 +38,26 @@ int* get_rand_data(int n){
     return ret;
 }
 
+
 void swap(int* a,int* b){
     int temp = *a;
     *a = *b;
     *b = temp;
     return;
+}
+
+int* get_rand_data_v1(int n){
+    int* ret = (int*)malloc(sizeof(int)*n);
+    for(int i = 0;i<n;i++){
+        ret[i] = i;
+    }
+    
+    for(int i=0;i<100;i++){
+        int pos1 = rand()%n;
+        int pos2 = rand()%n;
+        swap(&ret[pos1],&ret[pos2]);
+    }
+    return ret;
 }
 
 //Ã°ÅİÅÅĞò
@@ -72,17 +87,23 @@ void better_bubble_sort(int* arr,int l,int r){
 }
 
 void test01(){
-    int* arr = get_rand_data(SMALL_DATA_N);
+    int* arr = get_rand_data_v1(SMALL_DATA_N);
+    int* arr2 = get_rand_data(SMALL_DATA_N);
     TEST(bubble_sort,arr,SMALL_DATA_N);
+    TEST(bubble_sort,arr2,SMALL_DATA_N);
     TEST(better_bubble_sort,arr,SMALL_DATA_N);
+    TEST(better_bubble_sort,arr2,SMALL_DATA_N);
     free(arr);
     return;
 }
 
 void test02(){
-    int* arr = get_rand_data(BIG_DATA_N);
+    int* arr = get_rand_data_v1(BIG_DATA_N);
+    int* arr2 = get_rand_data(BIG_DATA_N);
     TEST(bubble_sort,arr,BIG_DATA_N);
+    TEST(bubble_sort,arr2,BIG_DATA_N);
     TEST(better_bubble_sort,arr,BIG_DATA_N);
+    TEST(better_bubble_sort,arr2,BIG_DATA_N);
     free(arr);
     return;
 }
