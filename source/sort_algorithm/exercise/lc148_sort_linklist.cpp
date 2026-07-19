@@ -1,4 +1,4 @@
-/* 给你链表的头结点 head ，请将其按 升序
+/* 给你链表的头结点 head ，请将其按 升序 
 排列并返回 排序后的链表 。
 示例 1：
 输入：head = [4,2,1,3]
@@ -33,7 +33,7 @@ public:
     ListNode* sortList1(ListNode* head) {
         //边界条件
         if(head == nullptr or head->next == nullptr) return head;
-
+        
         //寻找中间基准值
         int l = head->val;
         int r = head->val;
@@ -115,7 +115,7 @@ public:
             ans = temp;
         }
         return prev;
-    }
+    } 
     ListNode* sortList2(ListNode* head){
         if(head == nullptr or head->next == nullptr) return head;
         //获取链表长度n
