@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 #define SMALL_DATA_N 5000
-#define BIG_DATA_N 10000000
+#define BIG_DATA_N 100000000
 
 bool check(int *arr,int l,int r){
     for(int i=l+1;i<r;i++){
