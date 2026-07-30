@@ -148,11 +148,11 @@ Node* erase_maintain(Node* root,int key){
         root->color = RED;//原根节点变为红色
         if(root->lchild->color == RED) {
             root = right_rotate(root);
-            root->rchild = erase_maintain(root->rchild);
+            root->rchild = erase_maintain(root->rchild,key);
         }
         else if(root->rchild->color == RED) {
             root = left_rotate(root);
-            root->lchild = erase_maintain(root->lchild);
+            root->lchild = erase_maintain(root->lchild,key);
         }
         root->color = BLACK;//新根节点变为黑色
         return root;
@@ -210,7 +210,7 @@ Node* __erase(Node* root,int key){
             root->lchild = __erase(root->lchild,temp->key);
         }
     }
-    return erase_maintain(root);
+    return erase_maintain(root,key);
 }
 
 Node* erase(Node* root,int key){
@@ -254,7 +254,7 @@ void test01(){
     //删除测试
     int x=0;
     while(~scanf("%d",&x)){
-        printf("\n从红黑树中删除%d\n",x)
+        printf("\n从红黑树中删除%d\n",x);
         root = erase(root,x);
         output(root);
     }
