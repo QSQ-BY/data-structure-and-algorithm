@@ -18,10 +18,23 @@
 #include <unordered_map>
 
 using namespace std;
+//二分查找
 class Solution{
 public:
     int searchInsert(vector<int>& nums, int target) {
-        
+        //可将原问题抽象为01二分模型
+        //小于target的设为0大于则设为1
+        //寻找第一个1的位置即可
+        int left = 0;
+        int right = nums.size();//最后一位也是合法的插入位置
+        int mid = 0;
+        while(left<right){
+            mid = (left+right)/2;
+            if(nums[mid] < target) left = mid+1;
+            else right = mid;
+            if(target == nums[mid]) return mid;
+        }
+        return mid;
     }
 };
 void test01(){
