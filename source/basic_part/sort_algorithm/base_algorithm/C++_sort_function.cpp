@@ -116,7 +116,7 @@ void test04(){
     for(int i = 0;i<10;i++) index[i] = i;
     output(arr,10);
     //lambda表达式实现比较规则
-    sort(index, index + 10, [&](int i, int j) {
+    sort(index, index + 10, [&](int i, int j)->bool {
         return arr[i] < arr[j];
     });
     output(arr,10);
