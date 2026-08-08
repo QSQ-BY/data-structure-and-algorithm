@@ -47,6 +47,7 @@ bool cmp(Point& a,Point& b){
     return a.y<b.y;
 }
 
+//¶þÎ¬É¨ÃèÏß·¨
 int check_y(Point* arr,int n,int c,int begin,int end,int l){
     vector<int> temp;
     int cnt;

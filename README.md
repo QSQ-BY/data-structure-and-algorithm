@@ -8,7 +8,7 @@
 
 ## 目前写到哪里
 
-截至 2026-08-03，仓库里已经有这些内容：
+截至 2026-08-08，仓库里已经有这些内容：
 
 | 章节 | 核心内容 | 练习方向 |
 | --- | --- | --- |
@@ -24,10 +24,13 @@
 | 递归转非递归 | 系统栈模拟、状态码、拓扑顺序 | 遍历、排序与路径问题 |
 | 森林与并查集 | 路径压缩、按大小合并、带权关系 | 连通块、关系约束与离散化 |
 | 单调栈与单调队列 | 最近元素、定长与变长窗口 | 窗口最值、最大子序列和、最大矩形 |
+| 回溯算法 | DFS、状态树、剪枝、迭代加深 | 路径搜索、字串变换、位掩码状态压缩 |
 
-当前主线已推进到单调栈与单调队列：基础实现和五道练习已经完成，还剩三题，下一章是回溯算法。
+单调栈与单调队列的基础实现和八道练习已经完成。最后三题分别用单调栈模拟接雨水、用前缀和与单调队列寻找最短子数组，并从单调结构的形成过程判断双生序列。
 
-从 2026-08-03 起，除 Codeforces 比赛日外，每天至少完成两道洛谷额外练习，统一收录到 `Exercise`。第一天完成了两道哈希题，下一步会单独整理 `unordered_map` 的常见用法。
+回溯算法的十一道主线练习也已经完成，从 N 皇后、迷宫路径到单词接龙、字串变换和双脑分配，分别练习了访问标记、状态压缩、剪枝和迭代加深。当前先暂停向下推进，集中复习这十一道题，尤其是位掩码与 lowbit 的状态变化。
+
+从 2026-08-03 起，除 Codeforces 比赛日外，每天至少完成两道洛谷额外练习，统一收录到 `Exercise`。8 月 3 日完成了 P1102 和 P1918，8 月 4 日完成了 P5250 和 P5266，8 月 6 日又写了「小梦的 AB 交换」与 B3612「求区间和」。
 
 ## 目录结构
 
@@ -40,11 +43,16 @@
 │  │  ├─ sort_algorithm / lookup_algorithm / balanced_tree
 │  │  └─ recursion_to_non-recursion / Forest&disjoint_set_union
 │  └─ improved_part
-│     └─ monotonic_queue&stack
+│     ├─ monotonic_queue&stack
+│     └─ backtrack_algorithm
 ├─ Exercise
-│  └─ hash
-│     ├─ lg_p1102_A-B.cpp
-│     └─ lg_p1918.cpp
+│  ├─ hash
+│  │  ├─ lg_p1102_A-B.cpp
+│  │  ├─ lg_p1918.cpp
+│  │  ├─ lg_p5250.cpp
+│  │  └─ lg_p5266.cpp
+│  ├─ lg_b3612.cpp
+│  └─ lg_u535928.cpp
 ├─ codeforces
 │  └─ round_1109_Div3
 ├─ python
@@ -58,7 +66,8 @@
 │  ├─ balanced_tree
 │  ├─ recursion_to_non_recursion
 │  ├─ forest&disjoint_set_union
-│  └─ monotonic_queue&stack
+│  ├─ monotonic_queue&stack
+│  └─ backtrack_algorithm
 └─ .build
 ```
 
@@ -83,6 +92,9 @@
 - 思维转换：[递归落到栈里，也第一次走进 Codeforces](diary/recursion_to_non_recursion/2026-07-30.md)
 - 模板沉淀：[把并查集从现场手搓变成两套模板](diary/forest&disjoint_set_union/2026-08-01.md)
 - 当前进度：[从最近元素到窗口最值](diary/monotonic_queue&stack/2026-08-01_to_08-03.md)
+- 查找复习：[map 理顺以后，哈希查找也顺了](diary/lookup_algorithm/2026-08-04.md)
+- 章节交接：[单调结构收尾，回溯从八皇后开始](diary/backtrack_algorithm/2026-08-06.md)
+- 回溯收尾：[比赛、真题与回溯收尾](diary/backtrack_algorithm/2026-08-07_to_2026-08-08.md)
 
 比赛过程单独记录在 [Codeforces Round 1109（Div. 3）复盘](codeforces/round_1109_Div3/2026-07-30_cf.md) 中。
 
