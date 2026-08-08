@@ -27,7 +27,7 @@ using namespace std;
 class Solution {
 public:
     int trap(vector<int>& height) {
-        if(height.size() == 0 or height.size()==1 or hright.size()==2 or height.empty()) return 0;
+        if(height.size() == 0 or height.size()==1 or height.size()==2 or height.empty()) return 0;
         int ans = 0;
         stack<int> s;
         for(int i=0;i<height.size();i++){

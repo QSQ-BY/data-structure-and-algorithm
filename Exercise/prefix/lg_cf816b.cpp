@@ -17,8 +17,6 @@ int main(void){
 
     for(int i=0;i<q;i++){
         int ans = 0;
-
-        .
         int a,b;
         cin>>a>>b;
         for(int j=a;j<=b;j++){

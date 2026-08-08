@@ -1,4 +1,8 @@
-﻿class UnionSet{
+﻿#include <iostream>
+#include <vector>
+using namespace std;
+
+class UnionSet{
 public:
     UnionSet(int n){
         for(int i=0;i<n;i++){
@@ -218,3 +222,7 @@ public:
     int element_num;
     int collection_num;
 };
+
+int main(void){
+    return 0;
+}
