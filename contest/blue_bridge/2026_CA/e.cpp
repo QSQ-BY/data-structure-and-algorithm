@@ -27,3 +27,50 @@
 1
 2
 -1 */
+#include <iostream>
+#include <vector>
+#include <climits>
+using namespace std;
+
+int main(void){
+    long long t;
+    cin>>t;
+    for(long long i=0;i<t;i++){
+        long long n,c,target;
+        cin>>n>>c>>target;
+        if(target == 0){
+            cout<<0<<"\n";
+            continue;
+        }
+        if(target % c != 0){
+            cout<<-1<<"\n";
+            continue;
+        }
+        vector<long long> prefix(n+1,0);
+        for(long long j=1;j<=n;j++){
+            prefix[j] = c*j;
+            prefix[j] += prefix[j-1];
+        }
+        if(prefix[n] < target){
+            cout<<-1<<"\n";
+            continue;
+        }
+
+        long long ans = 2;
+        long long right = 1;
+        long long left = 0;
+        for (right = 1; right <= n; right++) {
+            while (prefix[right] - prefix[left] > target) {
+                left++;
+            }
+
+            if (prefix[right] - prefix[left] == target) {
+                ans = 1;
+                break;
+            }
+        }
+        cout<<ans<<endl;
+    }
+    //system("pause");
+    return 0;
+}

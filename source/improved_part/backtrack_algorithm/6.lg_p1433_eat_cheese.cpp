@@ -45,13 +45,13 @@ void dfs(int t,int pos,double s){
     }
     for(int k= t;k!=0;k -= (k&-k)){
         int bit = k&-k;
-        int cur_index = index[bit];//当前枚举的点的编号
+        int next_index = index[bit];//当前枚举的点的编号
         int next_t = bit^t;//下一个状态码
-        double new_dis = dis[pos][cur_index] + s;
+        double new_dis = dis[pos][next_index] + s;
         if(new_dis>=ans) continue;
-        if(new_dis >= dp[next_t][cur_index]) continue;
-        dp[next_t][cur_index] = new_dis;
-        dfs(next_t,cur_index,new_dis);
+        if(new_dis >= dp[next_t][next_index]) continue;
+        dp[next_t][next_index] = new_dis;
+        dfs(next_t,next_index,new_dis);
     }
     return;
 }
