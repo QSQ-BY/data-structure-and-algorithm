@@ -63,7 +63,7 @@ int dfs(int i,int t1,int t2,int t3,int n){
         int j = ind[(-t&t)];
         if((t2 & (1<<(i + j - 1))) and (t3&(1<<(i-j+n)))){
             arr[i] = j;
-            ans += dfs(i+1,t1^(1<<j),t2^(1<<(i+j-1)),t3^(1<<i-j+n),n);
+            ans += dfs(i+1,t1^(1<<j),t2^(1<<(i+j-1 )),t3^(1<<i-j+n),n);
         }
     }
     return ans;
