@@ -41,7 +41,7 @@ void test01(){
     Solution s;
 
     auto buildListWithCycle = [](const vector<int>& values, int pos,
-                                 ListNode*& tail) {
+                                ListNode*& tail) {
         ListNode* head = nullptr;
         ListNode* cur = nullptr;
         vector<ListNode*> nodes;
