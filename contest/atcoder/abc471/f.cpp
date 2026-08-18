@@ -61,8 +61,7 @@ Among these, the maximum value when interpreted as a decimal integer is
 Sample Input 2
 Copy
 5 3
-00000
-00
+000
 1
 0000
 000

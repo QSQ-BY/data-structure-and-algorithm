@@ -1,4 +1,4 @@
-import sys
+﻿import sys
 input = sys.stdin.buffer.readline
 
 def read():
@@ -12,8 +12,8 @@ dir = [
     [1,1],[0,1],[-1,1],[-1,0]
 ]
 dir_ans = [0,1,2,3,4,5,6,7]
-dir.reverse()
-def dfs(pos:int,g:list[list[int]],visit:int,cur_number:int)->bool:
+dir.reverse()#返回值是none，原地翻转
+def dfs(pos:int,g:list[list[int]],visit:int,diagonal_visit:int,cur_number:int)->bool:
     global n
     global k
     global ans
@@ -33,9 +33,19 @@ def dfs(pos:int,g:list[list[int]],visit:int,cur_number:int)->bool:
         if(g[dx][dy] != next_number):continue
         next_pos = dy + dx*n
         if((visit>>next_pos) % 2 == 0): continue
+        new_diagonal_visit = diagonal_visit
+        if(abs(cur_x-dx)==1 and abs(cur_y - dy)==1):
+            diagonal_x = min(cur_x,dx)
+            diagonal_y = min(cur_y,dy)
+            diagonal_pos = diagonal_x*(n-1) + diagonal_y
+            diagonal_bit = 1<<diagonal_pos
+            if(((diagonal_visit^diagonal_bit)>>diagonal_pos)%2 == 0):
+                continue
+            else :
+                new_diagonal_visit = diagonal_bit^diagonal_visit
         next_visit = (1<<next_pos)^visit
         ans.append(dir_ans[i])
-        temp_ans = dfs(next_pos,g,next_visit,next_number)
+        temp_ans = dfs(next_pos,g,next_visit,new_diagonal_visit,next_number)
         if(temp_ans == True):
             return True
         ans.pop()
@@ -57,7 +67,7 @@ def main()->None:
         print(-1)
         return
     visit = (1<<(n*n))-2
-    if(dfs(0,g,visit,0) == False):
+    if(dfs(0,g,visit,0,0) == False):
         print(-1)
         return
     final = "".join(map(str,ans))
