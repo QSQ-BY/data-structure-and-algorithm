@@ -2,12 +2,12 @@
  of length n
 . Of course, he decided to sort it. To make the process more interesting, he chose two positive integers x
  and y
- (x+y¡Ün)
+ (x+yâ‰¤n)
  and defined a rule for swapping elements.
 
 In one move, Stepan can choose two indices i
  and j
- (1¡Üi,j¡Ün)
+ (1â‰¤i,jâ‰¤n)
  and swap the elements pi
  and pj
  if at least one of the following conditions holds:
@@ -18,20 +18,20 @@ Stepan wants to know whether it is possible to sort the permutation in ascending
 
 Input
 The first line contains a single integer t
- (1¡Üt¡Ü104)
- ¡ª the number of test cases.
+ (1â‰¤tâ‰¤104)
+ â€” the number of test cases.
 
 The first line of each test case contains three integers n
 , x
 , and y
- (1¡Üx,y¡Ün¡Ü2?105
-, x+y¡Ün)
- ¡ª the length of the array and the numbers chosen by Stepan.
+ (1â‰¤x,yâ‰¤nâ‰¤2?105
+, x+yâ‰¤n)
+ â€” the length of the array and the numbers chosen by Stepan.
 
 The second line of each test case contains n
  integers pi
- (1¡Üpi¡Ün)
- ¡ª the array p
+ (1â‰¤piâ‰¤n)
+ â€” the array p
 ; it is guaranteed that p
  is a permutation.
 
@@ -162,7 +162,7 @@ public:
         return size[find(index)];
     }
 
-    vector<int> father;//father[i]±íÊ¾iµÄ¸¸Ç×½Úµã
+    vector<int> father;//father[i]è¡¨ç¤ºiçš„çˆ¶äº²èŠ‚ç‚¹
     vector<int> size;
     int element_num;
     int collection_num;

@@ -1,4 +1,4 @@
-﻿import sys
+import sys
 input = sys.stdin.buffer.readline
 def read():
     return map(int,input().split())

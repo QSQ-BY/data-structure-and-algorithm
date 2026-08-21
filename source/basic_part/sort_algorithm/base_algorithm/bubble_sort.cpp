@@ -60,7 +60,7 @@ int* get_rand_data_v1(int n){
     return ret;
 }
 
-//Ã°ÅÝÅÅÐò
+//å†’æ³¡æŽ’åº
 void bubble_sort(int* arr,int l,int r){
     for(int i = r-1;i>=l+1;i--){
         for(int j = l;j<i;j++){
@@ -70,7 +70,7 @@ void bubble_sort(int* arr,int l,int r){
     return;
 }
 
-//Ã°ÅÝÅÅÐòµÄÓÅ»¯
+//å†’æ³¡æŽ’åºçš„ä¼˜åŒ–
 void better_bubble_sort(int* arr,int l,int r){
     for(int i = r-1;i>=l+1;i--){
         int flag = 0;

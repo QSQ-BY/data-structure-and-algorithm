@@ -12,8 +12,8 @@ int check(const vector<int>& len, long long K, int l) {
 }
 
 int main(void){
-    int N;//木材总数
-    int K;//切割次数
+    int N;//鏈ㄦ潗鎬绘暟
+    int K;//鍒囧壊娆℃暟
     cin>>N>>K;
     vector<int> len;
     int left = 1;

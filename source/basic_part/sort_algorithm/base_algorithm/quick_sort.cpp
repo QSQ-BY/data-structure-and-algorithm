@@ -45,7 +45,7 @@ void swap(int* a,int* b){
     return;
 }
 
-//¿ìËÙÅÅĞò
+//å¿«é€Ÿæ’åº
 void quick_sort(int* arr,int l,int r){
     if(arr == nullptr) return;
     if(r-l <= 2){
@@ -59,7 +59,7 @@ void quick_sort(int* arr,int l,int r){
         }
     }
 
-    //·ÖÇø¹ı³Ì partition
+    //åˆ†åŒºè¿‡ç¨‹ partition
     int left_index = l;
     int right_index = r-1;
     int base_number = arr[left_index];
@@ -82,9 +82,9 @@ void quick_sort(int* arr,int l,int r){
     return;
 }
 
-//¿ìËÙÅÅĞòµÄÓÅ»¯
+//å¿«é€Ÿæ’åºçš„ä¼˜åŒ–
 void quick_sort_v1(int* arr,int l,int r){
-    //Ã¿´Î×óÓÒÖ¸ÕëÕÒµ½Ò»¶ÔÔªËØ¶ÔËûÃÇ½øĞĞ½»»»²Ù×÷
+    //æ¯æ¬¡å·¦å³æŒ‡é’ˆæ‰¾åˆ°ä¸€å¯¹å…ƒç´ å¯¹ä»–ä»¬è¿›è¡Œäº¤æ¢æ“ä½œ
     if(arr==nullptr) return;
     if(r==l) return;
     if(r-1 == l) return;
@@ -96,7 +96,7 @@ void quick_sort_v1(int* arr,int l,int r){
         else return;
     }
 
-    //·ÖÇø²Ù×÷
+    //åˆ†åŒºæ“ä½œ
     int left_index = l;
     int right_index = r-1;
     int base_number = arr[l];
@@ -124,7 +124,7 @@ void three_point_sort(int* arr, int l, int r){
 }
 
 void quick_sort_v2(int* arr,int l,int r){
-    //ÓÅ»¯»ù×¼ÖµµÄÑ¡Ôñ£¨ÈıµãÈ¡ÖĞ·¨£©
+    //ä¼˜åŒ–åŸºå‡†å€¼çš„é€‰æ‹©ï¼ˆä¸‰ç‚¹å–ä¸­æ³•ï¼‰
     if(arr==nullptr) return;
     if(r - l <= 1) return;
     if(r-1 == l) return;
@@ -135,7 +135,7 @@ void quick_sort_v2(int* arr,int l,int r){
         }
         else return;
     }
-    //·ÖÇø²Ù×÷
+    //åˆ†åŒºæ“ä½œ
     int left_index = l;
     int right_index = r-1;
     three_point_sort(arr, l, r);
@@ -155,7 +155,7 @@ void quick_sort_v2(int* arr,int l,int r){
 }
 
 void quick_sort_v3(int* arr,int l,int r){
-    //¼õÉÙµİ¹é´ÎÊı£¨µ¥±ßµİ¹é·¨£©
+    //å‡å°‘é€’å½’æ¬¡æ•°ï¼ˆå•è¾¹é€’å½’æ³•ï¼‰
     
     if(arr==nullptr) return;
     if(r-1 == l) return;
@@ -167,7 +167,7 @@ void quick_sort_v3(int* arr,int l,int r){
         else return;
     }
 
-    //·ÖÇø²Ù×÷
+    //åˆ†åŒºæ“ä½œ
     while(l<r){
         int left_index = l;
         int right_index = r-1;
@@ -183,8 +183,8 @@ void quick_sort_v3(int* arr,int l,int r){
                 right_index--;
             }
         }while(left_index <= right_index);
-        quick_sort_v3(arr,l,left_index);//×ó°ëÇø¼äµÄµİ¹é²Ù×÷
-        //quick_sort_v3(arr,left_index,r);//ÓÒ°ëÇø¼äµÄµİ¹é
+        quick_sort_v3(arr,l,left_index);//å·¦åŠåŒºé—´çš„é€’å½’æ“ä½œ
+        //quick_sort_v3(arr,left_index,r);//å³åŠåŒºé—´çš„é€’å½’
         l = left_index;
         
     }
@@ -192,7 +192,7 @@ void quick_sort_v3(int* arr,int l,int r){
 }
 #define threshold 16
 void __quick_sort_v4(int* arr,int l,int r){
-    //ÔÚĞ¡Êı¾İÁ¿µÄÊ±ºò¸ü¸ÄÎª²åÈëÅÅĞò
+    //åœ¨å°æ•°æ®é‡çš„æ—¶å€™æ›´æ”¹ä¸ºæ’å…¥æ’åº
 
     
     if(arr==nullptr) return;
@@ -205,7 +205,7 @@ void __quick_sort_v4(int* arr,int l,int r){
         else return;
     }
 
-    //·ÖÇø²Ù×÷
+    //åˆ†åŒºæ“ä½œ
     while(r-l >threshold){
         int left_index = l;
         int right_index = r-1;
@@ -221,8 +221,8 @@ void __quick_sort_v4(int* arr,int l,int r){
                 right_index--;
             }
         }while(left_index <= right_index);
-        __quick_sort_v4(arr,l,left_index);//×ó°ëÇø¼äµÄµİ¹é²Ù×÷
-        //quick_sort_v3(arr,left_index,r);//ÓÒ°ëÇø¼äµÄµİ¹é
+        __quick_sort_v4(arr,l,left_index);//å·¦åŠåŒºé—´çš„é€’å½’æ“ä½œ
+        //quick_sort_v3(arr,left_index,r);//å³åŠåŒºé—´çš„é€’å½’
         l = left_index;
         
     }

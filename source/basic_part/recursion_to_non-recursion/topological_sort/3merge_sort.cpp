@@ -9,7 +9,7 @@
 #include <queue>
 using namespace std;
 
-void merge_sort(int* arr,int l,int r){//×ó±ÕÓÒ¿ªÇø¼ä
+void merge_sort(int* arr,int l,int r){//å·¦é—­å³å¼€åŒºé—´
     int n = r-l;
     if(r - l <=1) return;
     int mid = (l+r)/2;

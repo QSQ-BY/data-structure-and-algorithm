@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-//½á¹¹¶¨Òå
+//ç»“æ„å®šä¹‰
 typedef struct node{
     int val;
     struct node* next;
@@ -13,7 +13,7 @@ typedef struct both_way_node{
     struct both_way_node* next;
 }both_way_node;
 
-//´´½¨Á´±í²Ù×÷
+//åˆ›å»ºé“¾è¡¨æ“ä½œ
 node* create_node(int val){
     node* p=(node*)malloc(sizeof(node));
     p->val = val;
@@ -21,7 +21,7 @@ node* create_node(int val){
     return p;
 }
 
-//´´½¨Ë«ÏòÁ´±í²Ù×÷
+//åˆ›å»ºåŒå‘é“¾è¡¨æ“ä½œ
 both_way_node* create_both_way_node(int val){
     both_way_node* p=(both_way_node*)malloc(sizeof(both_way_node));
     p->val = val;
@@ -30,7 +30,7 @@ both_way_node* create_both_way_node(int val){
     return p;
 }
 
-//É¾³ı²Ù×÷(½Úµã)
+//åˆ é™¤æ“ä½œ(èŠ‚ç‚¹)
 node* erase(node* head,int pos){
     if(head == nullptr){
         return head;
@@ -58,7 +58,7 @@ node* erase(node* head,int pos){
     return head;
 }
 
-//²åÈë²Ù×÷1£¨Í·½Úµãµ¥¶ÀÌÖÂÛ£©
+//æ’å…¥æ“ä½œ1ï¼ˆå¤´èŠ‚ç‚¹å•ç‹¬è®¨è®ºï¼‰
 node* insert1(node* head,int pos,int val){
     if(pos == 0){
         node* new_head = create_node(val);
@@ -75,7 +75,7 @@ node* insert1(node* head,int pos,int val){
         if(p == nullptr){
             return head;
         }
-        //pÖ¸ÕëÖ¸ÏòÁË´ı²åÈë½ÚµãµÄÇ°Ò»Î»
+        //pæŒ‡é’ˆæŒ‡å‘äº†å¾…æ’å…¥èŠ‚ç‚¹çš„å‰ä¸€ä½
         node* new_node = create_node(val);
         new_node->next = p->next;
         p->next = new_node;
@@ -83,7 +83,7 @@ node* insert1(node* head,int pos,int val){
     }
 }
 
-//²åÈë²Ù×÷2(ĞéÄâÍ·½Úµã)
+//æ’å…¥æ“ä½œ2(è™šæ‹Ÿå¤´èŠ‚ç‚¹)
 node* insert2(node* head,int pos,int val){
     node* dummy_head = create_node(0);
     dummy_head->next = head;
@@ -107,7 +107,7 @@ node* insert2(node* head,int pos,int val){
     return new_head;
 }
 
-//´òÓ¡²Ù×÷
+//æ‰“å°æ“ä½œ
 void print_linklist(node* head){
     int len = 0;
     node* p = head;
@@ -128,7 +128,7 @@ void print_linklist(node* head){
     return;
 }
 
-//²éÕÒ²Ù×÷
+//æŸ¥æ‰¾æ“ä½œ
 int find(node* head,int target){
     int found = 0;
     for(node* p=head;p!=nullptr;p=p->next){
@@ -160,7 +160,7 @@ int find(node* head,int target){
     printf("\n");
     return 1; 
 }
-//Ïú»Ù²Ù×÷
+//é”€æ¯æ“ä½œ
 void clear(node* head){
     node* p = head;
     while(p){
@@ -180,7 +180,7 @@ void clear_both_way(both_way_node* head){
     }
 }
 
-//»ù´¡¹¹½¨Óë²åÈë²âÊÔ
+//åŸºç¡€æ„å»ºä¸æ’å…¥æµ‹è¯•
 void test01(){
     srand(time(0));
     node* head = nullptr;
@@ -196,7 +196,7 @@ void test01(){
     clear(head);
 }
 
-//²éÕÒ²Ù×÷²âÊÔ
+//æŸ¥æ‰¾æ“ä½œæµ‹è¯•
 void test02(){
     node* head=nullptr;
     for(int i=0;i<5;i++){
@@ -207,7 +207,7 @@ void test02(){
     find(head,55);
 }
 
-//Ñ­»·Á´±í
+//å¾ªç¯é“¾è¡¨
 void test03(){
     srand(time(0));
     node* head = nullptr;
@@ -233,7 +233,7 @@ void test03(){
     printf("...\n");
 }
 
-//Ë«ÏòÁ´±í
+//åŒå‘é“¾è¡¨
 void test04(){
     srand(time(0));
     both_way_node* head = nullptr;

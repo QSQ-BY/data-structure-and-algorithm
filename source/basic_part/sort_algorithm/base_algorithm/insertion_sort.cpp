@@ -45,7 +45,7 @@ void swap(int* a,int* b){
     return;
 }
 
-//²åÈëÅÅĞò
+//æ’å…¥æ’åº
 void insert_sort(int* arr,int l,int r){
     for(int i = l+1;i<r;i++){
         int j = i;
@@ -58,10 +58,10 @@ void insert_sort(int* arr,int l,int r){
 }
 
 
-//ÎŞ¼à¶½µÄ ²åÈëÅÅĞò
+//æ— ç›‘ç£çš„ æ’å…¥æ’åº
 void unsupervised_insert_sort(int* arr,int l,int r){
-    //°ÑÈ«¾Ö×îĞ¡ÖµÏÈ·Åµ½µÚÒ»¸öÎ»ÖÃÉÏÀ´
-    //¿ÉÒÔÈ¥µôj>lµÄÅĞ¶ÏÌõ¼ş
+    //æŠŠå…¨å±€æœ€å°å€¼å…ˆæ”¾åˆ°ç¬¬ä¸€ä¸ªä½ç½®ä¸Šæ¥
+    //å¯ä»¥å»æ‰j>lçš„åˆ¤æ–­æ¡ä»¶
     int index = l;
     for(int i = l+1;i<r;i++){
         if(arr[i] <arr[index]) index = i;

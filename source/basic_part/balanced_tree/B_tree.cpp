@@ -1,19 +1,19 @@
-//BÊ÷
-/* Ò»¿Åm½×BÊ÷ĞèÒªÂú×ãÒ»ÏÂĞÔÖÊ£º
-1.Ê÷ÖĞµÄÃ¿Ò»¸ö½Úµã×î¶àº¬ÓĞm¿Ã×ÓÊ÷
-2.Èô¸ù½Úµã²»ÊÇÒ¶×Ó½Úµã£¬ÔòÖÁÉÙº¬ÓĞÁ½¿Ã×ÓÊ÷
-3.³ıÁË¸ù½ÚµãÒÔÍâµÄËùÓĞ·ÇÖÕ¶Ë½ÚµãÖÁÉÙÓĞm/2£¨ÏòÉÏÈ¡Õû£©¿Ã×ÓÊ÷
-4.Èç¹ûÒ»¸ö½ÚµãÓĞn-1¸ö¹Ø¼ü×Ö£¬Ôò¸Ã½ÚµãÓĞn¸ö·ÖÖ§£¬
-    ÇÒÕân-1¸ö¹Ø¼ü×Ö°´ÕÕµİÔöĞòÁĞÅÅĞò
-5.Ã¿¸ö½Úµã½á¹¹Îª£º£¨n,A0,K1,A1,K2,A2.....Kn,An£©
-6.·É¸ù½ÚµãÖĞ¹Ø¼ü×ÖµÄ¸öÊıÎªn£¬Âú×ãm/2£¨ÏòÉÏÈ¡Õû£©-1<=n<=m-1
-7.ËùÓĞÒ¶×Ó½Úµã´¦ÔÚÍ¬Ò»²ã */
-/* BÊ÷µÄĞÔÖÊ½â¶Á£º
-1.BÊ÷ÖĞÖ»ÓĞ¸ù½ÚµãÃ»°ì·¨Âú×ãÖÁÉÙÓµÓĞm/2£¨ÏòÉÏÈ¡Õû£©¿Ã×ÓÊ÷µÄÌõ¼şµÄÆäËû¾ùÂú×ã
-2.BÊ÷ÊÇÒ»ÖÖ¸ß¶ÈÆ½ºâµÄÊ÷ĞÎ½á¹¹£¨ËùÓĞÒ¶×Ó½Úµã¶¼´¦ÔÚÍ¬Ò»²ã£© */
+//Bæ ‘
+/* ä¸€é¢—mé˜¶Bæ ‘éœ€è¦æ»¡è¶³ä¸€ä¸‹æ€§è´¨ï¼š
+1.æ ‘ä¸­çš„æ¯ä¸€ä¸ªèŠ‚ç‚¹æœ€å¤šå«æœ‰mæ£µå­æ ‘
+2.è‹¥æ ¹èŠ‚ç‚¹ä¸æ˜¯å¶å­èŠ‚ç‚¹ï¼Œåˆ™è‡³å°‘å«æœ‰ä¸¤æ£µå­æ ‘
+3.é™¤äº†æ ¹èŠ‚ç‚¹ä»¥å¤–çš„æ‰€æœ‰éç»ˆç«¯èŠ‚ç‚¹è‡³å°‘æœ‰m/2ï¼ˆå‘ä¸Šå–æ•´ï¼‰æ£µå­æ ‘
+4.å¦‚æœä¸€ä¸ªèŠ‚ç‚¹æœ‰n-1ä¸ªå…³é”®å­—ï¼Œåˆ™è¯¥èŠ‚ç‚¹æœ‰nä¸ªåˆ†æ”¯ï¼Œ
+    ä¸”è¿™n-1ä¸ªå…³é”®å­—æŒ‰ç…§é€’å¢åºåˆ—æ’åº
+5.æ¯ä¸ªèŠ‚ç‚¹ç»“æ„ä¸ºï¼šï¼ˆn,A0,K1,A1,K2,A2.....Kn,Anï¼‰
+6.é£æ ¹èŠ‚ç‚¹ä¸­å…³é”®å­—çš„ä¸ªæ•°ä¸ºnï¼Œæ»¡è¶³m/2ï¼ˆå‘ä¸Šå–æ•´ï¼‰-1<=n<=m-1
+7.æ‰€æœ‰å¶å­èŠ‚ç‚¹å¤„åœ¨åŒä¸€å±‚ */
+/* Bæ ‘çš„æ€§è´¨è§£è¯»ï¼š
+1.Bæ ‘ä¸­åªæœ‰æ ¹èŠ‚ç‚¹æ²¡åŠæ³•æ»¡è¶³è‡³å°‘æ‹¥æœ‰m/2ï¼ˆå‘ä¸Šå–æ•´ï¼‰æ£µå­æ ‘çš„æ¡ä»¶çš„å…¶ä»–å‡æ»¡è¶³
+2.Bæ ‘æ˜¯ä¸€ç§é«˜åº¦å¹³è¡¡çš„æ ‘å½¢ç»“æ„ï¼ˆæ‰€æœ‰å¶å­èŠ‚ç‚¹éƒ½å¤„åœ¨åŒä¸€å±‚ï¼‰ */
 /* 
-BÊ÷²åÈëµ÷ÕûÊÇÎªÁË½â¾öÉÏÒç½Úµã£¬¹Ø¼ü×ÖÊıÁ¿Îªm£¬ºËĞÄ²Ù×÷£º½Úµã·ÖÁÑ
-BÊ÷É¾³ıµ÷ÕûÊÇÎªÁË½â¾öÏÂÒç½Úµã£¬¹Ø¼ü×ÖÊıÁ¿Îªm/2£¨ÏòÉÏÈ¡Õû£©-2£¬ºËĞÄ²Ù×÷£º×óĞı¡¢ÓÒĞı¡¢ºÏ²¢ */
+Bæ ‘æ’å…¥è°ƒæ•´æ˜¯ä¸ºäº†è§£å†³ä¸Šæº¢èŠ‚ç‚¹ï¼Œå…³é”®å­—æ•°é‡ä¸ºmï¼Œæ ¸å¿ƒæ“ä½œï¼šèŠ‚ç‚¹åˆ†è£‚
+Bæ ‘åˆ é™¤è°ƒæ•´æ˜¯ä¸ºäº†è§£å†³ä¸‹æº¢èŠ‚ç‚¹ï¼Œå…³é”®å­—æ•°é‡ä¸ºm/2ï¼ˆå‘ä¸Šå–æ•´ï¼‰-2ï¼Œæ ¸å¿ƒæ“ä½œï¼šå·¦æ—‹ã€å³æ—‹ã€åˆå¹¶ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -25,9 +25,9 @@ BÊ÷É¾³ıµ÷ÕûÊÇÎªÁË½â¾öÏÂÒç½Úµã£¬¹Ø¼ü×ÖÊıÁ¿Îªm/2£¨ÏòÉÏÈ¡Õû£©-2£¬ºËĞÄ²Ù×÷£º×óĞı¡¢ÓÒ
 #define lchild(root,pos) (root->next[pos])
 #define rchild(root,pos) (root->next[pos+1])
 typedef struct Node{
-    int n;//µ±Ç°½ÚµãËù´æ´¢µÄ¹Ø¼ü×ÖµÄÊıÁ¿
-    int key[MAX_M+1];//½ÚµãÖĞËù´æ´¢µÄ¹Ø¼ü×Ö
-    struct Node* next[MAX_M+1];//Ã¿¸ö½Úµã×î¶àÓĞm+1Ìõ±ß 
+    int n;//å½“å‰èŠ‚ç‚¹æ‰€å­˜å‚¨çš„å…³é”®å­—çš„æ•°é‡
+    int key[MAX_M+1];//èŠ‚ç‚¹ä¸­æ‰€å­˜å‚¨çš„å…³é”®å­—
+    struct Node* next[MAX_M+1];//æ¯ä¸ªèŠ‚ç‚¹æœ€å¤šæœ‰m+1æ¡è¾¹ 
 }Node;
 
 Node* get_new_node(){
@@ -102,7 +102,7 @@ Node* insert(Node* root,int key){
     if(root->n >= MAX_M){
         Node* p = get_new_node();
         p->next[0] = root;
-        root = insert_maintain(p,root,0);//¸ù½Úµã£¬·¢ÉúÊ§ºâµÄ×ÓÊ÷£¬·¢ÉúÊ§ºâµÄ×ÓÊ÷µÄ±àºÅ
+        root = insert_maintain(p,root,0);//æ ¹èŠ‚ç‚¹ï¼Œå‘ç”Ÿå¤±è¡¡çš„å­æ ‘ï¼Œå‘ç”Ÿå¤±è¡¡çš„å­æ ‘çš„ç¼–å·
     }
     return root;
 }
@@ -139,7 +139,7 @@ void output(Node* root){
     return;
 }
 
-//ÔÚÖÕ¶Ë½Úµã´¦É¾³ıposÎ»ÖÃµÄÖµ
+//åœ¨ç»ˆç«¯èŠ‚ç‚¹å¤„åˆ é™¤posä½ç½®çš„å€¼
 Node* erase_pos(Node* root,int pos){
     for(int i=pos+1;i<=root->n-1;i++){
         root->key[i-1] = root->key[i];
@@ -148,10 +148,10 @@ Node* erase_pos(Node* root,int pos){
     return root;
 }
 
-//ÓÒĞı£¬°ÑposÎ»ÖÃµÄÖµ½è¸øpos+1Î»ÖÃ
+//å³æ—‹ï¼ŒæŠŠposä½ç½®çš„å€¼å€Ÿç»™pos+1ä½ç½®
 Node* right_rotate(Node* root,int pos){
     for(int i = rchild(root,pos)->n;i >=0;i--){
-        //°Ñ¸ÃÎ»ÖÃÓÒº¢×ÓµÄÖµÈ«²¿ÏòºóÒÆ¶¯Ò»Î»
+        //æŠŠè¯¥ä½ç½®å³å­©å­çš„å€¼å…¨éƒ¨å‘åç§»åŠ¨ä¸€ä½
         rchild(root,pos)->key[i+1] = rchild(root,pos)->key[i];
         rchild(root,pos)->next[i+1] = rchild(root,pos)->next[i];
     }
@@ -164,7 +164,7 @@ Node* right_rotate(Node* root,int pos){
     return root;
 }
 
-//×óĞı£¬°Ñpos+1Î»ÖÃµÄÖµ½è¸øpos
+//å·¦æ—‹ï¼ŒæŠŠpos+1ä½ç½®çš„å€¼å€Ÿç»™pos
 Node* left_rotate(Node* root,int pos){
     lchild(root,pos)->key[lchild(root,pos)->n] = root->key[pos];
     lchild(root,pos)->n++;
@@ -179,28 +179,28 @@ Node* left_rotate(Node* root,int pos){
     return root;
 }
 
-//ºÏ²¢²Ù×÷(ºÏ²¢posºÍpos+1µÄ½Úµã)
+//åˆå¹¶æ“ä½œ(åˆå¹¶poså’Œpos+1çš„èŠ‚ç‚¹)
 Node* merge_node(Node* root,int pos){
     Node* new_node = get_new_node();
-    //°Ñ×ó½ÚµãµÄËùÓĞĞÅÏ¢¿½±´µ½ĞÂ½ÚµãÖĞ
+    //æŠŠå·¦èŠ‚ç‚¹çš„æ‰€æœ‰ä¿¡æ¯æ‹·è´åˆ°æ–°èŠ‚ç‚¹ä¸­
     for(int i = 0;i<=lchild(root,pos)->n;i++){
         new_node->key[i] = lchild(root,pos)->key[i];
         new_node->next[i]= lchild(root,pos)->next[i];
     }
     new_node->n = lchild(root,pos)->n;
-    //ÔÚĞÂ½ÚµãÎ²²¿²åÈë¸ù½ÚµãposÎ»ÖÃµÄÖµ
+    //åœ¨æ–°èŠ‚ç‚¹å°¾éƒ¨æ’å…¥æ ¹èŠ‚ç‚¹posä½ç½®çš„å€¼
     new_node->key[new_node->n] = root->key[pos];
     new_node->n++;
-    //°ÑÓÒ½ÚµãµÄËùÓĞĞÅÏ¢½Óµ½ĞÂ½ÚµãÖĞ
+    //æŠŠå³èŠ‚ç‚¹çš„æ‰€æœ‰ä¿¡æ¯æ¥åˆ°æ–°èŠ‚ç‚¹ä¸­
     for(int i =0;i<rchild(root,pos)->n+1;i++){
         new_node->key[i+new_node->n] = rchild(root,pos)->key[i];
         new_node->next[i+new_node->n] = rchild(root,pos)->next[i];
     }
     new_node->n+= rchild(root,pos)->n;
-    //ÇåÀí¾ÉµÄ×óÓÒ½Úµã
+    //æ¸…ç†æ—§çš„å·¦å³èŠ‚ç‚¹
     free(lchild(root,pos));
     free(rchild(root,pos));
-    //°Ñ¸ù½ÚµãposºóÃæµÄÖµÏòÇ°ÒÆ
+    //æŠŠæ ¹èŠ‚ç‚¹posåé¢çš„å€¼å‘å‰ç§»
     for(int i= pos+1;i<=root->n;i++){
         root->key[i-1] = root->key[i];
         root->next[i-1]= root->next[i];
@@ -211,20 +211,20 @@ Node* merge_node(Node* root,int pos){
 }
 
 Node* erase_maintain(Node* root,int pos){
-    //ÏÂÏŞ
-    int low_bound = (MAX_M+1)/2-1;//ÏòÉÏÈ¡Õû
-    if(root->next[pos]->n >= low_bound) return root;//Î´·¢ÉúÊ§ºâ
+    //ä¸‹é™
+    int low_bound = (MAX_M+1)/2-1;//å‘ä¸Šå–æ•´
+    if(root->next[pos]->n >= low_bound) return root;//æœªå‘ç”Ÿå¤±è¡¡
     
-    //·¢ÉúÊ§ºâ
+    //å‘ç”Ÿå¤±è¡¡
     if(pos>0 and root->next[pos-1]->n > low_bound){
-        //ÏòÇ°ĞÖµÜ½Úµã½è£¬ÓÒĞı
+        //å‘å‰å…„å¼ŸèŠ‚ç‚¹å€Ÿï¼Œå³æ—‹
         root = right_rotate(root,pos-1);
     }else if(pos<root->n and root->next[pos+1]->n > low_bound){
-        //ÏòºóĞÖµÜ½Úµã½è£¬×óĞı
+        //å‘åå…„å¼ŸèŠ‚ç‚¹å€Ÿï¼Œå·¦æ—‹
         root = left_rotate(root,pos);
     }else{
-        //ºÏ²¢²Ù×÷
-        if(pos>0) root = merge_node(root,pos-1);//merge(root,j)->°ÑjºÍj+1½Úµã½øĞĞºÏ²¢
+        //åˆå¹¶æ“ä½œ
+        if(pos>0) root = merge_node(root,pos-1);//merge(root,j)->æŠŠjå’Œj+1èŠ‚ç‚¹è¿›è¡Œåˆå¹¶
         else root = merge_node(root,pos);
     }
     return root;
@@ -233,10 +233,10 @@ Node* erase_maintain(Node* root,int pos){
 Node* __erase(Node* root , int key){
     if(root == nullptr) return nullptr;
 
-    //ÖÕ¶Ë½ÚµãµÄÇé¿ö
+    //ç»ˆç«¯èŠ‚ç‚¹çš„æƒ…å†µ
     int pos = 0;
     if(root->next[0] == nullptr){
-        //µ±Ç°½ÚµãÃ»ÓĞ×ÓÊ÷
+        //å½“å‰èŠ‚ç‚¹æ²¡æœ‰å­æ ‘
         while(pos<root->n and root->key[pos] < key) pos++;
         if(pos>=root->n) return root;
         if(pos<root->n and root->key[pos] > key) return root;
@@ -246,9 +246,9 @@ Node* __erase(Node* root , int key){
         }
     }
 
-    //·ÇÖÕ¶Ë½Úµã
+    //éç»ˆç«¯èŠ‚ç‚¹
     while(pos<root->n and root->key[pos]<key) pos++;
-    //Èç¹ûÎÒÃÇÉ¾³ıµÄÖµÔÚµ±Ç°½Úµã´¦
+    //å¦‚æœæˆ‘ä»¬åˆ é™¤çš„å€¼åœ¨å½“å‰èŠ‚ç‚¹å¤„
     if(pos<root->n and root->key[pos] == key){
         Node* temp = root->next[pos];
         while(temp->next[temp->n]!=nullptr) temp = temp->next[temp->n];
@@ -256,7 +256,7 @@ Node* __erase(Node* root , int key){
         root->key[pos] = val;
         root->next[pos] = __erase(root->next[pos],val); 
     }else{
-        //²»ÔÚµ±Ç°½ÚµãÔòË³×ÅÍùÏÂ×ß
+        //ä¸åœ¨å½“å‰èŠ‚ç‚¹åˆ™é¡ºç€å¾€ä¸‹èµ°
         root->next[pos] = __erase(root->next[pos],key);
     }
     return erase_maintain(root,pos);
@@ -278,13 +278,13 @@ void test01(){
     for(int i=0;i<MAX_OP;i++){
         int val = rand()%100;
         root = insert(root,val);
-        printf("\n½«%d²åÈëBÊ÷\n",val);
+        printf("\nå°†%dæ’å…¥Bæ ‘\n",val);
         output(root);
     }
 
     int x;
     while(~scanf("%d",&x)){
-        printf("´ÓBÊ÷ÖĞÉ¾³ı%d\n",x);
+        printf("ä»Bæ ‘ä¸­åˆ é™¤%d\n",x);
         root = erase(root,x);
         output(root);
     }

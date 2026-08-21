@@ -30,7 +30,7 @@ public:
 
     int calculate(string &s, int l, int r)
     {
-        // l、r表示区间范围
+        // l銆乺琛ㄧず鍖洪棿鑼冨洿
         int pos = -1;
         int min_weight{INF};
         int cur_weight;
@@ -69,7 +69,7 @@ public:
                 pos = i;
             }
         }
-        // 处理纯数字的情况
+        // 澶勭悊绾暟瀛楃殑鎯呭喌
         if (pos == -1)
         {
             int num{0};
@@ -116,7 +116,7 @@ public:
 };
 
 
-//测试代码
+//娴嬭瘯浠ｇ爜
 void test01()
 {
     Solution s;
@@ -194,7 +194,7 @@ void test01()
     cout << "+------+----------------------+----------+----------+----------+" << endl;
     cout << "Passed: " << pass_count << " / " << inputs.size() << endl;
 }
-//调试代码
+//璋冭瘯浠ｇ爜
 void test02()
 {
     Solution s;

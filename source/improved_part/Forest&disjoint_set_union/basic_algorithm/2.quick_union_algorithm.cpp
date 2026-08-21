@@ -1,4 +1,4 @@
-//quick_unionËã·¨
+//quick_unionç®—æ³•
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -10,14 +10,14 @@
 #include <queue>
 #define MAX_N 10000
 using namespace std;
-int father[MAX_N+5];//father[i]±íÊ¾iÔªËØµÄ¸¸Ç×ÊÇË­
+int father[MAX_N+5];//father[i]è¡¨ç¤ºiå…ƒç´ çš„çˆ¶äº²æ˜¯è°
 
 void init(int n){
     for(int i=0;i<=n;i++) father[i] = i;
     return;
 }
 
-//Ñ°ÕÒi½ÚµãµÄ¸ù½Úµã
+//å¯»æ‰¾ièŠ‚ç‚¹çš„æ ¹èŠ‚ç‚¹
 int find(int x){
     if(father[x] == x) return x;
     return find(father[x]);
@@ -52,7 +52,7 @@ void test01(){
     int a,b;
     init(n);
     while(cin>>a>>b){
-        printf("ºÏ²¢%dºÍ%d:%d\n",a,b,merge(a,b));
+        printf("åˆå¹¶%då’Œ%d:%d\n",a,b,merge(a,b));
         output(n);
         printf("find(%d):%d\n",a,find(a));
         printf("find(%d):%d\n",b,find(b));

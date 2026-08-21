@@ -8,14 +8,14 @@ typedef pair<int,int> PII;
 int f(const vector<PII>& arr) {
     int m = static_cast<int>(arr.size());
 
-    //m+2µÄÇé¿ö
+    //m+2çš„æƒ…å†µ
     for (int i = 0; i<m-1; i++) {
         if (arr[i].second >= 2 && arr[i + 1].second >= 2) {
             return m + 2;
         }
     }
 
-    //m+1µÄÇé¿ö
+    //m+1çš„æƒ…å†µ
     for (int i = 0; i < m; i++) {
         if (arr[i].second < 2) {
             continue;

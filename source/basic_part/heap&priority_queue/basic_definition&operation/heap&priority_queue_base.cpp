@@ -3,23 +3,23 @@
 #include <string.h>
 #include <time.h>
 typedef struct priority_queue{
-    int *__data;//Ò»¸öÁ¬ÐøµÄÊý×é
+    int *__data;//ä¸€ä¸ªè¿žç»­çš„æ•°ç»„
     int *data;
-    int size;//¶ÓÁÐ¿Õ¼äµÄ´óÐ¡
-    int n;//´æ´¢ÔªËØµÄ¸öÊý
+    int size;//é˜Ÿåˆ—ç©ºé—´çš„å¤§å°
+    int n;//å­˜å‚¨å…ƒç´ çš„ä¸ªæ•°
 }priority_queue;
 
-//´ó¶¥¶Ñ
+//å¤§é¡¶å †
 #define cmp >
 #define FATHER(i) ((i)/(2))
 #define LEFT(i) ((i)*(2))
 #define RIGHT(i) ((i)*(2)+(1))
 
-//´´½¨ÓÅÏÈ¶ÓÁÐ
+//åˆ›å»ºä¼˜å…ˆé˜Ÿåˆ—
 priority_queue* initPQ(int size){
     priority_queue* p = (priority_queue*)malloc(sizeof(priority_queue));
     p->__data = (int *)malloc(sizeof(int)*size);
-    p->data = p->__data-1;//ÏÂ±êÆ«ÒÆ
+    p->data = p->__data-1;//ä¸‹æ ‡åç§»
     p->size = size;
     p->n=0;
     return p;
@@ -50,7 +50,7 @@ void swap(int *a , int *b){
 }
 void  up_updata(int *data,int i){
     if(i==1) return;
-    //µÝ¹éµÄÊµÏÖ·½·¨
+    //é€’å½’çš„å®žçŽ°æ–¹æ³•
     //if(data[i] cmp data[FATHER[i]]){
     //    swap(data[i],data[FATHER(i)]);
     //    up_update(data,FATHER(i));
@@ -63,7 +63,7 @@ void  up_updata(int *data,int i){
 }
 
 void down_update(int *data,int i,int n){
-    //nÎª×î´óµÄÏÂ±ê
+    //nä¸ºæœ€å¤§çš„ä¸‹æ ‡
     int index = 0;
     while(LEFT(i)<=n){
         index = i;
@@ -81,7 +81,7 @@ int push(priority_queue *p,int x){
     if(p==nullptr) return 0;
     p->n ++;
     p->data[p->n] = x;
-    up_updata(p->data, p->n);//Êý¾Ý¿Õ¼äÒÔ¼°ÒªÏòÉÏµ÷ÕûµÄÔªËØµÄÏÂ±ê
+    up_updata(p->data, p->n);//æ•°æ®ç©ºé—´ä»¥åŠè¦å‘ä¸Šè°ƒæ•´çš„å…ƒç´ çš„ä¸‹æ ‡
     return 1;
 }
 
@@ -102,7 +102,7 @@ void output(priority_queue* p){
     return;
 }
 
-//¶ÑÅÅÐò
+//å †æŽ’åº
 int* heap_sort(priority_queue* p){
     if(p==nullptr) return nullptr;
     if(p->data == nullptr or p->n==0) return nullptr;
@@ -169,7 +169,7 @@ int main(void){
 #include <string.h>
 #include <time.h>
 
-//´ó¶¥¶Ñ
+//å¤§é¡¶å †
 #define cmp >
 #define FATHER(i) ((i)/(2))
 #define LEFT(i) ((2)*(i))
@@ -214,7 +214,7 @@ int top(priority_queue* q){
 }
 
 
-//ÏòÏÂµ÷Õû
+//å‘ä¸‹è°ƒæ•´
 void down_update(priority_queue* q,int pos,int cnt){
     if(q == nullptr or q->data==nullptr or pos<1 or cnt == 0) return;
     int index = pos;
@@ -232,7 +232,7 @@ void down_update(priority_queue* q,int pos,int cnt){
     return ;
 }
 
-//ÓÅÏÈ¶ÓÁÐµÄµ¯³ö²Ù×÷£¨ÏÈ½øÏÈ³ö£©
+//ä¼˜å…ˆé˜Ÿåˆ—çš„å¼¹å‡ºæ“ä½œï¼ˆå…ˆè¿›å…ˆå‡ºï¼‰
 int pop(priority_queue* q){
     if(q==nullptr) return 0;
     if(empty(q)) return 0;
@@ -242,7 +242,7 @@ int pop(priority_queue* q){
     return 1;
 }
 
-//ÏòÉÏµ÷Õû²Ù×Ý
+//å‘ä¸Šè°ƒæ•´æ“çºµ
 void up_update(int* data,int pos){
     if(data == nullptr) return;
     if(pos<1) return;
@@ -255,7 +255,7 @@ void up_update(int* data,int pos){
 }
 
 
-//ÓÅÏÈ¶ÓÁÐµÄÈë¶Ó²Ù×÷
+//ä¼˜å…ˆé˜Ÿåˆ—çš„å…¥é˜Ÿæ“ä½œ
 int push(priority_queue* q,int val){
     if(q==nullptr) return 0;
     if(full(q)) return 0;

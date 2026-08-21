@@ -4,7 +4,7 @@ N strings
 S 
 1
 ?
- ,¡­,S 
+ ,â€¦,S 
 N
 ?
   consisting of digits.
@@ -16,7 +16,7 @@ Here, the value obtained by interpreting a string consisting entirely of the cha
 0.
 
 Constraints
-1¡ÜK¡ÜN¡Ü10 
+1â‰¤Kâ‰¤Nâ‰¤10 
 5
  
 S 

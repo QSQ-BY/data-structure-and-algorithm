@@ -1,4 +1,4 @@
-//¶ÑÅÅĞòÓëÏßĞÔ½¨¶Ñ·¨
+//å †æ’åºä¸çº¿æ€§å»ºå †æ³•
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -87,7 +87,7 @@ inline void linear_heap_build(int *data,int n){
     return ;
 }
 
-//¶ÑÅÅĞò
+//å †æ’åº
 void heap_sort_final(int* data,int n){
     for(int i=n;i>=1;i--){
         swap(&data[i],&data[1]);

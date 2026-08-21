@@ -1,14 +1,14 @@
-/* ¸øÄã¶ş²æÊ÷µÄ¸ù½Úµã root £¬·µ»ØÆä½ÚµãÖµ ×Ôµ×ÏòÉÏµÄ²ãĞò±éÀú ¡£ 
-£¨¼´°´´ÓÒ¶×Ó½ÚµãËùÔÚ²ãµ½¸ù½ÚµãËùÔÚµÄ²ã£¬Öğ²ã´Ó×óÏòÓÒ±éÀú£©
-Ê¾Àı 1£º
-ÊäÈë£ºroot = [3,9,20,null,null,15,7]
-Êä³ö£º[[15,7],[9,20],[3]]
-Ê¾Àı 2£º
-ÊäÈë£ºroot = [1]
-Êä³ö£º[[1]]
-Ê¾Àı 3£º
-ÊäÈë£ºroot = []
-Êä³ö£º[] */
+/* ç»™ä½ äºŒå‰æ ‘çš„æ ¹èŠ‚ç‚¹ root ï¼Œè¿”å›å…¶èŠ‚ç‚¹å€¼ è‡ªåº•å‘ä¸Šçš„å±‚åºéå† ã€‚ 
+ï¼ˆå³æŒ‰ä»å¶å­èŠ‚ç‚¹æ‰€åœ¨å±‚åˆ°æ ¹èŠ‚ç‚¹æ‰€åœ¨çš„å±‚ï¼Œé€å±‚ä»å·¦å‘å³éå†ï¼‰
+ç¤ºä¾‹ 1ï¼š
+è¾“å…¥ï¼šroot = [3,9,20,null,null,15,7]
+è¾“å‡ºï¼š[[15,7],[9,20],[3]]
+ç¤ºä¾‹ 2ï¼š
+è¾“å…¥ï¼šroot = [1]
+è¾“å‡ºï¼š[[1]]
+ç¤ºä¾‹ 3ï¼š
+è¾“å…¥ï¼šroot = []
+è¾“å‡ºï¼š[] */
 
 //Definition for a binary tree node.
 
@@ -57,8 +57,8 @@ public:
     }
 
     void dfs(TreeNode* root,int level,vector<vector<int>>& ans){
-        //root¡¢levelÊÇ´«Èë²ÎÊı
-        //ansÊÇ´«³ö²ÎÊı
+        //rootã€levelæ˜¯ä¼ å…¥å‚æ•°
+        //ansæ˜¯ä¼ å‡ºå‚æ•°
         if(root == nullptr) return;
         if(level == ans.size()) ans.push_back(vector<int>());
         ans[level].push_back(root->val);
@@ -69,7 +69,7 @@ public:
 
     vector<vector<int>> levelOrderBottom2(TreeNode* root){
         if(root == nullptr) return vector<vector<int>>();
-        int level = 0;//²ãÊı
+        int level = 0;//å±‚æ•°
         vector<vector<int>> ans;
         dfs(root,level,ans);
         reverse(ans.begin(),ans.end());

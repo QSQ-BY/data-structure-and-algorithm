@@ -1,4 +1,4 @@
-//检查数组中是否存在重复元素
+//妫�鏌ユ暟缁勪腑鏄惁瀛樺湪閲嶅鍏冪礌
 #include <iostream>
 #include <vector>
 #include <algorithm>

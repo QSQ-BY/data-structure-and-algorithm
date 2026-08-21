@@ -1,4 +1,4 @@
-﻿import sys
+import sys
 import itertools
 input = sys.stdin.buffer.readline
 def read():

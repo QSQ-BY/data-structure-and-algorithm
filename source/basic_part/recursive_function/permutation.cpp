@@ -1,5 +1,5 @@
-// µİ¹éÊµÏÖÅÅÁĞĞÍÃ¶¾Ù(permutation)
-// ¼ÙÉè¶Ô3½øĞĞÅÅÁĞĞÍÃ¶¾Ù£¬ÔòÃ¶¾ÙÊä³öÈçÏÂ
+// é€’å½’å®ç°æ’åˆ—å‹æšä¸¾(permutation)
+// å‡è®¾å¯¹3è¿›è¡Œæ’åˆ—å‹æšä¸¾ï¼Œåˆ™æšä¸¾è¾“å‡ºå¦‚ä¸‹
 // 1 2 3
 // 1 3 2
 // 2 1 3
@@ -10,7 +10,7 @@
 #include <vector>
 using namespace std;
 vector<int> arr(10);
-vector<int> flag(10, 0); // flagÊı×éÓÃÀ´±ê¼ÇÊı×ÖÊÇ·ñ±»Ê¹ÓÃ¹ı£¬0±íÊ¾Î´Ê¹ÓÃ£¬1±íÊ¾ÒÑÊ¹ÓÃ
+vector<int> flag(10, 0); // flagæ•°ç»„ç”¨æ¥æ ‡è®°æ•°å­—æ˜¯å¦è¢«ä½¿ç”¨è¿‡ï¼Œ0è¡¨ç¤ºæœªä½¿ç”¨ï¼Œ1è¡¨ç¤ºå·²ä½¿ç”¨
 
 void print_oneline(vector<int> &arr)
 {
@@ -25,7 +25,7 @@ void print_oneline(vector<int> &arr)
 }
 
 void enumeration(int pos, int min, int max, int len);
-// pos±íÊ¾µ±Ç°ÌîÈëÊı×ÖµÄÎ»ÖÃ£¬¸ÃĞĞÃ¶¾Ù×îĞ¡ÖµÎªmin£¬×î´óÖµÎªmax,ÅÅÁĞ³¤¶ÈÎªlen
+// posè¡¨ç¤ºå½“å‰å¡«å…¥æ•°å­—çš„ä½ç½®ï¼Œè¯¥è¡Œæšä¸¾æœ€å°å€¼ä¸ºminï¼Œæœ€å¤§å€¼ä¸ºmax,æ’åˆ—é•¿åº¦ä¸ºlen
 int main(void)
 {
     int pos{0};
@@ -33,9 +33,9 @@ int main(void)
     int max{};
     int len{};
 
-    cout << "ÇëÊäÈëÅÅÁĞ³¤¶È" << endl;
+    cout << "è¯·è¾“å…¥æ’åˆ—é•¿åº¦" << endl;
     cin >> len;
-    cout << "ÇëÊäÈëÅÅÁĞµÄ×î´óÖµ" << endl;
+    cout << "è¯·è¾“å…¥æ’åˆ—çš„æœ€å¤§å€¼" << endl;
     cin >> max;
     enumeration(pos, min, max, len);
     system("pause");

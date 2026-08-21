@@ -10,7 +10,7 @@
 
 #define MAX_N 10
 using namespace std;
-//二叉树中序遍历转非递归形式
+//浜屽弶鏍戜腑搴忛亶鍘嗚浆闈為�掑綊褰㈠紡
 class Node{
 public:
     Node(int key){

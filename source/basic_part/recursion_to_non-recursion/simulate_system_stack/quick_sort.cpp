@@ -1,4 +1,4 @@
-//¿ìËÙÅÅĞòµİ¹é×ªÎª·Çµİ¹é
+//å¿«é€Ÿæ’åºé€’å½’è½¬ä¸ºéé€’å½’
 
 #include <iostream>
 #include <vector>
@@ -101,7 +101,7 @@ int main(void){
     system("pause");
     return 0;
 }
-//¿ìËÙÅÅĞò
+//å¿«é€Ÿæ’åº
 void quick_sort(int* arr,int l,int r){
     //scode = 0
     if(arr == nullptr) return;
@@ -117,7 +117,7 @@ void quick_sort(int* arr,int l,int r){
     }
 
     //scode = 1
-    //·ÖÇø¹ı³Ì partition
+    //åˆ†åŒºè¿‡ç¨‹ partition
     int left_index = l;
     int right_index = r-1;
     int base_number = arr[left_index];

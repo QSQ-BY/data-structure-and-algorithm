@@ -1,4 +1,4 @@
-﻿import sys
+import sys
 import math
 ans = 0
 N = 5

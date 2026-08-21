@@ -1,4 +1,4 @@
-//ʹ��ϵͳջģ�ⷨ�ѽ׳˵ݹ麯��תΪ�ǵݹ�
+//使用系统栈模拟法把阶乘递归函数转为非递归
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -23,13 +23,13 @@ public:
     int scode;
 };
 
-//�ݹ�汾
+//递归版本
 int f(int n){
     if(n==0 or n==1) return 1; 
     return n*f(n-1);            
 }
 
-//�ǵݹ�汾��ϵͳջģ�ⷨ��
+//非递归版本（系统栈模拟法）
 int non_f(int n){
     int ans;
     Data d(n,&ans);

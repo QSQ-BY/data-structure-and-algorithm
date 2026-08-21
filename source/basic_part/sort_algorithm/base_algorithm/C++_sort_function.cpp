@@ -1,4 +1,4 @@
-//C++ÖĞsort·½·¨µÄÊ¹ÓÃºÍÊ¹ÓÃ¼¼ÇÉ
+//C++ä¸­sortæ–¹æ³•çš„ä½¿ç”¨å’Œä½¿ç”¨æŠ€å·§
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -36,22 +36,22 @@ void output(vector<int> &arr){
 
 
 
-//sortµÄ»ù´¡Ê¹ÓÃ,¶ÔÓÚÔ­ÉúÊı×é
+//sortçš„åŸºç¡€ä½¿ç”¨,å¯¹äºåŸç”Ÿæ•°ç»„
 void test01(){
     printf("\ntest array :\n");
     int* arr = get_rand_data(10);
     output(arr,10);
     //std::sort()
-    sort(arr,arr+10);//Çø¼äÎª×ó±ÕÓÒ¿ª
-    output(arr,10);//Ä¬ÈÏÎª´ÓĞ¡µ½´óµÄÅÅĞò¹æÔò
-    //´Ó´óµ½Ğ¡½øĞĞÅÅĞò
+    sort(arr,arr+10);//åŒºé—´ä¸ºå·¦é—­å³å¼€
+    output(arr,10);//é»˜è®¤ä¸ºä»å°åˆ°å¤§çš„æ’åºè§„åˆ™
+    //ä»å¤§åˆ°å°è¿›è¡Œæ’åº
     sort(arr,arr+10,greater<int>());
     output(arr,10);
     free(arr);
     return;
 }
 
-//sort·½·¨¶Ôvector½øĞĞÅÅĞò
+//sortæ–¹æ³•å¯¹vectorè¿›è¡Œæ’åº
 void test02(){
     printf("\ntest vector :\n");
     vector<int> arr;
@@ -70,7 +70,7 @@ public:
     int y;
 };
 
-//±È½Ï¹æÔòº¯Êı
+//æ¯”è¾ƒè§„åˆ™å‡½æ•°
 bool cmp(Data a, Data b){
     if(a.x != b.x) return a.x<b.x;
     return a.y < b.y;
@@ -84,7 +84,7 @@ void output(vector<Data> arr){
     return;
 }
 
-//×Ô¶¨ÒåÊı¾İÀàĞÍµÄ±È½Ï¡¢ÅÅĞò
+//è‡ªå®šä¹‰æ•°æ®ç±»å‹çš„æ¯”è¾ƒã€æ’åº
 void test03(){
     printf("\ntest my data structure :\n");
     vector<Data> arr;
@@ -95,7 +95,7 @@ void test03(){
         arr.push_back(d);
     }
     output(arr);
-    sort(arr.begin(),arr.end(),cmp);//Ê¹ÓÃ×Ô¶¨ÒåµÄº¯Êı£¬·µ»ØÖµÊÇ²¼¶ûÀàĞÍ
+    sort(arr.begin(),arr.end(),cmp);//ä½¿ç”¨è‡ªå®šä¹‰çš„å‡½æ•°ï¼Œè¿”å›å€¼æ˜¯å¸ƒå°”ç±»å‹
     output(arr);
     return;
 }
@@ -108,14 +108,14 @@ void output(int* arr,int n,const char* s){
     printf("\n");
     return;
 }
-//ÅÅĞò²»¸Ä±äÔ­Êı×é£¬¶ÔÊı×éµÄÏÂ±ê½øĞĞÅÅĞò
+//æ’åºä¸æ”¹å˜åŸæ•°ç»„ï¼Œå¯¹æ•°ç»„çš„ä¸‹æ ‡è¿›è¡Œæ’åº
 void test04(){
     printf("\ntest sort index :\n");
     int* arr = get_rand_data(10);
     int* index = get_rand_data(10);
     for(int i = 0;i<10;i++) index[i] = i;
     output(arr,10);
-    //lambda±í´ïÊ½ÊµÏÖ±È½Ï¹æÔò
+    //lambdaè¡¨è¾¾å¼å®ç°æ¯”è¾ƒè§„åˆ™
     sort(index, index + 10, [&](int i, int j)->bool {
         return arr[i] < arr[j];
     });

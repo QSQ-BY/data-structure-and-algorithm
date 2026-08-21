@@ -1,5 +1,5 @@
-//¶ş·Ö²éÕÒËã·¨
-//Ë«Ö¸Õë·¨
+//äºŒåˆ†æŸ¥æ‰¾ç®—æ³•
+//åŒæŒ‡é’ˆæ³•
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,14 +9,14 @@ class Solution{
 public:
     int search(vector<int>& arr,int target){
         int left = 0;
-        int right = arr.size()-1;//¶¨ÒåtargetÔÚ×ó±ÕÓÒ±ÕµÃÇø¼äÀï[left,right]
+        int right = arr.size()-1;//å®šä¹‰targetåœ¨å·¦é—­å³é—­å¾—åŒºé—´é‡Œ[left,right]
         while(left<=right){
             //int mid = (left + right)/2
-            int mid = right + ((left - right))/2;//·ÀÖ¹int´óĞ¡²»¹»£¬Ôì³ÉÒç³ö£¬ÓëÉÏÒ»¾äµÈĞ§
+            int mid = right + ((left - right))/2;//é˜²æ­¢intå¤§å°ä¸å¤Ÿï¼Œé€ æˆæº¢å‡ºï¼Œä¸ä¸Šä¸€å¥ç­‰æ•ˆ
             if(arr[mid]>target){
-                right = mid-1;//targetÔÚ×ó²àÇø¼äÄÚ
+                right = mid-1;//targetåœ¨å·¦ä¾§åŒºé—´å†…
             }else if(arr[mid] < target){
-                left = mid+1;//targetÔÚÓÒ²àÇø¼äÄÚ
+                left = mid+1;//targetåœ¨å³ä¾§åŒºé—´å†…
             }else if(arr[mid] == target){
                 cout<<"find "<<target<<" successfully at position "<<mid<<endl;
                 return 1;

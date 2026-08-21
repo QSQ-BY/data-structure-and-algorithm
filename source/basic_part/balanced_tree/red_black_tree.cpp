@@ -1,11 +1,11 @@
 
-//�����
-/* ƽ��������
-1.ÿ���ڵ�Ǻڼ���
-2.���ڵ�һ���Ǻ�ɫ
-3.NIL�ڵ�һ���Ǻ�ɫ
-4.��ɫ�ڵ���ӽڵ�һ�����Ǻ�ɫ
-5.����ÿ��NILҶ�ӽڵ��·���ϵĺ�ɫ�ڵ�����һ������ͬ */
+//红黑树
+/* 平衡条件：
+1.每个节点非黑即红
+2.根节点一定是黑色
+3.NIL节点一定是黑色
+4.红色节点的子节点一定都是黑色
+5.到达每个NIL叶子节点的路径上的黑色节点数量一定都相同 */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -26,7 +26,7 @@ typedef struct Node{
     int key;
     struct Node* lchild;
     struct Node* rchild;
-    int color;//��0��ʾ��ɫ����1��ʾ��ɫ����2��ʾ˫�غ�
+    int color;//用0表示红色，用1表示黑色，用2表示双重黑
 }Node;
 
 Node __NIL;
@@ -70,7 +70,7 @@ Node* left_rotate(Node* root){
 }
 
 Node* insert_maintain(Node* root){
-    //�ж��Ƿ�����ʧ��,��������˫�콻������
+    //判断是否发生了失衡,即出现了双红交叉的情况
     if(root==NIL) return root;
     if(!has_red_node(root)) return root;
     int flag = 0;
@@ -78,34 +78,34 @@ Node* insert_maintain(Node* root){
     if(root->rchild->color == RED and has_red_node(root->rchild)) flag = 2;
     if(flag == 0) return root;
 
-    //���߶��Ǻ�ɫ
+    //两边都是红色
     if(root->lchild->color==RED and root->rchild->color==RED){
         root->color = RED;
         C(L(root)) = C(R(root)) = BLACK;
         return root;
     }
 
-    //ֻ��һ���Ǻ�ɫ
+    //只有一边是红色
     if(flag==1){
-        //������Ϊ��ɫ(L)
+        //左子树为红色(L)
         if(C(R(root->lchild)) == RED){
             //LR
             root->lchild = left_rotate(root->lchild);
         }
-        //LL����
+        //LL类型
         root = right_rotate(root);
     }else{
         if(C(L(root->rchild)) == RED){
             //RL
             root->rchild = right_rotate(root->rchild);
         }
-        //RR����
+        //RR类型
         root = left_rotate(root);
     }
-    //��ɫ�ϸ���������
+    //红色上浮调整策略
     root->color = RED;
     root->lchild->color = root->rchild->color = BLACK;
-    //��ɫ�³���������
+    //红色下沉调整策略
     //root->color =BLACK;
     //root->lchild->color = root->rchild->color = RED;
     return root;
@@ -126,13 +126,13 @@ Node* insert(Node* root,int key){
     return root;
 }
 
-//ɾ����������
-/*     ��          ��
-0   ֱ��ɾ��    �ѵ�ǰNIL�ڵ���Ϊ˫�غ�Ȼ�����ɾ���������ɵ�˫�غڣ�
+//删除调整策略
+/*     红          黑
+0   直接删除    把当前NIL节点标记为双重黑然后进行删除调整（干掉双重黑）
 
-1   ������      ����������ڣ���Ϊ1�ĺ�ɫ�ڵ�ֻ������һ����ɫ�ڵ㣩
+1   不存在      红提升并变黑（度为1的黑色节点只能链接一个红色节点）
 
-2->��ת��Ϊɾ����Ϊ1���߶�Ϊ0������    
+2->可转化为删除度为1或者度为0的问题    
 */
 
 Node* pre(Node* root){
@@ -144,8 +144,8 @@ Node* pre(Node* root){
 Node* erase_maintain(Node* root,int key){
     if(C(L(root)) != DBLACK and C(R(root))!=DBLACK) return root;
     if(has_red_node(root)){
-        //�ֵܽڵ��Ǻ�ɫ
-        root->color = RED;//ԭ���ڵ��Ϊ��ɫ
+        //兄弟节点是红色
+        root->color = RED;//原根节点变为红色
         if(root->lchild->color == RED) {
             root = right_rotate(root);
             root->rchild = erase_maintain(root->rchild,key);
@@ -154,13 +154,13 @@ Node* erase_maintain(Node* root,int key){
             root = left_rotate(root);
             root->lchild = erase_maintain(root->lchild,key);
         }
-        root->color = BLACK;//�¸��ڵ��Ϊ��ɫ
+        root->color = BLACK;//新根节点变为黑色
         return root;
     }else{
-        //�ֵܽڵ��Ǻ�ɫ
+        //兄弟节点是黑色
         if((root->lchild->color == DBLACK and !has_red_node(root->rchild)) or
             root->rchild->color == DBLACK and !has_red_node(root->lchild)){
-            //�ֵܽڵ�û���κκ�ɫ�ӽڵ�
+            //兄弟节点没有任何红色子节点
             root->color++;
             root->lchild--;
             root->rchild--;
@@ -168,21 +168,21 @@ Node* erase_maintain(Node* root,int key){
         }
         if(root->rchild->color == DBLACK){
             if(root->lchild->rchild->color ==RED){
-                //LRʧ��
+                //LR失衡
                 root->lchild = left_rotate(root->lchild);
             }
-            root->lchild->color = root->color;//�¸��ڵ����ɫ��Ϊԭ���ڵ����ɫ
-            //LLʧ��
+            root->lchild->color = root->color;//新根节点的颜色变为原根节点的颜色
+            //LL失衡
             root = right_rotate(root);
             root->lchild->color = BLACK;
-            root->rchild->color = BLACK;//�¸��ڵ����������ɫǿ�Ƹĺ�
+            root->rchild->color = BLACK;//新根节点的子树的颜色强制改黑
         }else if(root->lchild->color == DBLACK){
             if(root->rchild->lchild->color == RED){
-                //RLʧ��
+                //RL失衡
                 root->rchild = right_rotate(root->rchild);
             }
             root->rchild->color = root->color;
-            //RRʧ��
+            //RR失衡
             root = left_rotate(root);
             root->lchild->color = BLACK;
             root->rchild->color = BLACK;
@@ -196,7 +196,7 @@ Node* __erase(Node* root,int key){
     if(key<root->key) root->lchild = __erase(root->lchild,key);
     else if(key>root->key) root->rchild = __erase(root->rchild,key);
     else if(key == root->key){
-        //��Ϊ1��0
+        //度为1或0
         if(root->lchild ==NIL or root->rchild ==NIL){
             Node* temp = NIL;
             if(root->lchild != NIL) temp = root->lchild;
@@ -242,19 +242,19 @@ void clear(Node* root){
 void test01(){
     #define MAX_N (10)
     Node* root = NIL;
-    //�������
+    //插入测试
     for(int i=0;i<MAX_N;i++){
         int x = rand()%100;
-        printf("�������в���%d\n",x);
+        printf("向红黑树中插入%d\n",x);
         root = insert(root,x);
         output(root);
         printf("\n");
     }
     
-    //ɾ������
+    //删除测试
     int x=0;
     while(~scanf("%d",&x)){
-        printf("\n�Ӻ������ɾ��%d\n",x);
+        printf("\n从红黑树中删除%d\n",x);
         root = erase(root,x);
         output(root);
     }

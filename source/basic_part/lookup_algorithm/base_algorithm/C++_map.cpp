@@ -1,85 +1,85 @@
-//¼üÖµ¶Ô£¬Ò»¸ö¼üÖ»ÄÜ¶ÔÓ¦Ò»¸öÖµ£¬Ò»¸öÖµ¿ÉÒÔÓĞ¶à¸ö¼ü
-//µ×²ã»ùÓÚºìºÚÊ÷
+//é”®å€¼å¯¹ï¼Œä¸€ä¸ªé”®åªèƒ½å¯¹åº”ä¸€ä¸ªå€¼ï¼Œä¸€ä¸ªå€¼å¯ä»¥æœ‰å¤šä¸ªé”®
+//åº•å±‚åŸºäºçº¢é»‘æ ‘
 /*
 #include <map>
 #include <unordered_map>
 using namespace std;
-//ÉùÃ÷map
+//å£°æ˜map
 map<key_type,value_type> map_name
 
-//²åÈëÔªËØ
+//æ’å…¥å…ƒç´ 
 map_name[key] = value
 map_name.insert(pair<key_type,value_type>(key,value))
 
-//·ÃÎÊÔªËØ
+//è®¿é—®å…ƒç´ 
 value_type value = map_name[key]
-//Èç¹û·ÃÎÊµÄ¼ü²»´æÔÚÔò»á´´½¨Ò»¸öĞÂµÄ¼üÖµ¶ÔÆäÖĞvalue±»³õÊ¼»¯Îªvalue_typeµÄÄ¬ÈÏÖµ
+//å¦‚æœè®¿é—®çš„é”®ä¸å­˜åœ¨åˆ™ä¼šåˆ›å»ºä¸€ä¸ªæ–°çš„é”®å€¼å¯¹å…¶ä¸­valueè¢«åˆå§‹åŒ–ä¸ºvalue_typeçš„é»˜è®¤å€¼
 
-//É¾³ıÔªËØ
+//åˆ é™¤å…ƒç´ 
 map_name.erase(key)
 
-//²éÕÒÔªËØ
+//æŸ¥æ‰¾å…ƒç´ 
 if(map_name.find(key) != map_name.end()){
-    //ÕÒµ½ÔªËØ
+    //æ‰¾åˆ°å…ƒç´ 
 }else if(map_name.find(key) == map_name.end()){
-    //Ã»ÕÒµ½ÔªËØ
+    //æ²¡æ‰¾åˆ°å…ƒç´ 
 }
 
-//±éÀúÔªËØ
+//éå†å…ƒç´ 
 for(auto x:map_name){
     key_type key = x.first;
     value_type value = x.second; 
-    //xÊÇÒ»¸öpair¼üÖµ¶Ô
+    //xæ˜¯ä¸€ä¸ªpairé”®å€¼å¯¹
 }
 
-//»ñÈ¡mapÖĞ¼üµÄÔªËØ¸öÊı
+//è·å–mapä¸­é”®çš„å…ƒç´ ä¸ªæ•°
 int size = map_name.size()
 
-//ÅĞ¶ÏmapÊÇ·ñÎª¿Õ
+//åˆ¤æ–­mapæ˜¯å¦ä¸ºç©º
 if(map_name.empty()){
-    //mapÎª¿Õ
+    //mapä¸ºç©º
 }else if(!map_name.empty()){
-    //map²»Îª¿Õ
+    //mapä¸ä¸ºç©º
 }
 */
 #include <iostream>
 #include <map>
 using namespace std;
 int main(void){
-    //ÉùÃ÷Ò»¸ö´æ´¢×Ö·û´®µ½ÕûÊıµÄÓ³Éämap
+    //å£°æ˜ä¸€ä¸ªå­˜å‚¨å­—ç¬¦ä¸²åˆ°æ•´æ•°çš„æ˜ å°„map
     map<string,int> word_count;
 
-    //²åÈëÔªËØ
+    //æ’å…¥å…ƒç´ 
     word_count["apple"] = 3;
     word_count["banana"] = 2;
     word_count["cherry"] = 3;
 
-    //·ÃÎÊÔªËØ
+    //è®¿é—®å…ƒç´ 
     cout<<"number of apples: "<<word_count["apple"]<<endl;
 
-    //±éÀúÔªËØ
+    //éå†å…ƒç´ 
     for(auto x:word_count){
         cout<<"numbers of "<<x.first<<" is "<<x.second<<endl;
     }
 
-    //É¾³ıÔªËØ
+    //åˆ é™¤å…ƒç´ 
     word_count.erase("banana");
 
-    //mapÅĞ¿Õ
+    //mapåˆ¤ç©º
     if(word_count.empty()){
         cout<<"map is empty"<<endl;
     }else{
         cout<<"map is not empty"<<endl;
     }
 
-    //mapÔªËØÊıÁ¿
-    cout<<"mapÖĞÓĞ"<<word_count.size()<<"¸öÔªËØ"<<endl;
+    //mapå…ƒç´ æ•°é‡
+    cout<<"mapä¸­æœ‰"<<word_count.size()<<"ä¸ªå…ƒç´ "<<endl;
 
     system("pause");
     return 0;
 }
 
-//unordered_mapÓëmapµÄÇø±ğÔÚÓÚ
-/* map»á¶Ô¼ü½øĞĞ×Ô¶¯ÅÅĞòÇ°ÕßÔò²»»á
-ÇÒunordered_mapµÄµ×²ã»ùÓÚ¹şÏ£±í½øĞĞÊµÏÖ
-²éÑ¯Ê±¼ä¸´ÔÓ¶ÈÎªO1£¬ºóÕßÔòÎªO£¨logn£© */
+//unordered_mapä¸mapçš„åŒºåˆ«åœ¨äº
+/* mapä¼šå¯¹é”®è¿›è¡Œè‡ªåŠ¨æ’åºå‰è€…åˆ™ä¸ä¼š
+ä¸”unordered_mapçš„åº•å±‚åŸºäºå“ˆå¸Œè¡¨è¿›è¡Œå®ç°
+æŸ¥è¯¢æ—¶é—´å¤æ‚åº¦ä¸ºO1ï¼Œåè€…åˆ™ä¸ºOï¼ˆlognï¼‰ */

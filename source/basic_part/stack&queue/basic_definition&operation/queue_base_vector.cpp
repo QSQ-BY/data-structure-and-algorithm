@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-//Ë³Ðò±í½á¹¹¶¨Òå
+//é¡ºåºè¡¨ç»“æž„å®šä¹‰
 typedef struct vector{
     int size;
     int count;
     int* data;
 }vector;
 
-//¶ÓÁÐ½á¹¹¶¨Òå
+//é˜Ÿåˆ—ç»“æž„å®šä¹‰
 typedef struct queue{
     int size;
     int count;
@@ -18,7 +18,7 @@ typedef struct queue{
     int head;
 }queue;
 
-//Ë³Ðò±íÊý¾Ý½á¹¹µÄ²Ù×÷
+//é¡ºåºè¡¨æ•°æ®ç»“æž„çš„æ“ä½œ
 vector *create_vector(int size){
     vector* v = (vector*)malloc(sizeof(*v));
     v->data = (int*)malloc(sizeof(int)*size);
@@ -46,7 +46,7 @@ int seek(vector* v,int pos){
 }
 
 
-//¶ÓÁÐ»ú¹¹²Ù×÷
+//é˜Ÿåˆ—æœºæž„æ“ä½œ
 queue* create_queue(int size){
     queue* q=(queue*)malloc(sizeof(queue));
     q->data = create_vector(size);
@@ -60,7 +60,7 @@ queue* create_queue(int size){
 int push(queue* q,int val){
     if(q==nullptr or q->size == q->count) return 0;
     if(set(q->data,q->tail,val) == 0) return 0;
-    //Ñ­»·¶ÓÁÐ
+    //å¾ªçŽ¯é˜Ÿåˆ—
     q->tail = (q->tail+1)%q->size;
     q->count++;
     return 1;

@@ -16,8 +16,8 @@ using namespace std;
 void test01(){
     int n;
     cin>>n;
-    multiset<int> left_point;//左侧的点
-    multiset<int> right_point;//右侧的点
+    multiset<int> left_point;//宸︿晶鐨勭偣
+    multiset<int> right_point;//鍙充晶鐨勭偣
     for(int i=0;i<n;i++){
         int point = 0;
         cin>>point;

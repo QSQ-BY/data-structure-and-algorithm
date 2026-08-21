@@ -1,6 +1,6 @@
-//AVLÊ÷-Æ½ºâ¶ş²æÅÅĞòÊ÷
+//AVLæ ‘-å¹³è¡¡äºŒå‰æ’åºæ ‘
 //|H(left) - H(right)| <= 1
-//×óÓÒ×ÓÊ÷µÄÊ÷¸ß²»ÄÜ³¬¹ı1
+//å·¦å³å­æ ‘çš„æ ‘é«˜ä¸èƒ½è¶…è¿‡1
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,19 +9,19 @@
 
 typedef struct Node{
     int key;
-    int height;//Ê÷¸ß±äÁ¿
+    int height;//æ ‘é«˜å˜é‡
     struct Node* lchild;
     struct Node* rchild;
 }Node;
 
-//ĞéÄâ¿Õ½Úµã
+//è™šæ‹Ÿç©ºèŠ‚ç‚¹
 Node __NIL;
 #define NIL (&__NIL)
 #define H(n) (n->height)
 #define L(n) (n->lchild)
 #define R(n) (n->rchild)
 #define K(n) (n->key)
-__attribute__((constructor))//ÓÃÀ´ÉèÖÃº¯ÊıµÄÊôĞÔ
+__attribute__((constructor))//ç”¨æ¥è®¾ç½®å‡½æ•°çš„å±æ€§
 void init_NIL(){
     NIL->key = -1;
     NIL->height = 0;
@@ -39,7 +39,7 @@ Node* get_new_node(int key){
     Node* p = (Node*)malloc(sizeof(Node));
     p->key = key;
     p->height = 1;
-    p->lchild = p->rchild = NIL;//NILÎªĞéÄâ¿Õ½Úµã
+    p->lchild = p->rchild = NIL;//NILä¸ºè™šæ‹Ÿç©ºèŠ‚ç‚¹
     return p;
 }
 
@@ -50,7 +50,7 @@ void update_height(Node* root){
     return;
 }
 
-//×óĞı
+//å·¦æ—‹
 Node* left_rotate(Node* root){
     printf("left_rotate:%d\n",root->key);
     Node* new_root = root->rchild;
@@ -61,7 +61,7 @@ Node* left_rotate(Node* root){
     return new_root;
 }
 
-//ÓÒĞı
+//å³æ—‹
 Node* right_rotate(Node* root){
     printf("left_rotate:%d\n",root->key);
     Node* new_root = root->lchild;
@@ -85,21 +85,21 @@ Node* maintain(Node* root){
     int type = 0;
     if(H(L(root))>H(R(root))){
         if(H(root->lchild->rchild) > H(root->lchild->lchild)){
-            //LRÊ§ºâÀàĞÍ
+            //LRå¤±è¡¡ç±»å‹
             root->lchild = left_rotate(root->lchild);
             type++;//type = 1
         }
-        //LLÀàĞÍÊ§ºâ
+        //LLç±»å‹å¤±è¡¡
         root = right_rotate(root);
         type++;//type = 2
     }else if(H(root->rchild) > H(root->lchild)){
         type = 2;
         if(H(root->rchild->lchild) > H(root->rchild->rchild)){
-            //RLÊ§ºâÀàĞÍ
+            //RLå¤±è¡¡ç±»å‹
             root->rchild = right_rotate(root->rchild);
             type++;//type = 3
         }
-        //RRÀàĞÍÊ§ºâ
+        //RRç±»å‹å¤±è¡¡
         root = left_rotate(root);
         type++;//type = 4
     }
@@ -171,28 +171,28 @@ void output(Node* root){
 void test01(){
     Node* root = NIL;
     int x;
-    //²åÈë²âÊÔ
+    //æ’å…¥æµ‹è¯•
     while(~scanf("%d",&x)){
         if(x==-1) break;
-        printf("ÏòAVLÊ÷ÖĞ²åÈë%d\n",x);
+        printf("å‘AVLæ ‘ä¸­æ’å…¥%d\n",x);
         root = insert(root,x);
         output(root);
         printf("\n");
     }
 
-    //É¾³ı²âÊÔ
+    //åˆ é™¤æµ‹è¯•
     while(~scanf("%d",&x)){
         if(x==-1) break;
-        printf("´ÓAVLÊ÷ÖĞÉ¾³ı%d\n",x);
+        printf("ä»AVLæ ‘ä¸­åˆ é™¤%d\n",x);
         root = erase(root,x);
         output(root);
         printf("\n");
     }
 
-    //²éÕÒ²âÊÔ
+    //æŸ¥æ‰¾æµ‹è¯•
     while(~scanf("%d",&x)){
         if(x==-1) break;
-        printf("´ÓAVLÊ÷ÖĞ²éÕÒ%d : %d\n",x,find(root,x)!=NIL);
+        printf("ä»AVLæ ‘ä¸­æŸ¥æ‰¾%d : %d\n",x,find(root,x)!=NIL);
         printf("\n");
     }
     clear(root);

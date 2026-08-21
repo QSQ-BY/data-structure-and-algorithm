@@ -1,31 +1,31 @@
-/* Éè¼ÆÒ»¸öÕÒµ½Êı¾İÁ÷ÖĞµÚ k ´óÔªËØµÄÀà£¨class£©¡£
-×¢ÒâÊÇÅÅĞòºóµÄµÚ k ´óÔªËØ£¬²»ÊÇµÚ k ¸ö²»Í¬µÄÔªËØ¡£
-ÇëÊµÏÖ KthLargest Àà£º
-KthLargest(int k, int[] nums) Ê¹ÓÃÕûÊı k ºÍÕûÊıÁ÷ nums ³õÊ¼»¯¶ÔÏó¡£
-int add(int val) ½« val ²åÈëÊı¾İÁ÷ nums ºó£¬·µ»Øµ±Ç°Êı¾İÁ÷ÖĞµÚ k ´óµÄÔªËØ¡£
-Ê¾Àı 1£º
-ÊäÈë£º
+/* è®¾è®¡ä¸€ä¸ªæ‰¾åˆ°æ•°æ®æµä¸­ç¬¬ k å¤§å…ƒç´ çš„ç±»ï¼ˆclassï¼‰ã€‚
+æ³¨æ„æ˜¯æ’åºåçš„ç¬¬ k å¤§å…ƒç´ ï¼Œä¸æ˜¯ç¬¬ k ä¸ªä¸åŒçš„å…ƒç´ ã€‚
+è¯·å®ç° KthLargest ç±»ï¼š
+KthLargest(int k, int[] nums) ä½¿ç”¨æ•´æ•° k å’Œæ•´æ•°æµ nums åˆå§‹åŒ–å¯¹è±¡ã€‚
+int add(int val) å°† val æ’å…¥æ•°æ®æµ nums åï¼Œè¿”å›å½“å‰æ•°æ®æµä¸­ç¬¬ k å¤§çš„å…ƒç´ ã€‚
+ç¤ºä¾‹ 1ï¼š
+è¾“å…¥ï¼š
 ["KthLargest", "add", "add", "add", "add", "add"]
 [[3, [4, 5, 8, 2]], [3], [5], [10], [9], [4]]
-Êä³ö£º[null, 4, 5, 5, 8, 8]
-½âÊÍ£º
+è¾“å‡ºï¼š[null, 4, 5, 5, 8, 8]
+è§£é‡Šï¼š
 KthLargest kthLargest = new KthLargest(3, [4, 5, 8, 2]);
-kthLargest.add(3); // ·µ»Ø 4
-kthLargest.add(5); // ·µ»Ø 5
-kthLargest.add(10); // ·µ»Ø 5
-kthLargest.add(9); // ·µ»Ø 8
-kthLargest.add(4); // ·µ»Ø 8
-Ê¾Àı 2£º
-ÊäÈë£º
+kthLargest.add(3); // è¿”å› 4
+kthLargest.add(5); // è¿”å› 5
+kthLargest.add(10); // è¿”å› 5
+kthLargest.add(9); // è¿”å› 8
+kthLargest.add(4); // è¿”å› 8
+ç¤ºä¾‹ 2ï¼š
+è¾“å…¥ï¼š
 ["KthLargest", "add", "add", "add", "add"]
 [[4, [7, 7, 7, 7, 8, 3]], [2], [10], [9], [9]]
-Êä³ö£º[null, 7, 7, 7, 8]
-½âÊÍ£º
+è¾“å‡ºï¼š[null, 7, 7, 7, 8]
+è§£é‡Šï¼š
 KthLargest kthLargest = new KthLargest(4, [7, 7, 7, 7, 8, 3]);
-kthLargest.add(2); // ·µ»Ø 7
-kthLargest.add(10); // ·µ»Ø 7
-kthLargest.add(9); // ·µ»Ø 7
-kthLargest.add(9); // ·µ»Ø 8
+kthLargest.add(2); // è¿”å› 7
+kthLargest.add(10); // è¿”å› 7
+kthLargest.add(9); // è¿”å› 7
+kthLargest.add(9); // è¿”å› 8
  */
 
 #include <iostream>

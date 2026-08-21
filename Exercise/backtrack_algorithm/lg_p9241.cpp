@@ -25,7 +25,7 @@ struct Data{
 };
 vector<Data> datas;
 vector<long long > ind(70000);
-//t±íÊ¾ÏÖÔÚ¿ÉÓÃ·É»úµÄ×´Ì¬Âë£¬current_time±íÊ¾ÏÖÔÚµÄÊ±¼ä
+//tè¡¨ç¤ºç°åœ¨å¯ç”¨é£æœºçš„çŠ¶æ€ç ï¼Œcurrent_timeè¡¨ç¤ºç°åœ¨çš„æ—¶é—´
 bool dfs(long long  t,long long  current_time){
     if(t == 0){
         return true;
@@ -63,7 +63,7 @@ void solve(){
     for(long long  i=0,k=1;i<n;i++,k *=2){
         ind[k] = i;
     }
-    long long  t = (1<<n) - 1;//×´Ì¬ÂëÎª1±íÊ¾»¹Ã»ÓĞÆğ·É
+    long long  t = (1<<n) - 1;//çŠ¶æ€ç ä¸º1è¡¨ç¤ºè¿˜æ²¡æœ‰èµ·é£
     if(dfs(t,0)){
         cout<<"YES"<<endl;
     }else{

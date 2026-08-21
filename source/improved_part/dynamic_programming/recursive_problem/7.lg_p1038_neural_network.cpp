@@ -13,15 +13,15 @@
 
 using namespace std;
 #define MAX_N 100
-int c[MAX_N+5],u[MAX_N+5];//µÚi¸ö½ÚµãµÄcºÍu
-int w[MAX_N+5][MAX_N+5];//µÚi¸ö½Úµãµ½µÚj¸ö½ÚµãµÄÈ¨Öµ
+int c[MAX_N+5],u[MAX_N+5];//ç¬¬iä¸ªèŠ‚ç‚¹çš„cå’Œu
+int w[MAX_N+5][MAX_N+5];//ç¬¬iä¸ªèŠ‚ç‚¹åˆ°ç¬¬jä¸ªèŠ‚ç‚¹çš„æƒå€¼
 vector<vector<int>> g(MAX_N+5,vector<int>());
 int outdeg[MAX_N+5];
 int indeg[MAX_N+5];
 
 void test01(){
-    int n;//n¸ö½Úµã
-    int p;//p¸öÁ´½Ó¹ØÏµ
+    int n;//nä¸ªèŠ‚ç‚¹
+    int p;//pä¸ªé“¾æ¥å…³ç³»
     cin>>n>>p;
     for(int i=1;i<=n;i++){
         cin>>c[i]>>u[i];

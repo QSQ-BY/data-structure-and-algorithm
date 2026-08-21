@@ -1,4 +1,4 @@
-//基数排序
+//鍩烘暟鎺掑簭
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -51,7 +51,7 @@ void radix_sort(int* arr,int l,int r){
     int* cnt = (int*)malloc(sizeof(int) * K);
     int* temp = (int*)malloc(sizeof(int) * (r-l));
 
-    //第一轮排序，按照后位进行排序
+    //绗竴杞帓搴忥紝鎸夌収鍚庝綅杩涜鎺掑簭
     memset(cnt,0,sizeof(int) * K);
     for(int i=l;i<r;i++){
         cnt[arr[i] % K] += 1;
@@ -60,7 +60,7 @@ void radix_sort(int* arr,int l,int r){
     for(int i = r-1;i>=l;i--) temp[--cnt[arr[i] % K]] = arr[i];
     memcpy(arr + l,temp,sizeof(int) * (r-l));
 
-    //第二轮排序，按照前位进行排序
+    //绗簩杞帓搴忥紝鎸夌収鍓嶄綅杩涜鎺掑簭
     memset(cnt,0,sizeof(int) * K);
     for(int i=l;i<r;i++){
         cnt[arr[i] / K] += 1;

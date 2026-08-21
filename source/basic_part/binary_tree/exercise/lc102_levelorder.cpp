@@ -1,17 +1,17 @@
-/* ¸øÄã¶ş²æÊ÷µÄ¸ù½Úµã root £¬·µ»ØÆä½ÚµãÖµµÄ ²ãĞò±éÀú ¡£ 
-£¨¼´Öğ²ãµØ£¬´Ó×óµ½ÓÒ·ÃÎÊËùÓĞ½Úµã£©¡£
-Ê¾Àı 1£º
-ÊäÈë£ºroot = [3,9,20,null,null,15,7]
-Êä³ö£º[[3],[9,20],[15,7]]
-Ê¾Àı 2£º
-ÊäÈë£ºroot = [1]
-Êä³ö£º[[1]]
-Ê¾Àı 3£º
-ÊäÈë£ºroot = []
-Êä³ö£º[]
+/* ç»™ä½ äºŒå‰æ ‘çš„æ ¹èŠ‚ç‚¹ root ï¼Œè¿”å›å…¶èŠ‚ç‚¹å€¼çš„ å±‚åºéå† ã€‚ 
+ï¼ˆå³é€å±‚åœ°ï¼Œä»å·¦åˆ°å³è®¿é—®æ‰€æœ‰èŠ‚ç‚¹ï¼‰ã€‚
+ç¤ºä¾‹ 1ï¼š
+è¾“å…¥ï¼šroot = [3,9,20,null,null,15,7]
+è¾“å‡ºï¼š[[3],[9,20],[15,7]]
+ç¤ºä¾‹ 2ï¼š
+è¾“å…¥ï¼šroot = [1]
+è¾“å‡ºï¼š[[1]]
+ç¤ºä¾‹ 3ï¼š
+è¾“å…¥ï¼šroot = []
+è¾“å‡ºï¼š[]
  */
 
- //¶ş²æÊ÷µÄ²ãĞò±éÀú
+ //äºŒå‰æ ‘çš„å±‚åºéå†
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -53,9 +53,9 @@ public:
         return ans;
     }
 
-//Ê¹ÓÃÕ»£¨Éî¶È±éÀú£©Íê³É²ãĞò±éÀú
+//ä½¿ç”¨æ ˆï¼ˆæ·±åº¦éå†ï¼‰å®Œæˆå±‚åºéå†
     void dfs(TreeNode* root,int level,vector<vector<int>>& ans){
-        //level±íÊ¾µ±Ç°½ÚµãµÄ²ãÊı
+        //levelè¡¨ç¤ºå½“å‰èŠ‚ç‚¹çš„å±‚æ•°
         if(root == nullptr) return;
         if(level == (int)ans.size()) ans.push_back(vector<int>());
         ans[level].push_back(root->val);
@@ -126,7 +126,7 @@ class Solution2{
 
     void dfs(TreeNode* root,int level,vector<vector<int>>& ans){
         if(root == nullptr) return;
-        if(level == ans.size()) ans.push_back(vector<int>());//Ã¿´Î·ÃÎÊµ½±ß½ç²ãÊıµÄÊ±ºò¶¼ĞÂ½¨Ò»¸ö¿ÕÈİÆ÷£¬·ñÔò·ÃÎÊ»áÔ½½ç
+        if(level == ans.size()) ans.push_back(vector<int>());//æ¯æ¬¡è®¿é—®åˆ°è¾¹ç•Œå±‚æ•°çš„æ—¶å€™éƒ½æ–°å»ºä¸€ä¸ªç©ºå®¹å™¨ï¼Œå¦åˆ™è®¿é—®ä¼šè¶Šç•Œ
         ans[level].push_back(root->val);
         if(root->left) dfs(root->left,level+1,ans);
         if(root->right) dfs(root->right,level+1,ans);

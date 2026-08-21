@@ -16,7 +16,7 @@ string f(vector<int>& nums){
 
 int main(void){
     int t;
-    cin>>t;//²âÊÔÊý
+    cin>>t;//æµ‹è¯•æ•°
     for(int i=0;i<t;i++){
         int number;
         cin>>number;

@@ -1,5 +1,5 @@
-//选择排序算法
-//把待排序区最小的那个元素放到待排序区的头
+//閫夋嫨鎺掑簭绠楁硶
+//鎶婂緟鎺掑簭鍖烘渶灏忕殑閭ｄ釜鍏冪礌鏀惧埌寰呮帓搴忓尯鐨勫ご
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -47,7 +47,7 @@ void swap(int* a,int* b){
     *b = temp;
     return;
 }
-//选择排序
+//閫夋嫨鎺掑簭
 void selection_sort(int* arr,int l,int r){
     for(int i = l;i<r-1;i++){
         int index = i;

@@ -1,4 +1,4 @@
-﻿""" D. Bermuda Rectangle
+""" D. Bermuda Rectangle
 time limit per test2 seconds
 memory limit per test256 megabytes
 The Beaver is swimming across the ocean (yes, he can do that). Here, it aims to explore the Bermuda Rectangle. Of course, it poses no danger to The Beaver, but it is interesting from a scientific perspective.

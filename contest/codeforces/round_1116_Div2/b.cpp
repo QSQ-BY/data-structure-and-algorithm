@@ -4,11 +4,11 @@
 
 using namespace std;
 
-// ¼ì²é¸ø¶¨µÄ×ÓĞòÁĞ fits ÄÄÖÖ½»ÌæÄ£Ê½£¨0101... »ò 1010...£©
-// ·µ»ØºÏ·¨µÄÄ£Ê½ÊıÁ¿ (0, 1, »ò 2)
+// æ£€æŸ¥ç»™å®šçš„å­åºåˆ— fits å“ªç§äº¤æ›¿æ¨¡å¼ï¼ˆ0101... æˆ– 1010...ï¼‰
+// è¿”å›åˆæ³•çš„æ¨¡å¼æ•°é‡ (0, 1, æˆ– 2)
 int countValidPatterns(const string& seq) {
-    bool can_be_pattern_01 = true; // ÆÚ´ıĞòÁĞ: 0, 1, 0, 1, 0, 1 ...
-    bool can_be_pattern_10 = true; // ÆÚ´ıĞòÁĞ: 1, 0, 1, 0, 1, 0 ...
+    bool can_be_pattern_01 = true; // æœŸå¾…åºåˆ—: 0, 1, 0, 1, 0, 1 ...
+    bool can_be_pattern_10 = true; // æœŸå¾…åºåˆ—: 1, 0, 1, 0, 1, 0 ...
     for (int i = 0; i < seq.length(); ++i) {
         if (seq[i] == '?') continue;
 
@@ -27,23 +27,23 @@ void solve() {
     string s;
     cin >> s;
 
-    // 1. ²ğ·ÖÎªÆæÊıÏÂ±ê×ÓĞòÁĞºÍÅ¼ÊıÏÂ±ê×ÓĞòÁĞ
+    // 1. æ‹†åˆ†ä¸ºå¥‡æ•°ä¸‹æ ‡å­åºåˆ—å’Œå¶æ•°ä¸‹æ ‡å­åºåˆ—
     string odd_indexed_seq = "";
     string even_indexed_seq = "";
 
     for (int i = 0; i < n; ++i) {
         if (i % 2 == 0) {
-            odd_indexed_seq += s[i];   // ÏÂ±ê 0, 2, 4, ...
+            odd_indexed_seq += s[i];   // ä¸‹æ ‡ 0, 2, 4, ...
         } else {
-            even_indexed_seq += s[i];  // ÏÂ±ê 1, 3, 5, ...
+            even_indexed_seq += s[i];  // ä¸‹æ ‡ 1, 3, 5, ...
         }
     }
 
-    // 2. ·Ö±ğ¼ÆËãÆæÊıÓëÅ¼ÊıÎ»ÖÃµÄºÏ·¨·½°¸Êı
+    // 2. åˆ†åˆ«è®¡ç®—å¥‡æ•°ä¸å¶æ•°ä½ç½®çš„åˆæ³•æ–¹æ¡ˆæ•°
     long long odd_ways = countValidPatterns(odd_indexed_seq);
     long long even_ways = countValidPatterns(even_indexed_seq);
 
-    // 3. ¶ÀÁ¢ÊÂ¼ş¸ù¾İ³Ë·¨Ô­Àí¼ÆËã×Ü·½°¸Êı
+    // 3. ç‹¬ç«‹äº‹ä»¶æ ¹æ®ä¹˜æ³•åŸç†è®¡ç®—æ€»æ–¹æ¡ˆæ•°
     long long total_ways = (odd_ways * even_ways) % 998244353;
     cout << total_ways << "\n";
 }

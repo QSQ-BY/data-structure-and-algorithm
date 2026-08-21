@@ -11,13 +11,13 @@
 using namespace std;
 
 #define MAX_N 10000
-int color[MAX_N+5];//color[i]±íÊ¾µÚi¸öµãµÄÑÕÉ«
+int color[MAX_N+5];//color[i]è¡¨ç¤ºç¬¬iä¸ªç‚¹çš„é¢œè‰²
 
 void init(int n){
     for(int i=0;i<=n;i++) color[i] = i;
     return;
 }
-//·µ»ØÏà¹Ø½ÚµãµÄÑÕÉ«
+//è¿”å›ç›¸å…³èŠ‚ç‚¹çš„é¢œè‰²
 int find(int a){
     return color[a];
 }
@@ -55,7 +55,7 @@ void test01(){
     init(n);
     while(cin>>a>>b){
         int ret = merge(a,b,n);
-        printf("°Ñ%dºÍ%dºÏ²¢:%d\n",a,b,ret);
+        printf("æŠŠ%då’Œ%dåˆå¹¶:%d\n",a,b,ret);
         output(n);
     }
     return;

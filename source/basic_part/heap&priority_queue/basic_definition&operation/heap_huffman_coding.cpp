@@ -15,7 +15,7 @@ typedef struct node{
     int freq;
     struct node *lchild,*rchild;
 }node;
-//¶Ñ½á¹¹
+//å †ç»“æž„
 typedef struct heap{
     node** __data;
     node** data;
@@ -23,7 +23,7 @@ typedef struct heap{
     int size;
 }heap;
 
-//½»»»½ÚµãÊý×éÖÐµÄiÎ»ÖÃºÍjÎ»ÖÃµÄÖµ
+//äº¤æ¢èŠ‚ç‚¹æ•°ç»„ä¸­çš„iä½ç½®å’Œjä½ç½®çš„å€¼
 void swap(node** arr,int i ,int j){
     node* temp = arr[i];
     arr[i] = arr[j];
@@ -31,7 +31,7 @@ void swap(node** arr,int i ,int j){
     return;
 }
 
-//¶Ñ½á¹¹µÄ²Ù×÷
+//å †ç»“æž„çš„æ“ä½œ
 heap* get_new_heap(int size){
     heap* h = (heap*)malloc(sizeof(heap));
     h->__data = (node**)malloc(sizeof(node*)*size);
@@ -41,8 +41,8 @@ heap* get_new_heap(int size){
     return h;
 }
 
-//Ð¡¶¥¶Ñ
-//Ñ¹Èë²Ù×÷
+//å°é¡¶å †
+//åŽ‹å…¥æ“ä½œ
 int full(heap* h){
     if(h==nullptr) return 0;
     return h->cnt == h->size;

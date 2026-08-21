@@ -40,7 +40,7 @@ void clear(node* root){
     return;
 }
 
-//Ç°Ğò±éÀú
+//å‰åºéå†
 void pre_order(node* root){
     if(root == nullptr) return;
     printf("%d ",root->data);
@@ -49,7 +49,7 @@ void pre_order(node* root){
     return;
 }
 
-//ÖĞĞò±éÀú
+//ä¸­åºéå†
 void in_order(node* root){
     if(root == nullptr) return;
     if(root->left_tag == 0) in_order(root->left_child);
@@ -58,7 +58,7 @@ void in_order(node* root){
     return;
 }
 
-//ºóĞò±éÀú
+//ååºéå†
 void post_order(node* root){
     if(root == nullptr) return;
     if(root->left_tag == 0) post_order(root->left_child);
@@ -67,8 +67,8 @@ void post_order(node* root){
     return;
 }
 
-//ÖĞĞò±éÀúÏßË÷»¯
-//×óÖ¸ÕëÖ¸Ïòµ±Ç°½ÚµãµÄÇ°Çı£¬ÓÒÖ¸ÕëÖ¸Ïòµ±Ç°½ÚµãµÄºó¼Ì
+//ä¸­åºéå†çº¿ç´¢åŒ–
+//å·¦æŒ‡é’ˆæŒ‡å‘å½“å‰èŠ‚ç‚¹çš„å‰é©±ï¼Œå³æŒ‡é’ˆæŒ‡å‘å½“å‰èŠ‚ç‚¹çš„åç»§
 node* pre_node{nullptr};
 int flag{0};
 node* start{nullptr};
@@ -92,23 +92,23 @@ void __inorder_thread(node* root){
     return;
 }
 
-//½øĞĞÁËÉÏÊöµÄÖĞĞò±éÀúÖ®ºó£¬Õû¸ö×ÓÊ÷×îÓÒ²àµÄÄÇ¸ö½Úµã£¬Ò²¾ÍÊÇÖĞĞò±éÀú½á¹ûÖĞ
-//¸ù½ÚµãÇ°ÃæµÄÄÇ¸ö½Úµã£¬Ò²¾ÍÊÇ¸ù½ÚµãµÄÇ°Çı£¬ËûÊÇÃ»ÓĞÓÒ×ÓÊ÷µÄ£¬ÏßË÷»¯»áÈÃËû
-//Ö¸ÏòÖĞĞò±éÀúÖĞ×Ô¼ºµÄºó¼Ì£¬Ò²¾ÍÊÇÊ÷µÄ×îÓÒ²à½Úµã»áÖ¸ÏòÕû¸öÊ÷µÄ¸ù½Úµã
-//ĞèÒª½øĞĞ¶ş´Î·â×°°ÑËûµÄÓÒÖ¸ÕëÖ¸Ïò¿Õ
+//è¿›è¡Œäº†ä¸Šè¿°çš„ä¸­åºéå†ä¹‹åï¼Œæ•´ä¸ªå­æ ‘æœ€å³ä¾§çš„é‚£ä¸ªèŠ‚ç‚¹ï¼Œä¹Ÿå°±æ˜¯ä¸­åºéå†ç»“æœä¸­
+//æ ¹èŠ‚ç‚¹å‰é¢çš„é‚£ä¸ªèŠ‚ç‚¹ï¼Œä¹Ÿå°±æ˜¯æ ¹èŠ‚ç‚¹çš„å‰é©±ï¼Œä»–æ˜¯æ²¡æœ‰å³å­æ ‘çš„ï¼Œçº¿ç´¢åŒ–ä¼šè®©ä»–
+//æŒ‡å‘ä¸­åºéå†ä¸­è‡ªå·±çš„åç»§ï¼Œä¹Ÿå°±æ˜¯æ ‘çš„æœ€å³ä¾§èŠ‚ç‚¹ä¼šæŒ‡å‘æ•´ä¸ªæ ‘çš„æ ¹èŠ‚ç‚¹
+//éœ€è¦è¿›è¡ŒäºŒæ¬¡å°è£…æŠŠä»–çš„å³æŒ‡é’ˆæŒ‡å‘ç©º
 node* inorder_thread(node* root){
     pre_node = nullptr;
     flag = 0;
     start = nullptr;
     __inorder_thread(root);
-    pre_node->right_child = nullptr;//°Ñ¸ù½ÚµãµÄÇ°ÇıÖ¸Ïò¿Õ
+    pre_node->right_child = nullptr;//æŠŠæ ¹èŠ‚ç‚¹çš„å‰é©±æŒ‡å‘ç©º
     return root;
 }
 
 node* get_next(node* root){
     if(root == nullptr) return nullptr;
     if(root->right_tag == 1) return root->right_child;
-    //ÓÒÖ¸ÕëÊÇÕæÊÇµÄÊ÷¾ÍÕÒµ½ÓÒ×ÓÊ÷ÖĞ¿¿×óµÄ½Úµã
+    //å³æŒ‡é’ˆæ˜¯çœŸæ˜¯çš„æ ‘å°±æ‰¾åˆ°å³å­æ ‘ä¸­é å·¦çš„èŠ‚ç‚¹
     root = root->right_child;
     while(root and root->left_tag == 0){
         root = root->left_child;
@@ -133,7 +133,7 @@ void test01(){
     /* while(p and p->left_tag == 0){
         p = p->left_child;
     } */
-    //Ö±½ÓÊ¹ÓÃÑ­»·½á¹¹ÕÒµ½Õû¸öÖĞĞò±éÀúµÄÆğÊ¼½Úµã£¬¼´×î×ó±ßµÄ½Úµã
+    //ç›´æ¥ä½¿ç”¨å¾ªç¯ç»“æ„æ‰¾åˆ°æ•´ä¸ªä¸­åºéå†çš„èµ·å§‹èŠ‚ç‚¹ï¼Œå³æœ€å·¦è¾¹çš„èŠ‚ç‚¹
     while(p){
         printf("%d ",p->data);
         p=get_next(p);

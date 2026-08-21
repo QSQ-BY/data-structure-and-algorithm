@@ -1,4 +1,4 @@
-﻿#多重背包问题
+#多重背包问题
 #优化拆分方式
 #例如有14件商品，把14拆分为1，2，4，7，不管我选择多少件商品都有相应的组合
 """ 题目描述
@@ -44,4 +44,26 @@ def test01():
             k*=2
     print(dp[V])
 
-test01()
+#单调队列优化
+from collections import deque
+def test02():
+    V,n = read()
+    dp = [[0]*(V+2)for _ in range(2)]
+    for i in range(1,n+1):
+        index1 = i%2
+        index2 = 1-index1
+        v,w,s = read()
+        for remainder in range(0,v):
+            q = deque()
+            for j in range(remainder,V+1,v):
+                dp[index2][j] -= j//v*w
+                while(len(q)>0 and dp[index2][q[-1]] < dp[index2][j]):
+                    q.pop()
+                q.append(j)
+                while((q[-1] - q[0])//v > s):
+                    q.popleft()
+                dp[index1][j] = dp[index2][q[0]] + j//v*w
+    print(dp[n%2][V])
+
+#test01()
+test02()

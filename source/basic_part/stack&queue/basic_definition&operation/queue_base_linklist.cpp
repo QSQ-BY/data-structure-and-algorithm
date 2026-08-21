@@ -3,15 +3,15 @@
 #include <string.h>
 #include <time.h>
 
-//链表的结构定义和结构操作
+//閾捐〃鐨勭粨鏋勫畾涔夊拰缁撴瀯鎿嶄綔
 typedef struct node {
     int data;
     struct node* next;
 }node;
 
 typedef struct linklist{
-    //node head;//有头链表
-    node* head;//无头链表
+    //node head;//鏈夊ご閾捐〃
+    node* head;//鏃犲ご閾捐〃
     node* tail;
     int count;
 }linklist;
@@ -78,7 +78,7 @@ void clear_linklist(linklist* l){
     free(l);
     return;
 }
-//队列的结构定义和结构操作
+//闃熷垪鐨勭粨鏋勫畾涔夊拰缁撴瀯鎿嶄綔
 typedef struct queue{
     linklist* data;
     int count;

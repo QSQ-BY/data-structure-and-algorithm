@@ -6,9 +6,9 @@ using namespace std;
 vector<int> diff(200005);
 vector<int> cur(200005);
 int main(void){
-    int n;//Åä·½Êý
-    int k;//Ä³¸öÎÂ¶È±»ÅÐ¶¨Îª¿É½ÓÊÜÎÂ¶ÈµÄ×îÉÙÅä·½Êý
-    int q;//Ñ¯ÎÊ¸öÊý
+    int n;//é…æ–¹æ•°
+    int k;//æŸä¸ªæ¸©åº¦è¢«åˆ¤å®šä¸ºå¯æŽ¥å—æ¸©åº¦çš„æœ€å°‘é…æ–¹æ•°
+    int q;//è¯¢é—®ä¸ªæ•°
     cin>>n>>k>>q;
     for(int i=0;i<n;i++){
         int l,r;

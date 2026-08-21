@@ -1,5 +1,5 @@
-//�ݹ�ʵ�������ö�٣�combination��
-//����ö�ٳ���Ϊ3��ö�����ֵΪ5����ö���������
+//递归实现组合型枚举（combination）
+//假设枚举长度为3，枚举最大值为5，则枚举输出如下
 //1 2 3
 //1 2 4
 //1 2 5
@@ -28,7 +28,7 @@ void print_oneline(vector<int> &arr)
 }
 
 void enumeration(int pos, int min, int max, int len);
-// pos��ʾ��ǰ�������ֵ�λ�ã�����ö����СֵΪmin�����ֵΪmax,���г���Ϊlen
+// pos表示当前填入数字的位置，该行枚举最小值为min，最大值为max,排列长度为len
 int main(void)
 {
     int pos{0};
@@ -36,9 +36,9 @@ int main(void)
     int max{};
     int len{};
 
-    cout << "���������г���" << endl;
+    cout << "请输入排列长度" << endl;
     cin >> len;
-    cout << "���������е����ֵ" << endl;
+    cout << "请输入排列的最大值" << endl;
     cin >> max;
     enumeration(pos, min, max, len);
     system("pause");
@@ -53,8 +53,8 @@ void enumeration(int pos, int min, int max, int len)
         return;
     }
 
-    if(min > max) return;//����Сֵ�������ֵʱ��˵��û�����ֿ�ѡ�ˣ�ֱ�ӷ���
-    //num��ʾ���뵱ǰposλ�õ����֣�ö�ٷ�ΧΪmin��max����ʣ��λ�������ܳ���ʣ��������,��len-1-pos<=max-num
+    if(min > max) return;//当最小值大于最大值时，说明没有数字可选了，直接返回
+    //num表示填入当前pos位置的数字，枚举范围为min到max，且剩余位置数不能超过剩余数字数,即len-1-pos<=max-num
     for (int num = min; num <= max && len-1-pos<=max-num; num++)
     {
         arr[pos] = num;

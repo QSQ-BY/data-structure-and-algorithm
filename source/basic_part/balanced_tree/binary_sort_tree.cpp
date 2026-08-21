@@ -1,7 +1,7 @@
-/* ¶ş²æÅÅĞòÊ÷/¶ş²æËÑË÷Ê÷
-×ó×ÓÊ÷<¸ù½Úµã
-ÓÒ×ÓÊ÷>¸ù½Úµã
-¶ş²æÅÅĞòÊ÷ÖĞĞò±éÀúµÄ½á¹ûÊÇÓĞĞòµÄ */
+/* äºŒå‰æ’åºæ ‘/äºŒå‰æœç´¢æ ‘
+å·¦å­æ ‘<æ ¹èŠ‚ç‚¹
+å³å­æ ‘>æ ¹èŠ‚ç‚¹
+äºŒå‰æ’åºæ ‘ä¸­åºéå†çš„ç»“æœæ˜¯æœ‰åºçš„ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,7 +24,7 @@ Node* get_new_node(int key){
     return p;
 }
 
-//²åÈë½Úµã²Ù×÷
+//æ’å…¥èŠ‚ç‚¹æ“ä½œ
 Node* insert(Node* root,int key){
     if(root == nullptr) return get_new_node(key);
     if(key == root->key) return root;
@@ -33,7 +33,7 @@ Node* insert(Node* root,int key){
     return root;
 }
 
-//Ñ°ÕÒ½ÚµãÇ°Çı
+//å¯»æ‰¾èŠ‚ç‚¹å‰é©±
 Node* pre(Node* root){
     if(root==nullptr) return root;
     Node* temp = root->lchild;
@@ -41,13 +41,13 @@ Node* pre(Node* root){
     return temp;
 }
 
-//É¾³ı½Úµã²Ù×÷
+//åˆ é™¤èŠ‚ç‚¹æ“ä½œ
 Node* erase(Node* root,int key){
     if(root == nullptr) return root;
     if(key<root->key) root->lchild = erase(root->lchild,key);
     else if(key > root->key) root->rchild = erase(root->rchild,key);
     else if(root->key = key){
-        //¶ÈÎª0 1 2µÄÇé¿ö
+        //åº¦ä¸º0 1 2çš„æƒ…å†µ
         if(root->lchild == nullptr and root->rchild == nullptr){
             free(root);
             return nullptr;
@@ -58,7 +58,7 @@ Node* erase(Node* root,int key){
             free(root);
             return temp;
         }else if(root->rchild!=nullptr and root->lchild!=nullptr){
-            //½«¸ù½ÚµãÇ°ÇıµÄÖµºÍ½øĞĞ½»»»
+            //å°†æ ¹èŠ‚ç‚¹å‰é©±çš„å€¼å’Œè¿›è¡Œäº¤æ¢
             Node* temp = pre(root);
             root->key = temp->key;
             root->lchild = erase(root->lchild,temp->key);
@@ -67,7 +67,7 @@ Node* erase(Node* root,int key){
     return root;
 }
 
-//ÇåÀí¶ş²æÅÅĞòÊ÷²Ù×÷
+//æ¸…ç†äºŒå‰æ’åºæ ‘æ“ä½œ
 void clear(Node* root){
     if(root == nullptr) return;
     if(root->lchild == nullptr and root->rchild == nullptr) free(root);
@@ -97,17 +97,17 @@ void test01(){
     Node* root = nullptr;
     for(int i=0;i<MAX_OP;i++){
         int key = rand()%100;
-        printf("½«%d²åÈë¶ş²æÅÅĞòÊ÷\n",key);
+        printf("å°†%dæ’å…¥äºŒå‰æ’åºæ ‘\n",key);
         root = insert(root,key);
     }
     output(root);
-    printf("ÖĞĞò±éÀú£º");
+    printf("ä¸­åºéå†ï¼š");
     inorder(root);
     printf("\n\n");
 
     int x = 0;
     while(~scanf("%d",&x)){
-        printf("´Ó¶ş²æÅÅĞòÊ÷ÖĞÒÆ³ı%d\n",x);
+        printf("ä»äºŒå‰æ’åºæ ‘ä¸­ç§»é™¤%d\n",x);
         root = erase(root,x);
         output(root);
         inorder(root);

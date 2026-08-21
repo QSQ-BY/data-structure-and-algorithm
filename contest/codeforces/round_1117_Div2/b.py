@@ -1,4 +1,4 @@
-﻿""" 
+""" 
 Two giants, Bea and Ver, are playing a game. Each giant has his own mountain range. You have already measured all these mountains and now know that the heights of the mountains in Bea's range are a1,a2,…an
 , and in Ver's range are b1,b2,…bm
 , with the mountains numbered from left to right for Bea and from right to left for Ver. At the beginning of the game, the giants stand on the mountain numbered 1

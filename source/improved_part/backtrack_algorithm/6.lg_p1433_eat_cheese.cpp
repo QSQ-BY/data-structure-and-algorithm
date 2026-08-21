@@ -1,26 +1,26 @@
-/* ��Ŀ����
-��������� n �����ҡ�һֻС����Ҫ�����Ƕ��Ե���������Ҫ�ܶ��پ��룿����һ��ʼ�� (0,0) �㴦��
-�����ʽ
-��һ����һ����������ʾ���ҵ����� n��
-�� 2 ���� (n+1) �У�ÿ������ʵ������ (i+1) �е�ʵ���ֱ��ʾ�� i �����ҵĺ������� x 
+/* 题目描述
+房间里放着 n 块奶酪。一只小老鼠要把它们都吃掉，问至少要跑多少距离？老鼠一开始在 (0,0) 点处。
+输入格式
+第一行有一个整数，表示奶酪的数量 n。
+第 2 到第 (n+1) 行，每行两个实数，第 (i+1) 行的实数分别表示第 i 块奶酪的横纵坐标 x 
 i
 ?
  ,y 
 i
 ?
- ��
-�����ʽ
-���һ��һ��ʵ������ʾҪ�ܵ����پ��룬���� 2 λС����
+ 。
+输出格式
+输出一行一个实数，表示要跑的最少距离，保留 2 位小数。
 
-�����������
-���� #1����
+输入输出样例
+输入 #1复制
 
 4
 1 1
 1 -1
 -1 1
 -1 -1
-��� #1����
+输出 #1复制
 
 7.41 */
 #include <iostream>
@@ -33,11 +33,11 @@ using namespace std;
 double ans = (double)INT_MAX;
 double x[MAX_N+5];
 double y[MAX_N+5];
-double dis[MAX_N+5][MAX_N+5];//��i���㵽��j����ľ���
+double dis[MAX_N+5][MAX_N+5];//第i个点到第j个点的距离
 vector<vector<double>> dp(70000,vector<double>(MAX_N+5,INT_MAX));
-double index[70000];//Ȩֵӳ��
+double index[70000];//权值映射
 
-//��ǰ״̬�룬��ǰλ�ã���ǰ��·��
+//当前状态码，当前位置，当前总路程
 void dfs(int t,int pos,double s){
     if(t == 0){
         if(s < ans) ans = s;
@@ -45,8 +45,8 @@ void dfs(int t,int pos,double s){
     }
     for(int k= t;k!=0;k -= (k&-k)){
         int bit = k&-k;
-        int next_index = index[bit];//��ǰö�ٵĵ�ı��
-        int next_t = bit^t;//��һ��״̬��
+        int next_index = index[bit];//当前枚举的点的编号
+        int next_t = bit^t;//下一个状态码
         double new_dis = dis[pos][next_index] + s;
         if(new_dis>=ans) continue;
         if(new_dis >= dp[next_t][next_index]) continue;

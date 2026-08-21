@@ -9,7 +9,7 @@
 Yura wants to make the arrangement neat by performing the following operation any number of times:
 
 Choose a stack i
- such that 1¡Üi<n
+ such that 1â‰¤i<n
  and ai>1
 .
 Take 1
@@ -25,17 +25,17 @@ Determine whether Yura can make the arrangement neat.
 
 Input
 The first line contains a single long longeger t
- (1¡Üt¡Ü104
-) ¡ª the number of test cases.
+ (1â‰¤tâ‰¤104
+) â€” the number of test cases.
 
 The first line of each test case contains a single long longeger n
- (1¡Ün¡Ü2?105
-) ¡ª the number of stacks.
+ (1â‰¤nâ‰¤2?105
+) â€” the number of stacks.
 
 The second line of each test case contains n
  long longegers ai
- (1¡Üai¡Ü109
-) ¡ª the initial number of books in each stack.
+ (1â‰¤aiâ‰¤109
+) â€” the initial number of books in each stack.
 
 It is guaranteed that the sum of n
  over all test cases does not exceed 2?105
@@ -107,7 +107,7 @@ string f(vector<long long> books,long long len){
 }
 
 void test01(){
-    long long t;//²âÊÔÓÃÀýÊýÁ¿
+    long long t;//æµ‹è¯•ç”¨ä¾‹æ•°é‡
     cin>>t;
     vector<long long> count;
     vector<vector<long long>> books(t);

@@ -31,7 +31,7 @@ int find_min_node(node** node_arr,int len){
     return index;
 }
 
-//½¨Á¢¹ş·òÂüÊ÷
+//å»ºç«‹å“ˆå¤«æ›¼æ ‘
 node* build_huffman_tree(node** node_arr,int n){
     for(int i=1;i<n;i++){
         int index1 = find_min_node(node_arr,n-i);
@@ -47,7 +47,7 @@ node* build_huffman_tree(node** node_arr,int n){
     return node_arr[0];
 }
 
-//ÌáÈ¡±àÂëĞÅÏ¢
+//æå–ç¼–ç ä¿¡æ¯
 void extract_huffman_code(node* root,char* buff,int k){
     buff[k] = 0;
     if(root->lchild == nullptr and root->rchild == nullptr){
@@ -75,7 +75,7 @@ void clear(node* root){
 }
 
 void test01(){
-    int n;//¶àÉÙ¸ö×Ö·û
+    int n;//å¤šå°‘ä¸ªå­—ç¬¦
     char s[10];
     int freq;
     scanf("%d",&n);
@@ -87,9 +87,9 @@ void test01(){
     for(int i=0;i<n;i++){
         printf("%c %d\n",node_arr[i]->ch,node_arr[i]->freq);
     }
-    //½¨Á¢¹ş·òÂüÊ÷
+    //å»ºç«‹å“ˆå¤«æ›¼æ ‘
     node* root = build_huffman_tree(node_arr,n);
-    //ÌáÈ¡Ïà¹ØµÄ±àÂëĞÅÏ¢
+    //æå–ç›¸å…³çš„ç¼–ç ä¿¡æ¯
     char buff[10000];
     extract_huffman_code(root,buff,0);
     clear(root);

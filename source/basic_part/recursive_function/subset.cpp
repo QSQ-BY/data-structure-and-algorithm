@@ -1,5 +1,5 @@
-// µİ¹éÊµÏÖ×Ó¼¯ĞÍÃ¶¾Ù(subset)
-//Èç¹û¶Ô3½øĞĞÃ¶¾Ù
+// é€’å½’å®ç°å­é›†å‹æšä¸¾(subset)
+//å¦‚æœå¯¹3è¿›è¡Œæšä¸¾
 // 1
 // 1 2
 // 1 3
@@ -25,13 +25,13 @@ void print_oneline(vector<int> &arr ,int pos)
 }
 
 void enumeration(int pos, int min, int max);
-// pos±íÊ¾µ±Ç°ÌîÈëÊı×ÖµÄÎ»ÖÃ£¬¸ÃĞĞÃ¶¾Ù×îĞ¡ÖµÎªmin£¬×î´óÖµÎªmax
+// posè¡¨ç¤ºå½“å‰å¡«å…¥æ•°å­—çš„ä½ç½®ï¼Œè¯¥è¡Œæšä¸¾æœ€å°å€¼ä¸ºminï¼Œæœ€å¤§å€¼ä¸ºmax
 int main(void)
 {
     int pos{0};
     int min{1};
     int max{};
-    cout << "ÇëÊäÈëÃ¶¾ÙµÄ×î´óÖµ" << endl;
+    cout << "è¯·è¾“å…¥æšä¸¾çš„æœ€å¤§å€¼" << endl;
     cin >> max;
     enumeration(pos, min, max);
     system("pause");
@@ -40,7 +40,7 @@ int main(void)
 
 void enumeration(int pos, int min, int max)
 {
-    if (min > max) return; //µ±×îĞ¡Öµ´óÓÚ×î´óÖµÊ±£¬ËµÃ÷Ã»ÓĞÊı×Ö¿ÉÑ¡ÁË£¬Ö±½Ó·µ»Ø
+    if (min > max) return; //å½“æœ€å°å€¼å¤§äºæœ€å¤§å€¼æ—¶ï¼Œè¯´æ˜æ²¡æœ‰æ•°å­—å¯é€‰äº†ï¼Œç›´æ¥è¿”å›
     
     for(int num = min; num <= max;num++){
         arr[pos] = num;

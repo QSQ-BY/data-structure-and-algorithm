@@ -1,43 +1,43 @@
 /* During a geometry lesson, Iskander got very bored, so he decided to draw in Yura's notebook. To do this, he took a row and drew horizontal lines on it. Some lines are long, some are short, and some parts of the page remain empty.
-ÔÚ¼¸ºÎ¿ÎÉÏ¿ÎÆÚ¼ä£¬ÒÁË¹¿²µÂ¸Ğµ½·Ç³£ÎŞÁÄ£¬ÓÚÊÇËû¾ö¶¨ÔÚÓÈÀ­µÄ±¾×ÓÉÏ»­»­¡£ËûÏÈ»­ÁËÒ»ÅÅË®Æ½Ïß¡£ÓĞĞ©ÏßÌõºÜ³¤£¬ÓĞĞ©ÔòºÜ¶Ì£¬¶øÇÒÒ³ÃæÉÏÓĞĞ©µØ·½ÊÇ¿Õ°×µÄ¡£
+åœ¨å‡ ä½•è¯¾ä¸Šè¯¾æœŸé—´ï¼Œä¼Šæ–¯åå¾·æ„Ÿåˆ°éå¸¸æ— èŠï¼Œäºæ˜¯ä»–å†³å®šåœ¨å°¤æ‹‰çš„æœ¬å­ä¸Šç”»ç”»ã€‚ä»–å…ˆç”»äº†ä¸€æ’æ°´å¹³çº¿ã€‚æœ‰äº›çº¿æ¡å¾ˆé•¿ï¼Œæœ‰äº›åˆ™å¾ˆçŸ­ï¼Œè€Œä¸”é¡µé¢ä¸Šæœ‰äº›åœ°æ–¹æ˜¯ç©ºç™½çš„ã€‚
 The page is represented by a string s
 , where the character '*' denotes an empty part of the paper, and the character '#' denotes one centimeter of a drawn line. A continuous sequence of '#' characters forms a single line.
-¸ÃÒ³ÃæÓÉ×Ö·û´® ±íÊ¾£¬ÆäÖĞ×Ö·û'*'±íÊ¾Ö½ÕÅµÄ¿Õ°×²¿·Ö£¬¶ø×Ö·û'#'Ôò±íÊ¾Ò»ÀåÃ×³¤µÄÊµÏß¡£Á¬ĞøµÄ'#'×Ö·ûÔò¹¹³ÉÒ»¸öµ¥¶ÀµÄÏß¡£
+è¯¥é¡µé¢ç”±å­—ç¬¦ä¸² è¡¨ç¤ºï¼Œå…¶ä¸­å­—ç¬¦'*'è¡¨ç¤ºçº¸å¼ çš„ç©ºç™½éƒ¨åˆ†ï¼Œè€Œå­—ç¬¦'#'åˆ™è¡¨ç¤ºä¸€å˜ç±³é•¿çš„å®çº¿ã€‚è¿ç»­çš„'#'å­—ç¬¦åˆ™æ„æˆä¸€ä¸ªå•ç‹¬çš„çº¿ã€‚
 
 Yura decided to erase all the lines and made Iskander help him: they will erase one of the lines from both ends simultaneously.
-ÓÈÀ­¾ö¶¨É¾³ıËùÓĞµÄÏßÌõ£¬ÓÚÊÇÇëÒÁË¹¿²µÂ°ïÖúËû£ºËûÃÇ´òËãÍ¬Ê±´ÓÁ½¶ËÉ¾³ıÕâĞ©ÏßÌõ¡£
+å°¤æ‹‰å†³å®šåˆ é™¤æ‰€æœ‰çš„çº¿æ¡ï¼Œäºæ˜¯è¯·ä¼Šæ–¯åå¾·å¸®åŠ©ä»–ï¼šä»–ä»¬æ‰“ç®—åŒæ—¶ä»ä¸¤ç«¯åˆ é™¤è¿™äº›çº¿æ¡ã€‚
 
 Each second, Iskander erases 1
  centimeter from the right end of the line, and Yura erases 1
  centimeter from the left end.
-Ã¿Ò»Ãë£¬ÒÁË¹¿²µÂ¶û»á´ÓÏßµÄÓÒ¶ËÒÆ³ı ÀåÃ×£¬¶øÓÈÀ­Ôò»á´ÓÏßµÄ×ó¶ËÒÆ³ı ÀåÃ×¡£
+æ¯ä¸€ç§’ï¼Œä¼Šæ–¯åå¾·å°”ä¼šä»çº¿çš„å³ç«¯ç§»é™¤ å˜ç±³ï¼Œè€Œå°¤æ‹‰åˆ™ä¼šä»çº¿çš„å·¦ç«¯ç§»é™¤ å˜ç±³ã€‚
 If the current length of the line is 1
  or 2
  centimeters, then in the next second it is erased completely, and the process ends.
-Èç¹ûÏßÌõµÄµ±Ç°³¤¶ÈµÈÓÚ »ò ÀåÃ×£¬ÄÇÃ´ÏÂÒ»ÃëËü¾Í»áÍêÈ«±»É¾³ı£¬Õû¸ö¹ı³ÌÒ²¾Í½áÊøÁË¡£
+å¦‚æœçº¿æ¡çš„å½“å‰é•¿åº¦ç­‰äº æˆ– å˜ç±³ï¼Œé‚£ä¹ˆä¸‹ä¸€ç§’å®ƒå°±ä¼šå®Œå…¨è¢«åˆ é™¤ï¼Œæ•´ä¸ªè¿‡ç¨‹ä¹Ÿå°±ç»“æŸäº†ã€‚
 Yura wants to choose a line so that, together with Iskander, they erase it for as long as possible. Help him determine this maximum time. If there are no lines on the page, the answer is 0
  seconds.
-ÓÈÀ­ÏëÒªÑ¡ÔñÒ»ÌõÏß£¬ÕâÑùÓëÒÁË¹¿²µÂÒ»Æğ£¬ËûÃÇ¾ÍÄÜ¾¡¿ÉÄÜ³¤Ê±¼äµØÒş²ØÕâÌõÏß¡£°ïÖúËûÈ·¶¨Õâ¸ö×î´óÊ±¼ä¡£Èç¹ûÒ³ÃæÉÏÃ»ÓĞÈÎºÎÏßÌõ£¬ÄÇÃ´´ğ°¸¾ÍÊÇ Ãë¡£
+å°¤æ‹‰æƒ³è¦é€‰æ‹©ä¸€æ¡çº¿ï¼Œè¿™æ ·ä¸ä¼Šæ–¯åå¾·ä¸€èµ·ï¼Œä»–ä»¬å°±èƒ½å°½å¯èƒ½é•¿æ—¶é—´åœ°éšè—è¿™æ¡çº¿ã€‚å¸®åŠ©ä»–ç¡®å®šè¿™ä¸ªæœ€å¤§æ—¶é—´ã€‚å¦‚æœé¡µé¢ä¸Šæ²¡æœ‰ä»»ä½•çº¿æ¡ï¼Œé‚£ä¹ˆç­”æ¡ˆå°±æ˜¯ ç§’ã€‚
 
-Input  ÊäÈë
+Input  è¾“å…¥
 The first line contains a single integer t
-(1¡Üt¡Ü2500
-) ¡ª the number of test cases.
-µÚÒ»ĞĞ°üº¬Ò»¸öÕûÊı ( )£¬±íÊ¾²âÊÔÓÃÀıµÄÊıÁ¿¡£
+(1â‰¤tâ‰¤2500
+) â€” the number of test cases.
+ç¬¬ä¸€è¡ŒåŒ…å«ä¸€ä¸ªæ•´æ•° ( )ï¼Œè¡¨ç¤ºæµ‹è¯•ç”¨ä¾‹çš„æ•°é‡ã€‚
 The first line of each test case contains an integer n
-(1¡Ün¡Ü10
-) ¡ª the length of the string s
+(1â‰¤nâ‰¤10
+) â€” the length of the string s
 .
-Ã¿¸ö²âÊÔ°¸ÀıµÄµÚÒ»ĞĞ°üº¬Ò»¸öÕûÊı ( )£¬±íÊ¾×Ö·û´® µÄ³¤¶È¡£
+æ¯ä¸ªæµ‹è¯•æ¡ˆä¾‹çš„ç¬¬ä¸€è¡ŒåŒ…å«ä¸€ä¸ªæ•´æ•° ( )ï¼Œè¡¨ç¤ºå­—ç¬¦ä¸² çš„é•¿åº¦ã€‚
 The second line of each test case contains a string s
 of length n
 , consisting of characters '#' and '*'.
-Ã¿¸ö²âÊÔ°¸ÀıµÄµÚ¶şĞĞ°üº¬Ò»¸ö³¤¶ÈÎª µÄ×Ö·û´® £¬¸Ã×Ö·û´®ÓÉ×Ö·û'#'ºÍ'*'×é³É¡£
-Output  Êä³ö½á¹û
-For each test case, output a single integer ¡ª the maximum time required to erase a line.
-¶ÔÓÚÃ¿¸ö²âÊÔ°¸Àı£¬Êä³öÒ»¸öÕûÊı¡ª¡ª¼´²Á³ıÒ»ĞĞÎÄ±¾ËùĞèµÄ×î´óÊ±¼ä¡£
-Example  Ê¾Àı
-Input  ÊäÈë
+æ¯ä¸ªæµ‹è¯•æ¡ˆä¾‹çš„ç¬¬äºŒè¡ŒåŒ…å«ä¸€ä¸ªé•¿åº¦ä¸º çš„å­—ç¬¦ä¸² ï¼Œè¯¥å­—ç¬¦ä¸²ç”±å­—ç¬¦'#'å’Œ'*'ç»„æˆã€‚
+Output  è¾“å‡ºç»“æœ
+For each test case, output a single integer â€” the maximum time required to erase a line.
+å¯¹äºæ¯ä¸ªæµ‹è¯•æ¡ˆä¾‹ï¼Œè¾“å‡ºä¸€ä¸ªæ•´æ•°â€”â€”å³æ“¦é™¤ä¸€è¡Œæ–‡æœ¬æ‰€éœ€çš„æœ€å¤§æ—¶é—´ã€‚
+Example  ç¤ºä¾‹
+Input  è¾“å…¥
 5
 7
 #*##*##
@@ -49,7 +49,7 @@ Input  ÊäÈë
 #*****##
 6
 *#####
-Output  Êä³ö½á¹û
+Output  è¾“å‡ºç»“æœ
 1
 4
 0

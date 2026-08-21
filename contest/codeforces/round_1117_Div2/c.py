@@ -1,4 +1,4 @@
-﻿""" You are given a rooted tree∗
+""" You are given a rooted tree∗
  with n
  vertices, numbered from 1
  to n

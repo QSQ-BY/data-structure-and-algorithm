@@ -1,4 +1,4 @@
-﻿""" The Beaver was given a set of words S
+""" The Beaver was given a set of words S
 , which initially contained n
  words. Then he performed the following operation m
  times:

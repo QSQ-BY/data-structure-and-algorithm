@@ -1,4 +1,4 @@
-//¹é²¢ÅÅĞò
+//å½’å¹¶æ’åº
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -48,7 +48,7 @@ void swap(int* a,int* b){
     return;
 }
 
-void merge_sort(int* arr,int l,int r){//×ó±ÕÓÒ¿ªÇø¼ä
+void merge_sort(int* arr,int l,int r){//å·¦é—­å³å¼€åŒºé—´
     int n = r-l;
     if(r - l <=1) return;
     int mid = (l+r)/2;

@@ -1,4 +1,4 @@
-/* Problem Statement  ÎÊÌâÃèÊö/ÎÊÌâ³ÂÊö
+/* Problem Statement  é—®é¢˜æè¿°/é—®é¢˜é™ˆè¿°
 Takahashi is exploring a dungeon represented as a grid with 
 N rows and 
 M columns. The cell at the 
@@ -6,70 +6,70 @@ i-th row from the top and the
 j-th column from the left is denoted as 
 (i,j). Each cell 
 (i,j) (
-1¡Üi¡ÜN, 
-1¡Üj¡ÜM) contains one gem with a value of 
+1â‰¤iâ‰¤N, 
+1â‰¤jâ‰¤M) contains one gem with a value of 
 A 
 i,j
 ?
  .
-¸ßÇÅÕıÔÚÌ½Ë÷Ò»¸öÓÉÍø¸ñ¹¹³ÉµÄÃÔ¹¬£¬¸ÃÃÔ¹¬ÓĞ 
-N ĞĞºÍ 
-M ÁĞ¡£Î»ÓÚµÚ 
-i ĞĞ¡¢µÚ 
-j ÁĞµÄµ¥Ôª¸ñ±»±ê¼ÇÎª 
-(i,j) ¡£Ã¿¸öÎ»ÓÚ 
-(i,j) Î»ÖÃµÄµ¥Ôª¸ñ£¨¼´×ø±êÎª 
-1¡Üi¡ÜN , 
-1¡Üj¡ÜM µÄµ¥Ôª¸ñ£©Àï¶¼ÓĞÒ»¿Å¼ÛÖµÎª 
+é«˜æ¡¥æ­£åœ¨æ¢ç´¢ä¸€ä¸ªç”±ç½‘æ ¼æ„æˆçš„è¿·å®«ï¼Œè¯¥è¿·å®«æœ‰ 
+N è¡Œå’Œ 
+M åˆ—ã€‚ä½äºç¬¬ 
+i è¡Œã€ç¬¬ 
+j åˆ—çš„å•å…ƒæ ¼è¢«æ ‡è®°ä¸º 
+(i,j) ã€‚æ¯ä¸ªä½äº 
+(i,j) ä½ç½®çš„å•å…ƒæ ¼ï¼ˆå³åæ ‡ä¸º 
+1â‰¤iâ‰¤N , 
+1â‰¤jâ‰¤M çš„å•å…ƒæ ¼ï¼‰é‡Œéƒ½æœ‰ä¸€é¢—ä»·å€¼ä¸º 
 A 
 i,j
 ?
-  µÄ±¦Ê¯¡£
+  çš„å®çŸ³ã€‚
 
 Takahashi is currently at the top-left cell 
 (1,1) of the dungeon. He wants to move to the bottom-right cell 
 (N,M), which is the goal. In one move, Takahashi can advance exactly one cell to the right-adjacent cell or the down-adjacent cell from his current cell. That is, from cell 
 (i,j), he can move to cell 
 (i,j+1) (when 
-j+1¡ÜM) or cell 
+j+1â‰¤M) or cell 
 (i+1,j) (when 
-i+1¡ÜN).
-¸ßÇÅÄ¿Ç°Î»ÓÚµØÀÎµÄ×óÉÏ½ÇÎ»ÖÃ 
-(1,1) ¡£ËûÏëÒªÒÆ¶¯µ½ÓÒÏÂ½ÇµÄÎ»ÖÃ 
-(N,M) £¬ÄÇÀï²ÅÊÇËûµÄÄ¿±êÎ»ÖÃ¡£ÔÚÒ»´ÎÒÆ¶¯ÖĞ£¬¸ßÇÅ¿ÉÒÔ´Óµ±Ç°Î»ÖÃÏòÓÒ»òÏòÏÂÒÆ¶¯Ò»¸öµ¥Ôª¸ñ¡£Ò²¾ÍÊÇËµ£¬´ÓÎ»ÖÃ 
-(i,j) ³ö·¢£¬Ëû¿ÉÒÔÒÆ¶¯µ½Î»ÖÃ 
-(i,j+1) £¨µ± 
-j+1¡ÜM ÎªÕæÊ±£©»òÎ»ÖÃ 
-(i+1,j) £¨µ± 
-i+1¡ÜN ÎªÕæÊ±£©¡£
+i+1â‰¤N).
+é«˜æ¡¥ç›®å‰ä½äºåœ°ç‰¢çš„å·¦ä¸Šè§’ä½ç½® 
+(1,1) ã€‚ä»–æƒ³è¦ç§»åŠ¨åˆ°å³ä¸‹è§’çš„ä½ç½® 
+(N,M) ï¼Œé‚£é‡Œæ‰æ˜¯ä»–çš„ç›®æ ‡ä½ç½®ã€‚åœ¨ä¸€æ¬¡ç§»åŠ¨ä¸­ï¼Œé«˜æ¡¥å¯ä»¥ä»å½“å‰ä½ç½®å‘å³æˆ–å‘ä¸‹ç§»åŠ¨ä¸€ä¸ªå•å…ƒæ ¼ã€‚ä¹Ÿå°±æ˜¯è¯´ï¼Œä»ä½ç½® 
+(i,j) å‡ºå‘ï¼Œä»–å¯ä»¥ç§»åŠ¨åˆ°ä½ç½® 
+(i,j+1) ï¼ˆå½“ 
+j+1â‰¤M ä¸ºçœŸæ—¶ï¼‰æˆ–ä½ç½® 
+(i+1,j) ï¼ˆå½“ 
+i+1â‰¤N ä¸ºçœŸæ—¶ï¼‰ã€‚
 
 Takahashi collects the gems placed on all cells he passes through (including the starting cell 
 (1,1) and the ending cell 
 (N,M)).
-¸ßÇÅ»áÊÕ¼¯Ëû¾­¹ıµÄËùÓĞµ¥Ôª¸ñÖĞµÄ±¦Ê¯£¨°üÀ¨ÆğÊ¼µ¥Ôª¸ñ 
-(1,1) ºÍ½áÊøµ¥Ôª¸ñ 
-(N,M) £©¡£
+é«˜æ¡¥ä¼šæ”¶é›†ä»–ç»è¿‡çš„æ‰€æœ‰å•å…ƒæ ¼ä¸­çš„å®çŸ³ï¼ˆåŒ…æ‹¬èµ·å§‹å•å…ƒæ ¼ 
+(1,1) å’Œç»“æŸå•å…ƒæ ¼ 
+(N,M) ï¼‰ã€‚
 
 Takahashi wants to maximize the total value of the gems he collects. Among all paths from 
 (1,1) to 
 (N,M), find and output the maximum possible total value of gems on the cells along the path.
-¸ßÇÅÏ£Íû½«×Ô¼ºÊÕ¼¯µ½µÄ±¦Ê¯µÄ×Ü¼ÛÖµ×î´ó»¯¡£ÔÚ´Ó 
-(1,1) µ½ 
-(N,M) µÄËùÓĞÂ·¾¶ÖĞ£¬ÕÒ³ö²¢Êä³öÂ·¾¶ÉÏ¸÷½ÚµãÉÏ±¦Ê¯×Ü¼ÛÖµµÄ×î´óÖµ¡£
+é«˜æ¡¥å¸Œæœ›å°†è‡ªå·±æ”¶é›†åˆ°çš„å®çŸ³çš„æ€»ä»·å€¼æœ€å¤§åŒ–ã€‚åœ¨ä» 
+(1,1) åˆ° 
+(N,M) çš„æ‰€æœ‰è·¯å¾„ä¸­ï¼Œæ‰¾å‡ºå¹¶è¾“å‡ºè·¯å¾„ä¸Šå„èŠ‚ç‚¹ä¸Šå®çŸ³æ€»ä»·å€¼çš„æœ€å¤§å€¼ã€‚
 
-Constralong longs  Ô¼Êø
-1¡ÜN¡Ü1000
-1¡ÜM¡Ü1000
-0¡ÜA 
+Constralong longs  çº¦æŸ
+1â‰¤Nâ‰¤1000
+1â‰¤Mâ‰¤1000
+0â‰¤A 
 i,j
 ?
- ¡Ü10 
+ â‰¤10 
 9
  
 All input values are long longegers.
-ËùÓĞÊäÈëÖµ¶¼ÊÇÕûÊı¡£
-Input  ÊäÈë¸´ÖÆ
-Copy  ¸±±¾
+æ‰€æœ‰è¾“å…¥å€¼éƒ½æ˜¯æ•´æ•°ã€‚
+Input  è¾“å…¥å¤åˆ¶
+Copy  å‰¯æœ¬
 N 
 M
 A 
@@ -80,7 +80,7 @@ A
 1,2
 ?
   
-¡­ 
+â€¦ 
 A 
 1,M
 ?
@@ -93,7 +93,7 @@ A
 2,2
 ?
   
-¡­ 
+â€¦ 
 A 
 2,M
 ?
@@ -107,7 +107,7 @@ A
 N,2
 ?
   
-¡­ 
+â€¦ 
 A 
 N,M
 ?
@@ -115,64 +115,64 @@ N,M
 The first line contains an long longeger 
 N representing the number of rows and an long longeger 
 M representing the number of columns of the dungeon, separated by a space.
-µÚÒ»ĞĞ°üº¬Á½¸öÕûÊı£º 
-N ±íÊ¾µØÀÎµÄĞĞÊı£¬ 
-M ±íÊ¾µØÀÎµÄÁĞÊı¡£ÕâÁ½¸öÊı×ÖÖ®¼äÓÃ¿Õ¸ñ·Ö¸ô¡£
+ç¬¬ä¸€è¡ŒåŒ…å«ä¸¤ä¸ªæ•´æ•°ï¼š 
+N è¡¨ç¤ºåœ°ç‰¢çš„è¡Œæ•°ï¼Œ 
+M è¡¨ç¤ºåœ°ç‰¢çš„åˆ—æ•°ã€‚è¿™ä¸¤ä¸ªæ•°å­—ä¹‹é—´ç”¨ç©ºæ ¼åˆ†éš”ã€‚
 In the following 
 N lines, the 
 i-th line (
-1¡Üi¡ÜN) contains the gem values 
+1â‰¤iâ‰¤N) contains the gem values 
 A 
 i,1
 ?
  ,A 
 i,2
 ?
- ,¡­,A 
+ ,â€¦,A 
 i,M
 ?
   of each cell in the 
 i-th row of the grid, separated by spaces.
-ÔÚ½ÓÏÂÀ´µÄ 
-N ĞĞÖĞ£¬µÚ 
-i ĞĞ£¨¼´ 
-1¡Üi¡ÜN ĞĞ£©°üº¬ÁËÍø¸ñÖĞµÚ 
-i ĞĞÖĞÃ¿¸öµ¥Ôª¸ñµÄ±¦Ê¯¼ÛÖµ 
+åœ¨æ¥ä¸‹æ¥çš„ 
+N è¡Œä¸­ï¼Œç¬¬ 
+i è¡Œï¼ˆå³ 
+1â‰¤iâ‰¤N è¡Œï¼‰åŒ…å«äº†ç½‘æ ¼ä¸­ç¬¬ 
+i è¡Œä¸­æ¯ä¸ªå•å…ƒæ ¼çš„å®çŸ³ä»·å€¼ 
 A 
 i,1
 ?
  ,A 
 i,2
 ?
- ,¡­,A 
+ ,â€¦,A 
 i,M
 ?
-  £¬ÕâĞ©ÊıÖµÒÔ¿Õ¸ñ·Ö¸ô¡£
-Output  Êä³ö
+  ï¼Œè¿™äº›æ•°å€¼ä»¥ç©ºæ ¼åˆ†éš”ã€‚
+Output  è¾“å‡º
 Output the maximum total value of gems that Takahashi can collect, on a single line.
-ÔÚÒ»ĞĞÉÏÊä³ö¸ßÇÅÄÜ¹»ÊÕ¼¯µ½µÄ±¦Ê¯µÄ×Ü¼ÛÖµ×î´óÖµ¡£
+åœ¨ä¸€è¡Œä¸Šè¾“å‡ºé«˜æ¡¥èƒ½å¤Ÿæ”¶é›†åˆ°çš„å®çŸ³çš„æ€»ä»·å€¼æœ€å¤§å€¼ã€‚
 
-Sample Input 1  Ê¾ÀıÊäÈë 1 ¸´ÖÆ
-Copy  ¸±±¾
+Sample Input 1  ç¤ºä¾‹è¾“å…¥ 1 å¤åˆ¶
+Copy  å‰¯æœ¬
 3 3
 1 2 3
 4 5 6
 7 8 9
-Sample Output 1  Ê¾ÀıÊä³ö 1 ¸´ÖÆ
-Copy  ¸±±¾
+Sample Output 1  ç¤ºä¾‹è¾“å‡º 1 å¤åˆ¶
+Copy  å‰¯æœ¬
 29
-Sample Input 2  Ê¾ÀıÊäÈë 2 ¸´ÖÆ
-Copy  ¸±±¾
+Sample Input 2  ç¤ºä¾‹è¾“å…¥ 2 å¤åˆ¶
+Copy  å‰¯æœ¬
 4 5
 3 1 4 1 5
 9 2 6 5 3
 5 8 9 7 9
 3 2 3 8 4
-Sample Output 2  Ê¾ÀıÊä³ö 2 ¸´ÖÆ
-Copy  ¸±±¾
+Sample Output 2  ç¤ºä¾‹è¾“å‡º 2 å¤åˆ¶
+Copy  å‰¯æœ¬
 54
-Sample Input 3  Ê¾ÀıÊäÈë 3 ¸´ÖÆ
-Copy  ¸±±¾
+Sample Input 3  ç¤ºä¾‹è¾“å…¥ 3 å¤åˆ¶
+Copy  å‰¯æœ¬
 6 8
 100 200 50 300 10 400 150 80
 250 30 500 20 600 70 90 200
@@ -180,8 +180,8 @@ Copy  ¸±±¾
 150 60 900 200 100 1000 50 350
 300 400 50 150 200 80 600 700
 100 200 300 400 500 600 700 800
-Sample Output 3  Ê¾ÀıÊä³ö 3 ¸´ÖÆ
-Copy  ¸±±¾
+Sample Output 3  ç¤ºä¾‹è¾“å‡º 3 å¤åˆ¶
+Copy  å‰¯æœ¬
 5610
  */
 #include <iostream>
@@ -200,8 +200,8 @@ Copy  ¸±±¾
 using namespace std;
 vector<vector<long long>> g(1005,vector<long long>(1005,INT_MIN));
 vector<vector<long long>> dp(1005,vector<long long>(1005,INT_MIN));
-long long n;//nĞĞ
-long long m;//mÁĞ
+long long n;//nè¡Œ
+long long m;//måˆ—
 void dfs(long long x,long long y,long long sum){
     if(dp[x][y] >= sum) return;
     dp[x][y] = sum;
@@ -236,7 +236,7 @@ void test01(){
     return;
 }
 
-/* dp[i][j]±íÊ¾´ÓÆğµã×ßµ½µÚ(i,j)µãËùÄÜ»ñµÃµÄ×î´ó¼ÛÖµ
+/* dp[i][j]è¡¨ç¤ºä»èµ·ç‚¹èµ°åˆ°ç¬¬(i,j)ç‚¹æ‰€èƒ½è·å¾—çš„æœ€å¤§ä»·å€¼
 dp[i][j] = g[i][j] + max(dp[i-1][j],dp[i][j-1]) */
 void test02(){
     cin>>n>>m;

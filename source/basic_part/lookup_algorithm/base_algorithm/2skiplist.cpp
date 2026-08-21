@@ -1,4 +1,4 @@
-//ÌøÔ¾±í
+//è·³è·ƒè¡¨
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,10 +9,10 @@
 
 typedef struct node{
     int key;
-    struct node* next;//ºáÏòÖ¸Õë
-    struct node* down;//ÏòÏÂµÄÖ¸Õë
-    struct node* up;//ÏòÉÏµÄÖ¸Õë
-    int level;//²ãÊı
+    struct node* next;//æ¨ªå‘æŒ‡é’ˆ
+    struct node* down;//å‘ä¸‹çš„æŒ‡é’ˆ
+    struct node* up;//å‘ä¸Šçš„æŒ‡é’ˆ
+    int level;//å±‚æ•°
 }node;
 
 #define MAX_LEVEL 50
@@ -25,7 +25,7 @@ typedef struct skiplist{
 
 node* get_new_node(int key,int n){
     if(n<=0) return nullptr;
-    node* nodes = (node*)malloc(sizeof(node)*n);//¿ª±Ù½ÚµãÊı×é
+    node* nodes = (node*)malloc(sizeof(node)*n);//å¼€è¾ŸèŠ‚ç‚¹æ•°ç»„
     for(int i = 0;i<n;i++){
         nodes[i].level = i;
         nodes[i].key = key;
@@ -44,7 +44,7 @@ void clear_node(node* p){
     return;
 }
 
-//ÔÚÌøÔ¾±íÖĞ²éÕÒÖµÎªsµÄ½Úµã
+//åœ¨è·³è·ƒè¡¨ä¸­æŸ¥æ‰¾å€¼ä¸ºsçš„èŠ‚ç‚¹
 node* find(skiplist* s,int x){
     if(s==nullptr) return nullptr;
     node* p = s->head;
@@ -61,7 +61,7 @@ int rand_level(int max_level){
     return level;
 }
 
-//ÌøÔ¾±íµÄ²åÈë²Ù×÷
+//è·³è·ƒè¡¨çš„æ’å…¥æ“ä½œ
 void insert(skiplist* s,int x){
     if(s==nullptr) return;
     int level = rand_level(s->max_level);
@@ -136,13 +136,13 @@ void test01(){
         insert(s,x);
     }
     output(s);
-    //²âÊÔ²éÕÒËã·¨
+    //æµ‹è¯•æŸ¥æ‰¾ç®—æ³•
     while(~scanf("%d",&x)){
         node* p = find(s,x);
         if(p!=nullptr){
-            printf("³É¹¦ÕÒµ½%dÔÚ%d²ã\n",x,p->level);
+            printf("æˆåŠŸæ‰¾åˆ°%dåœ¨%då±‚\n",x,p->level);
         }else {
-            printf("Ã»ÓĞÕÒµ½%d\n",x);
+            printf("æ²¡æœ‰æ‰¾åˆ°%d\n",x);
         }
     }
     clear_skiplist(s);

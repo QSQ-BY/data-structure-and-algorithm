@@ -1,23 +1,23 @@
-/* ÖĞÎ»ÊıÊÇÓĞĞòÕûÊıÁĞ±íÖĞµÄÖĞ¼äÖµ¡£Èç¹ûÁĞ±íµÄ´óĞ¡ÊÇÅ¼Êı£¬
-ÔòÃ»ÓĞÖĞ¼äÖµ£¬ÖĞÎ»ÊıÊÇÁ½¸öÖĞ¼äÖµµÄÆ½¾ùÖµ¡£
-ÀıÈç arr = [2,3,4] µÄÖĞÎ»ÊıÊÇ 3 ¡£
-ÀıÈç arr = [2,3] µÄÖĞÎ»ÊıÊÇ (2 + 3) / 2 = 2.5 ¡£
-ÊµÏÖ MedianFinder Àà:
-MedianFinder() ³õÊ¼»¯ MedianFinder ¶ÔÏó¡£
-void addNum(int num) ½«Êı¾İÁ÷ÖĞµÄÕûÊı num Ìí¼Óµ½Êı¾İ½á¹¹ÖĞ¡£
-double findMedian() ·µ»Øµ½Ä¿Ç°ÎªÖ¹ËùÓĞÔªËØµÄÖĞÎ»Êı¡£
-ÓëÊµ¼Ê´ğ°¸Ïà²î 10-5 ÒÔÄÚµÄ´ğ°¸½«±»½ÓÊÜ¡£
-Ê¾Àı 1
-ÊäÈë
+/* ä¸­ä½æ•°æ˜¯æœ‰åºæ•´æ•°åˆ—è¡¨ä¸­çš„ä¸­é—´å€¼ã€‚å¦‚æœåˆ—è¡¨çš„å¤§å°æ˜¯å¶æ•°ï¼Œ
+åˆ™æ²¡æœ‰ä¸­é—´å€¼ï¼Œä¸­ä½æ•°æ˜¯ä¸¤ä¸ªä¸­é—´å€¼çš„å¹³å‡å€¼ã€‚
+ä¾‹å¦‚ arr = [2,3,4] çš„ä¸­ä½æ•°æ˜¯ 3 ã€‚
+ä¾‹å¦‚ arr = [2,3] çš„ä¸­ä½æ•°æ˜¯ (2 + 3) / 2 = 2.5 ã€‚
+å®ç° MedianFinder ç±»:
+MedianFinder() åˆå§‹åŒ– MedianFinder å¯¹è±¡ã€‚
+void addNum(int num) å°†æ•°æ®æµä¸­çš„æ•´æ•° num æ·»åŠ åˆ°æ•°æ®ç»“æ„ä¸­ã€‚
+double findMedian() è¿”å›åˆ°ç›®å‰ä¸ºæ­¢æ‰€æœ‰å…ƒç´ çš„ä¸­ä½æ•°ã€‚
+ä¸å®é™…ç­”æ¡ˆç›¸å·® 10-5 ä»¥å†…çš„ç­”æ¡ˆå°†è¢«æ¥å—ã€‚
+ç¤ºä¾‹ 1
+è¾“å…¥
 ["MedianFinder", "addNum", "addNum", "findMedian", "addNum", "findMedian"]
 [[], [1], [2], [], [3], []]
-Êä³ö
+è¾“å‡º
 [null, null, null, 1.5, null, 2.0]
-½âÊÍ
+è§£é‡Š
 MedianFinder medianFinder = new MedianFinder();
 medianFinder.addNum(1);    // arr = [1]
 medianFinder.addNum(2);    // arr = [1, 2]
-medianFinder.findMedian(); // ·µ»Ø 1.5 ((1 + 2) / 2)
+medianFinder.findMedian(); // è¿”å› 1.5 ((1 + 2) / 2)
 medianFinder.addNum(3);    // arr[1, 2, 3]
 medianFinder.findMedian(); // return 2.0
  */
@@ -27,14 +27,14 @@ medianFinder.findMedian(); // return 2.0
 #include <algorithm>
 #include <set>
 using namespace std;
-//Ë«¶Ñ·¨£¬¶Ô¶¥¶Ñ
+//åŒå †æ³•ï¼Œå¯¹é¡¶å †
 
 class MedianFinder {
 public:
     typedef pair<int,int> PII;
     int tot = 0;
     set<PII> s1,s2;
-    //s1´ó¶¥¶Ñ s2Ğ¡¶¥¶Ñ
+    //s1å¤§é¡¶å † s2å°é¡¶å †
 
     MedianFinder() {
         
@@ -46,7 +46,7 @@ public:
         }else{
             s2.insert(PII(num,tot++));
         }
-        int n1 = (s1.size()+ s2.size()+1)/2;//ÀíÂÛÔªËØÊıÁ¿
+        int n1 = (s1.size()+ s2.size()+1)/2;//ç†è®ºå…ƒç´ æ•°é‡
         if(n1 == s1.size()) return;
         if(s1.size() < n1){
             s1.insert(PII(-s2.begin()->first,tot++));
@@ -90,12 +90,12 @@ public:
         int n1 = (s1.size()+s2.size()+1)/2;
         if(n1==s1.size()) return;
         if(s1.size()>n1){
-            //Êµ¼ÊÊıÁ¿±ÈÀíÂÛÊıÁ¿´ó£¬¾ÍÒª¸øÒ»¸öÔªËØµ½s2
+            //å®é™…æ•°é‡æ¯”ç†è®ºæ•°é‡å¤§ï¼Œå°±è¦ç»™ä¸€ä¸ªå…ƒç´ åˆ°s2
             PII temp = PII(-s1.begin()->first,tot++);
             s2.insert(temp);
             s1.erase(s1.begin());
         }else if(s1.size()<n1){
-            //Êµ¼ÊÊıÁ¿±ÈÀíÂÛÊıÁ¿ÏÂ£¬s2Òª¸øÒ»¸öÔªËØµ½s1
+            //å®é™…æ•°é‡æ¯”ç†è®ºæ•°é‡ä¸‹ï¼Œs2è¦ç»™ä¸€ä¸ªå…ƒç´ åˆ°s1
             PII temp = PII(-s2.begin()->first,tot++);
             s1.insert(temp);
             s2.erase(s2.begin());

@@ -1,12 +1,12 @@
-/* ��Ŀ����
-? ����һ���� N ��Ԫ�صķǸ����У�
-�󳤶ȴ��ڵ��� M �����������е����ƽ��ֵ�� 
-����
-? ��һ������������ N,M����1��N,M��100000��
-? ������ N �У�ÿ������һ������ʾ�Ǹ����С�
-���
-? ���һ��������ʾ���ƽ��ֵ�� 1000 �Ľ����
-��������
+/* 题目描述
+? 给定一个有 N 个元素的非负序列，
+求长度大于等于 M 的连续子序列的最大平均值。 
+输入
+? 第一行输入两个数 N,M。（1≤N,M≤100000）
+? 接下来 N 行，每行输入一个数表示非负序列。
+输出
+? 输出一个整数表示最大平均值乘 1000 的结果。
+样例输入
 10 6
 6 
 4
@@ -18,7 +18,7 @@
 9
 4
 1 
-�������
+样例输出
 6500*/
 
 #include <iostream>
@@ -29,9 +29,9 @@
 #include <unordered_map>
 #include <unordered_set>
 
-//ƽ��ֵA  0 1 2 ....... X X+1 ......... Z
-//�Ƿ���� 1 1 1 ....... 1  0  ......... 0
-//01�����㷨ģ��
+//平均值A  0 1 2 ....... X X+1 ......... Z
+//是否存在 1 1 1 ....... 1  0  ......... 0
+//01二分算法模型
 
 using namespace std;
 
@@ -39,14 +39,14 @@ long long check(vector<long long> nums, long long len, long long target) {
     for (long long i = 0; i < nums.size(); i++) {
         nums[i] = nums[i] - target;
     }
-    vector<long long> prefix(nums.size() + 1, 0);//ǰ׺��
+    vector<long long> prefix(nums.size() + 1, 0);//前缀和
     for (long long i = 0; i < nums.size(); i++) {
         prefix[i + 1] = prefix[i] + nums[i];
     }
-    // ��ǰ�Ϸ���˵��е���Сǰ׺��
+    // 当前合法左端点中的最小前缀和
     long long minPrefix = prefix[0];
     for (long long right = len; right <= nums.size(); right++) {
-        // right���Ӻ��¼���ĺϷ���˵�
+        // right增加后，新加入的合法左端点
         minPrefix = min(minPrefix, prefix[right - len]);
         if (prefix[right] - minPrefix >= 0) {
             return 1;

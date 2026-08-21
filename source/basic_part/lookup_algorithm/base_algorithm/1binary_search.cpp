@@ -1,4 +1,4 @@
-//¶ş·Ö²éÕÒËã·¨
+//äºŒåˆ†æŸ¥æ‰¾ç®—æ³•
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -24,17 +24,17 @@ void output(int* arr,int n){
 }
 
 void test_binary_search(int n){
-    //Éú³ÉËæ»úµÄÓĞĞòÊı×é
+    //ç”Ÿæˆéšæœºçš„æœ‰åºæ•°ç»„
     int* arr = (int*)malloc(sizeof(int) * n);
     arr[0] = rand()%10;
     for(int i = 1;i<n;i++) arr[i] = arr[i-1] + rand()%10;
     output(arr,n);
 
-    //¶ş·Ö²éÕÒËã·¨
+    //äºŒåˆ†æŸ¥æ‰¾ç®—æ³•
     int target = 0;
     int pos = -1;
     while(~scanf("%d",&target)){
-        if(target==-1) break;//Èç¹û²éÕÒÄ¿±êÎª-1ÔòÍË³ö£¬·ñÔò´ÓarrÊı×éÖĞ½øĞĞ²éÕÒ
+        if(target==-1) break;//å¦‚æœæŸ¥æ‰¾ç›®æ ‡ä¸º-1åˆ™é€€å‡ºï¼Œå¦åˆ™ä»arræ•°ç»„ä¸­è¿›è¡ŒæŸ¥æ‰¾
         int left = 0;
         int right = n-1;
         while(left<right){
@@ -50,8 +50,8 @@ void test_binary_search(int n){
                 right = mid-1;
             }
         }
-        if(pos == -1) printf("Ã»ÓĞÔÚÊı×éÖĞÕÒµ½%d\n",target);
-        else printf("³É¹¦ÔÚ%dÎ»ÖÃÕÒµ½%d\n",pos,target);
+        if(pos == -1) printf("æ²¡æœ‰åœ¨æ•°ç»„ä¸­æ‰¾åˆ°%d\n",target);
+        else printf("æˆåŠŸåœ¨%dä½ç½®æ‰¾åˆ°%d\n",pos,target);
         pos = -1;
     }
     free(arr);
@@ -59,7 +59,7 @@ void test_binary_search(int n){
 }
 
 #define min(a,b) ((a) < (b) ? (a):(b))
-//¸ù¾İË°Ç°¹¤×ÊµÃµ½Ë°ºó¹¤×Ê
+//æ ¹æ®ç¨å‰å·¥èµ„å¾—åˆ°ç¨åå·¥èµ„
 double f(double x){
     if(x >= 0) x-= min(x,3000) * 0.03;
     if(x>3000) x-=(min(x,12000) - 3000)*0.1;
@@ -72,7 +72,7 @@ double f(double x){
 }
 
 
-//¶ş·ÖËã·¨
+//äºŒåˆ†ç®—æ³•
 #define EXP 1e-4
 double binary_algorithm(int y){
 
@@ -95,7 +95,7 @@ double binary_algorithm(int y){
 }
 
 
-//Ê¹ÓÃ¶ş·ÖËã·¨¸ù¾İË°ºóÊÕÈëÇó½âË°Ç°ÊÕÈë(¸ù¾İyÇó½âx)
+//ä½¿ç”¨äºŒåˆ†ç®—æ³•æ ¹æ®ç¨åæ”¶å…¥æ±‚è§£ç¨å‰æ”¶å…¥(æ ¹æ®yæ±‚è§£x)
 void test_binary_algorithm(){
     double y;
     while(~scanf("%lf",&y)){
@@ -110,7 +110,7 @@ int main(void){
     srand(time(0));
     #define MAX_N 10
     //test_binary_search(MAX_N);
-    test_binary_algorithm();//¸ù¾İË°ºóÊÕÈëÇó½âË°Ç°ÊÕÈë
+    test_binary_algorithm();//æ ¹æ®ç¨åæ”¶å…¥æ±‚è§£ç¨å‰æ”¶å…¥
     system("pause");
     return 0;
 }

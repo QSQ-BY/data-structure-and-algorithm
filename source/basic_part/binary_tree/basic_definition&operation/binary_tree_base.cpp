@@ -24,7 +24,7 @@ node* insert(node* root,int data){
     return root;
 }
 
-//¹ã¶ÈÓÅÏÈËÑË÷£¨²ãÐò±éÀú£©
+//å¹¿åº¦ä¼˜å…ˆæœç´¢ï¼ˆå±‚åºéåŽ†ï¼‰
 void bfs(node* root){
     if(root==nullptr) return;
     node* queue[MAX_NODE+5];
@@ -48,7 +48,7 @@ void bfs(node* root){
     return ;
 }
 
-//Éî¶ÈÓÅÏÈ±éÀú
+//æ·±åº¦ä¼˜å…ˆéåŽ†
 int tot=0;
 void dfs(node* root){
     if(root == nullptr) return;
@@ -65,7 +65,7 @@ void dfs(node* root){
 
 void clear(node* root){
     if(root == nullptr) return;
-    //µÝ¹éº¯Êý
+    //é€’å½’å‡½æ•°
     clear(root->lchild);
     clear(root->rchild);
     free(root);

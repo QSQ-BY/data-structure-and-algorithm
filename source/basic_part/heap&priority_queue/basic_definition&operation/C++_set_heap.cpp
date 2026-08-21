@@ -1,4 +1,4 @@
-//setÄ£Äâ¶ÑµÄ²Ù×÷
+//setæ¨¡æ‹Ÿå †çš„æ“ä½œ
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -7,7 +7,7 @@
 using namespace std;
 void test01(){
     
-    cout<<"set»ù´¡Ê¹ÓÃ:"<<endl;
+    cout<<"setåŸºç¡€ä½¿ç”¨:"<<endl;
     set<int> s;
     cout<<s.size()<<endl;
     s.insert(3);//3
@@ -21,7 +21,7 @@ void test01(){
 }
 
 
-//¼¯ºÏµÄÌØÕ÷
+//é›†åˆçš„ç‰¹å¾
 void test02(){
     set<int> s;
     cout<<s.size()<<endl;
@@ -36,7 +36,7 @@ void test02(){
 }
 
 void test03(){
-    //Ïû³ıÈ¥ÖØÌØĞÔ
+    //æ¶ˆé™¤å»é‡ç‰¹æ€§
     typedef pair<int,int> PII;
     set<PII> s;
     int tot = 0;
@@ -52,8 +52,8 @@ void test03(){
 }
 
 void test04(){
-    //±éÀú¼¯ºÏÖĞµÄÔªËØ
-    //°´ÕÕ´ÓĞ¡µ½´óË³ĞòÊä³ö
+    //éå†é›†åˆä¸­çš„å…ƒç´ 
+    //æŒ‰ç…§ä»å°åˆ°å¤§é¡ºåºè¾“å‡º
     typedef pair<int,int> PII;
     set<PII> s;
     int tot = 0;
@@ -69,16 +69,16 @@ void test04(){
 
 
 void test05(){
-    //Ä£ÄâÒ»¸öĞ¡¶¥¶Ñ
-    //Ä£Äâ´ó¶¥¶Ñ£¬¾Í¸øÃ¿¸öÔªËØÈ¡·´
+    //æ¨¡æ‹Ÿä¸€ä¸ªå°é¡¶å †
+    //æ¨¡æ‹Ÿå¤§é¡¶å †ï¼Œå°±ç»™æ¯ä¸ªå…ƒç´ å–å
     typedef pair<int,int> PII;
     set<PII> s;
     int tot=0;
     for(int i =0;i<10;i++){
-        s.insert(PII(rand()%20,tot++));//¶ÑµÄpush²Ù×÷
+        s.insert(PII(rand()%20,tot++));//å †çš„pushæ“ä½œ
     }
     for(int i =0;i<4;i++){
-        cout<<s.begin()->first<<endl;//²é¿´¶Ñ¶¥ÔªËØ
+        cout<<s.begin()->first<<endl;//æŸ¥çœ‹å †é¡¶å…ƒç´ 
         s.erase(s.begin());//pop
     }
     cout<<endl;

@@ -1,14 +1,14 @@
-/* ¸øÄãÁ´±íµÄÍ·½áµã head £¬Çë½«Æä°´ ÉıĞò 
-ÅÅÁĞ²¢·µ»Ø ÅÅĞòºóµÄÁ´±í ¡£
-Ê¾Àı 1£º
-ÊäÈë£ºhead = [4,2,1,3]
-Êä³ö£º[1,2,3,4]
-Ê¾Àı 2£º
-ÊäÈë£ºhead = [-1,5,3,4,0]
-Êä³ö£º[-1,0,3,4,5]
-Ê¾Àı 3£º
-ÊäÈë£ºhead = []
-Êä³ö£º[]
+/* ç»™ä½ é“¾è¡¨çš„å¤´ç»“ç‚¹ head ï¼Œè¯·å°†å…¶æŒ‰ å‡åº 
+æ’åˆ—å¹¶è¿”å› æ’åºåçš„é“¾è¡¨ ã€‚
+ç¤ºä¾‹ 1ï¼š
+è¾“å…¥ï¼šhead = [4,2,1,3]
+è¾“å‡ºï¼š[1,2,3,4]
+ç¤ºä¾‹ 2ï¼š
+è¾“å…¥ï¼šhead = [-1,5,3,4,0]
+è¾“å‡ºï¼š[-1,0,3,4,5]
+ç¤ºä¾‹ 3ï¼š
+è¾“å…¥ï¼šhead = []
+è¾“å‡ºï¼š[]
  */
 #include <iostream>
 #include <vector>
@@ -25,16 +25,16 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-//¶ÔÁ´±í½øĞĞÅÅĞò
-//Ö»ÄÜ´ÓÇ°Ïòºó½øĞĞ·ÃÎÊ->Ñ¡ÔñÅÅĞò/Ã°ÅİÅÅĞò/¿ìËÙÅÅĞò/¹é²¢ÅÅĞò
+//å¯¹é“¾è¡¨è¿›è¡Œæ’åº
+//åªèƒ½ä»å‰å‘åè¿›è¡Œè®¿é—®->é€‰æ‹©æ’åº/å†’æ³¡æ’åº/å¿«é€Ÿæ’åº/å½’å¹¶æ’åº
 class Solution {
 public:
-//Ê¹ÓÃ¿ìËÙÅÅĞòÍê³ÉÁ´±íµÄÅÅĞò
+//ä½¿ç”¨å¿«é€Ÿæ’åºå®Œæˆé“¾è¡¨çš„æ’åº
     ListNode* sortList1(ListNode* head) {
-        //±ß½çÌõ¼ş
+        //è¾¹ç•Œæ¡ä»¶
         if(head == nullptr or head->next == nullptr) return head;
         
-        //Ñ°ÕÒÖĞ¼ä»ù×¼Öµ
+        //å¯»æ‰¾ä¸­é—´åŸºå‡†å€¼
         int l = head->val;
         int r = head->val;
         ListNode* p = head;
@@ -46,7 +46,7 @@ public:
         if(l == r) return head;
         int base_number = (l+r)>>1;
 
-        //·ÖÇø²Ù×÷
+        //åˆ†åŒºæ“ä½œ
         ListNode* h1 = nullptr;
         ListNode* h2 = nullptr;
         ListNode* temp = nullptr;
@@ -63,7 +63,7 @@ public:
             p = temp;
         }
 
-        //·Ö±ğ¶ÔÁ½¸öÇø½øĞĞÅÅĞò
+        //åˆ†åˆ«å¯¹ä¸¤ä¸ªåŒºè¿›è¡Œæ’åº
         h1 = sortList1(h1);
         h2 = sortList1(h2);
         p = h1;
@@ -72,7 +72,7 @@ public:
         return h1;
     }
 
-//Ê¹ÓÃ¹é²¢ÅÅĞòÍê³ÉÁ´±íÅÅĞò
+//ä½¿ç”¨å½’å¹¶æ’åºå®Œæˆé“¾è¡¨æ’åº
 
     ListNode* merge_sort(ListNode* head,int n){
         if(head == nullptr or n==1) return head;
@@ -118,7 +118,7 @@ public:
     } 
     ListNode* sortList2(ListNode* head){
         if(head == nullptr or head->next == nullptr) return head;
-        //»ñÈ¡Á´±í³¤¶Èn
+        //è·å–é“¾è¡¨é•¿åº¦n
         ListNode* p = nullptr;
         p = head;
         int n = 0;

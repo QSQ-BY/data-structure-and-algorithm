@@ -30,10 +30,10 @@ void test01(){
         }
     }
 
-    //构建链表和小顶堆
-    n = k;//压缩后的数组长度
-    int cnt = 0;//正数的个数cnt
-    long long sum = 0;//正数的和值sum
+    //鏋勫缓閾捐〃鍜屽皬椤跺爢
+    n = k;//鍘嬬缉鍚庣殑鏁扮粍闀垮害
+    int cnt = 0;//姝ｆ暟鐨勪釜鏁癱nt
+    long long sum = 0;//姝ｆ暟鐨勫拰鍊約um
     set<PII> s;
 
     for(int i = 1;i<=n;i++){
@@ -115,7 +115,7 @@ void test02(){
         int left = l[pos];
         int number = s.begin()->first;
         s.erase(s.begin());
-        //合并操作
+        //鍚堝苟鎿嶄綔
         if((left>=1 and right<=n) or arr[pos]>0){
             sum -=number;
             cnt--;

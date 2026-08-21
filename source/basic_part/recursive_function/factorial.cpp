@@ -10,7 +10,7 @@ int factorial(int n)
 }
 int main(void)
 {
-    cout << "5�Ľ׳�Ϊ" << factorial(5) << endl;
+    cout << "5的阶乘为" << factorial(5) << endl;
     system("pause");
     return 0;
 }

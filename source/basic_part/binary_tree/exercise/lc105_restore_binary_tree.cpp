@@ -1,14 +1,14 @@
-/* ¸ø¶¨Á½¸öÕûÊıÊı×é preorder ºÍ inorder £¬
-ÆäÖĞ preorder ÊÇ¶ş²æÊ÷µÄÏÈĞò±éÀú£¬ 
-inorder ÊÇÍ¬Ò»¿ÃÊ÷µÄÖĞĞò±éÀú£¬
-Çë¹¹Ôì¶ş²æÊ÷²¢·µ»ØÆä¸ù½Úµã¡£
+/* ç»™å®šä¸¤ä¸ªæ•´æ•°æ•°ç»„ preorder å’Œ inorder ï¼Œ
+å…¶ä¸­ preorder æ˜¯äºŒå‰æ ‘çš„å…ˆåºéå†ï¼Œ 
+inorder æ˜¯åŒä¸€æ£µæ ‘çš„ä¸­åºéå†ï¼Œ
+è¯·æ„é€ äºŒå‰æ ‘å¹¶è¿”å›å…¶æ ¹èŠ‚ç‚¹ã€‚
 
-Ê¾Àı 1:
-ÊäÈë: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
-Êä³ö: [3,9,20,null,null,15,7]
-Ê¾Àı 2:
-ÊäÈë: preorder = [-1], inorder = [-1]
-Êä³ö: [-1]
+ç¤ºä¾‹ 1:
+è¾“å…¥: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+è¾“å‡º: [3,9,20,null,null,15,7]
+ç¤ºä¾‹ 2:
+è¾“å…¥: preorder = [-1], inorder = [-1]
+è¾“å‡º: [-1]
  */
 #include <iostream>
 #include <vector>
@@ -32,7 +32,7 @@ class Solution{
 public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         if(preorder.size() == 0 or inorder.size() == 0) return nullptr;
-        int pos = 0;//ÖĞĞò±éÀú¸ù½ÚµãÎ»ÖÃ
+        int pos = 0;//ä¸­åºéå†æ ¹èŠ‚ç‚¹ä½ç½®
         int n = preorder.size();
         while(inorder[pos]!= preorder[0]) pos++;
         TreeNode* root = new TreeNode(preorder[0]);

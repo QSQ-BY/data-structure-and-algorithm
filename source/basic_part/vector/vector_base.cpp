@@ -1,63 +1,63 @@
-//Ë³Ğò±íµÄ»ù´¡½á¹¹¶¨ÒåÓë½á¹¹²Ù×÷(CÓïÑÔ)
+//é¡ºåºè¡¨çš„åŸºç¡€ç»“æ„å®šä¹‰ä¸ç»“æ„æ“ä½œ(Cè¯­è¨€)
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct Vector
 {
-    int *data; // Êı×éÊı¾İ
-    int size;  // Ë³Ğò±í´óĞ¡
-    int count; // Ë³Ğò±í´æ´¢µÄÔªËØ¸öÊı
+    int *data; // æ•°ç»„æ•°æ®
+    int size;  // é¡ºåºè¡¨å¤§å°
+    int count; // é¡ºåºè¡¨å­˜å‚¨çš„å…ƒç´ ä¸ªæ•°
 } vector;
 
-// ´´½¨²Ù×÷
-vector *create_vector(int size) // Ê¹ÓÃÖ¸Õë×÷Îªº¯Êı·µ»ØÖµ£¬ÒòÎªº¯ÊıÄÚ²¿·ÖÅäµÄÄÚ´æĞèÒªÔÚº¯ÊıÍâ²¿Ê¹ÓÃ£¬ËùÒÔ±ØĞëÊ¹ÓÃÖ¸ÕëÀ´·µ»Ø·ÖÅäµÄÄÚ´æµØÖ·
+// åˆ›å»ºæ“ä½œ
+vector *create_vector(int size) // ä½¿ç”¨æŒ‡é’ˆä½œä¸ºå‡½æ•°è¿”å›å€¼ï¼Œå› ä¸ºå‡½æ•°å†…éƒ¨åˆ†é…çš„å†…å­˜éœ€è¦åœ¨å‡½æ•°å¤–éƒ¨ä½¿ç”¨ï¼Œæ‰€ä»¥å¿…é¡»ä½¿ç”¨æŒ‡é’ˆæ¥è¿”å›åˆ†é…çš„å†…å­˜åœ°å€
 {
     vector *v = (vector *)malloc(sizeof(vector));
     if (v == nullptr)
     {
-        printf("Ë³Ğò±í³õÊ¼»¯Ê§°Ü£¬ÎŞ·¨·ÖÅäË³Ğò±í½á¹¹ÌåÄÚ´æ");
+        printf("é¡ºåºè¡¨åˆå§‹åŒ–å¤±è´¥ï¼Œæ— æ³•åˆ†é…é¡ºåºè¡¨ç»“æ„ä½“å†…å­˜");
         return nullptr;
     }
     v->data = (int *)malloc(sizeof(int) * size);
     if (v->data == nullptr)
     {
-        printf("Ë³Ğò±í³õÊ¼»¯Ê§°Ü£¬ÎŞ·¨·ÖÅäË³Ğò±íÊı¾İÄÚ´æ");
+        printf("é¡ºåºè¡¨åˆå§‹åŒ–å¤±è´¥ï¼Œæ— æ³•åˆ†é…é¡ºåºè¡¨æ•°æ®å†…å­˜");
         free(v);
         return nullptr;
     }
 
-    printf("Ë³Ğò±í´´½¨³É¹¦£¬´óĞ¡Îª%d\n", size);
+    printf("é¡ºåºè¡¨åˆ›å»ºæˆåŠŸï¼Œå¤§å°ä¸º%d\n", size);
     v->size = size;
     v->count = 0;
     
     return v;
 }
 
-//À©Èİ²Ù×÷
+//æ‰©å®¹æ“ä½œ
 int expand(vector* v){
     if (v == nullptr) return 0;
-    // ¶ş±¶À©Èİ·¨Ôò£¬ÖÁÉÙÀ©µ½ 1
+    // äºŒå€æ‰©å®¹æ³•åˆ™ï¼Œè‡³å°‘æ‰©åˆ° 1
     int new_size = (v->size > 0) ? (v->size * 2) : 1;
-    int *p; // Èç¹ûreallocº¯Êı·µ»ØÁË¿ÕÖ¸Õë£¬ÔòÔ­À´µÄv->dataÖ¸Õë»á¶ªÊ§
+    int *p; // å¦‚æœreallocå‡½æ•°è¿”å›äº†ç©ºæŒ‡é’ˆï¼Œåˆ™åŸæ¥çš„v->dataæŒ‡é’ˆä¼šä¸¢å¤±
     p = (int*)realloc(v->data, sizeof(int) * new_size);
     if (p == nullptr){
-        printf("À©ÈİÊ§°Ü\n");
+        printf("æ‰©å®¹å¤±è´¥\n");
         return 0;
     }
     v->data = p;
     v->size = new_size;
-    printf("À©Èİ³É¹¦£¬À©ÈİºóµÄË³Ğò±í´óĞ¡Îª%d\n", v->size);
+    printf("æ‰©å®¹æˆåŠŸï¼Œæ‰©å®¹åçš„é¡ºåºè¡¨å¤§å°ä¸º%d\n", v->size);
     return 1;
 }
 
-// ´òÓ¡²Ù×÷
+// æ‰“å°æ“ä½œ
 int print(vector *v)
 {
     if (v == nullptr)
     {
-        printf("Ë³Ğò±íÎª¿Õ£¬ÎŞ·¨´òÓ¡\n");
+        printf("é¡ºåºè¡¨ä¸ºç©ºï¼Œæ— æ³•æ‰“å°\n");
         return 0;
     }
-    printf("µ±Ç°Ë³Ğò±í: size=%d, count=%d, data=[", v->size, v->count);
+    printf("å½“å‰é¡ºåºè¡¨: size=%d, count=%d, data=[", v->size, v->count);
     for (int i = 0; i < v->count; i++)
     {
         if (i > 0) printf(", ");
@@ -67,12 +67,12 @@ int print(vector *v)
     return 1;
 }
 
-// ³õÊ¼»¯²Ù×÷
+// åˆå§‹åŒ–æ“ä½œ
 vector *init_vector(vector *v, int count, int num)
 {
     if (v == nullptr || v->data == nullptr || count < 0 || count > v->size)
     {
-        printf("Ë³Ğò±í³õÊ¼»¯Ê§°Ü£¬²ÎÊıÎŞĞ§");
+        printf("é¡ºåºè¡¨åˆå§‹åŒ–å¤±è´¥ï¼Œå‚æ•°æ— æ•ˆ");
         return v;
     }
     v->count = count;
@@ -80,27 +80,27 @@ vector *init_vector(vector *v, int count, int num)
     {
         v->data[i] = num;
     }
-    printf("³É¹¦³õÊ¼»¯Ë³Ğò±í\n");
+    printf("æˆåŠŸåˆå§‹åŒ–é¡ºåºè¡¨\n");
     print(v);
     return v;
 }
 
-// ²åÈë²Ù×÷
+// æ’å…¥æ“ä½œ
 int insert(vector *v, int pos, int num)
 {
     if (v == nullptr)
     {
-        printf("²åÈëÎŞĞ§£¬Ë³Ğò±íÎª¿Õ\n");
+        printf("æ’å…¥æ— æ•ˆï¼Œé¡ºåºè¡¨ä¸ºç©º\n");
         return 0;
     }
     if (pos < 0 || pos > v->count)
     {
-        printf("²åÈëÎŞĞ§£¬Î»ÖÃÎŞĞ§\n");
+        printf("æ’å…¥æ— æ•ˆï¼Œä½ç½®æ— æ•ˆ\n");
         return 0;
     }
     else if ((v->count + 1 > v->size) and (expand(v) == 0) )
     {
-        printf("²åÈëÎŞĞ§,ÈİÆ÷¿Õ¼ä¹ıĞ¡ÎŞ·¨ÈİÄÉ,ÇÒÀ©ÈİÊ§°Ü\n");
+        printf("æ’å…¥æ— æ•ˆ,å®¹å™¨ç©ºé—´è¿‡å°æ— æ³•å®¹çº³,ä¸”æ‰©å®¹å¤±è´¥\n");
         return 0; 
     }
     else
@@ -111,34 +111,34 @@ int insert(vector *v, int pos, int num)
         }
         v->data[pos] = num;
         v->count++;
-        printf("³É¹¦ÔÚ%dÎ»ÖÃ²åÈë%d\n",pos,num);
+        printf("æˆåŠŸåœ¨%dä½ç½®æ’å…¥%d\n",pos,num);
         return 1;
     }
 }
 
-//É¾³ı²Ù×÷£¨Î»ÖÃÉ¾³ı£©
+//åˆ é™¤æ“ä½œï¼ˆä½ç½®åˆ é™¤ï¼‰
 int erase_position(vector* v,int pos){
     if (v == nullptr){
-        printf("É¾³ıÊ§°Ü£¬Ë³Ğò±íÎª¿Õ\n");
+        printf("åˆ é™¤å¤±è´¥ï¼Œé¡ºåºè¡¨ä¸ºç©º\n");
         return 0;
     }else if (pos < 0 || pos > v->count - 1){
-        printf("É¾³ıÊ§°Ü£¬Î»ÖÃÎŞĞ§\n");
+        printf("åˆ é™¤å¤±è´¥ï¼Œä½ç½®æ— æ•ˆ\n");
         return 0;
     }else{
         int removed = v->data[pos];
-        for (int i = pos; i < (v->count) - 1; i++){ // ²Ù×÷µ½µ¹ÊıµÚ¶ş¸öÔªËØ¼´¿É
+        for (int i = pos; i < (v->count) - 1; i++){ // æ“ä½œåˆ°å€’æ•°ç¬¬äºŒä¸ªå…ƒç´ å³å¯
             v->data[i] = v->data[i + 1];
         }
         v->count--;
-        printf("³É¹¦ÔÚ%dÎ»ÖÃÉ¾³ı%d\n", pos, removed);
+        printf("æˆåŠŸåœ¨%dä½ç½®åˆ é™¤%d\n", pos, removed);
         return 1;
     }
 }
 
-//É¾³ı²Ù×÷£¨ÔªËØÉ¾³ı£©
+//åˆ é™¤æ“ä½œï¼ˆå…ƒç´ åˆ é™¤ï¼‰
 int erase_number(vector* v,int num){
     if (v == nullptr){
-        printf("É¾³ıÊ§°Ü£¬Ë³Ğò±íÎª¿Õ\n");
+        printf("åˆ é™¤å¤±è´¥ï¼Œé¡ºåºè¡¨ä¸ºç©º\n");
         return 0;
     }else{
         int removed_count = 0;
@@ -146,38 +146,38 @@ int erase_number(vector* v,int num){
             if (v->data[i] == num){
                 erase_position(v, i);
                 removed_count++;
-                i--; // É¾³ıÎ»ÖÃÔªËØµÄ²Ù×÷»áÊ¹Êı×éÔªËØÕûÌå×óÒÆ£¬´ËÊ±iÒ²Ó¦¸Ã×óÒÆ
+                i--; // åˆ é™¤ä½ç½®å…ƒç´ çš„æ“ä½œä¼šä½¿æ•°ç»„å…ƒç´ æ•´ä½“å·¦ç§»ï¼Œæ­¤æ—¶iä¹Ÿåº”è¯¥å·¦ç§»
             }
         }
         if (removed_count == 0){
-            printf("Î´ÕÒµ½ĞèÒªÉ¾³ıµÄÔªËØ%d\n", num);
+            printf("æœªæ‰¾åˆ°éœ€è¦åˆ é™¤çš„å…ƒç´ %d\n", num);
         }else{
-            printf("¹²É¾³ı%d¸öÔªËØ%d\n", removed_count, num);
+            printf("å…±åˆ é™¤%dä¸ªå…ƒç´ %d\n", removed_count, num);
         }
         return 1;
     }
 }
 
-//¸ü¸Ä²Ù×÷£¨Î»ÖÃ¸ü¸Ä£©
+//æ›´æ”¹æ“ä½œï¼ˆä½ç½®æ›´æ”¹ï¼‰
 int change_position(vector* v,int pos,int num){
     if (v == nullptr){
-        printf("¸ü¸ÄÊ§°Ü£¬Ë³Ğò±íÎª¿Õ\n");
+        printf("æ›´æ”¹å¤±è´¥ï¼Œé¡ºåºè¡¨ä¸ºç©º\n");
         return 0;
     }else if (pos < 0 || pos > v->count - 1){
-        printf("¸ü¸ÄÊ§°Ü£¬Î»ÖÃÎŞĞ§\n");
+        printf("æ›´æ”¹å¤±è´¥ï¼Œä½ç½®æ— æ•ˆ\n");
         return 0;
     }else{
         int temp = v->data[pos];
         v->data[pos] = num;
-        printf("³É¹¦ÔÚ%dÎ»ÖÃ½«%d¸ü¸ÄÎª%d\n", pos, temp, num);
+        printf("æˆåŠŸåœ¨%dä½ç½®å°†%dæ›´æ”¹ä¸º%d\n", pos, temp, num);
         return 1;
     }
 }
 
-//¸ü¸Ä²Ù×÷£¨Êı×Ö¸ü¸Ä£©
+//æ›´æ”¹æ“ä½œï¼ˆæ•°å­—æ›´æ”¹ï¼‰
 int change_number(vector* v,int changed_num,int new_num){
     if (v == nullptr){
-        printf("¸ü¸ÄÊ§°Ü£¬Ë³Ğò±íÎª¿Õ\n");
+        printf("æ›´æ”¹å¤±è´¥ï¼Œé¡ºåºè¡¨ä¸ºç©º\n");
         return 0;
     }else{
         int changed_count = 0;
@@ -188,15 +188,15 @@ int change_number(vector* v,int changed_num,int new_num){
             }
         }
         if (changed_count == 0){
-            printf("Î´ÕÒµ½ĞèÒª¸ü¸ÄµÄÔªËØ%d\n", changed_num);
+            printf("æœªæ‰¾åˆ°éœ€è¦æ›´æ”¹çš„å…ƒç´ %d\n", changed_num);
         }else{
-            printf("¹²¸ü¸Ä%d¸öÔªËØ%dÎª%d\n", changed_count, changed_num, new_num);
+            printf("å…±æ›´æ”¹%dä¸ªå…ƒç´ %dä¸º%d\n", changed_count, changed_num, new_num);
         }
         return 1;
     }
 }
 
-//Ïú»Ù²Ù×÷
+//é”€æ¯æ“ä½œ
 void destroy_vector(vector* v){
     if (v == nullptr) return;
     if (v->data != nullptr){
@@ -209,31 +209,31 @@ void destroy_vector(vector* v){
 }
 
 
-// ²Ù×÷²âÊÔ´úÂë
+// æ“ä½œæµ‹è¯•ä»£ç 
 void test01()
 {
     int size;
-    printf("\n==== Ë³Ğò±íµÄ³õÊ¼»¯²âÊÔ ====\n");
-    printf("ÇëÊäÈëË³Ğò±íµÄ´óĞ¡: ");
+    printf("\n==== é¡ºåºè¡¨çš„åˆå§‹åŒ–æµ‹è¯• ====\n");
+    printf("è¯·è¾“å…¥é¡ºåºè¡¨çš„å¤§å°: ");
     scanf("%d", &size);
     vector *v = create_vector(size);
     print(v);
-    printf("\n==== ³õÊ¼»¯Îª 5 ¸ö 10 ====\n");
+    printf("\n==== åˆå§‹åŒ–ä¸º 5 ä¸ª 10 ====\n");
     init_vector(v, 5, 10);
     print(v);
-    printf("\n==== ²åÈë: pos=2, num=3 ====\n");
+    printf("\n==== æ’å…¥: pos=2, num=3 ====\n");
     insert(v, 2, 3);
     print(v);
-    printf("\n==== É¾³ıÎ»ÖÃ: pos=0 ====\n");
+    printf("\n==== åˆ é™¤ä½ç½®: pos=0 ====\n");
     erase_position(v,0);
     print(v);
-    printf("\n==== É¾³ıÔªËØ: num=3 ====\n");
+    printf("\n==== åˆ é™¤å…ƒç´ : num=3 ====\n");
     erase_number(v,3);
     print(v);
-    printf("\n==== Î»ÖÃ¸ü¸Ä: pos=3, num=7 ====\n");
+    printf("\n==== ä½ç½®æ›´æ”¹: pos=3, num=7 ====\n");
     change_position(v,3,7);
     print(v);
-    printf("\n==== ÔªËØ¸ü¸Ä: 10 -> 6 ====\n");
+    printf("\n==== å…ƒç´ æ›´æ”¹: 10 -> 6 ====\n");
     change_number(v,10,6);
     print(v);
 
