@@ -102,7 +102,7 @@ park.sort()
 dp = [[INF] * (m + 1) for _ in range(n + 1)]
 for j in range(m+1):
     dp[0][j] = 0
-#do[i][j] = min(dp[i][j-1],dp[i-1][j-1] + bike[i] - park[j])
+#dp[i][j] = min(dp[i][j-1],dp[i-1][j-1] + bike[i] - park[j])
 for i in range(1,n+1):
     for j in range(i,m+1):
         dp[i][j] = min(dp[i][j-1],dp[i-1][j-1] + abs(bike[i] - park[j]))
