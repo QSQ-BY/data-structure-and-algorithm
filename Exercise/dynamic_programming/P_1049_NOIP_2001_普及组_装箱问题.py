@@ -1,0 +1,54 @@
+""" 题目描述
+有一个箱子容量为 V，同时有 n 个物品，每个物品有一个体积。
+
+现在从 n 个物品中，任取若干个装入箱内（也可以不取），使箱子的剩余空间最小。输出这个最小值。
+
+输入格式
+第一行共一个整数 V，表示箱子容量。
+
+第二行共一个整数 n，表示物品总数。
+
+接下来 n 行，每行有一个正整数，表示第 i 个物品的体积。
+
+输出格式
+共一行一个整数，表示箱子最小剩余空间。
+输入输出样例
+输入 #1复制
+
+24
+6
+8
+3
+12
+7
+9
+7
+输出 #1复制
+
+0
+说明/提示
+对于 100% 数据，满足 0<n≤30，1≤V≤20000。
+
+【题目来源】
+
+NOIP 2001 普及组第四题 """
+import sys
+input = sys.stdin.buffer.readline
+V = int(input())
+n = int(input())
+
+arr = []
+for _ in range(n):
+    arr.append(int(input()))
+
+#dp[V]表示箱子容量为V的时候能容下的最大体积
+dp = [0] * (V + 1)
+
+for volume in arr:
+    for capacity in range(V, volume - 1, -1):
+        dp[capacity] = max(
+            dp[capacity],
+            dp[capacity - volume] + volume
+        )
+
+print(V - dp[V])
