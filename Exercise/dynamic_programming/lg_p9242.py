@@ -87,7 +87,7 @@ def read():
 n = int(input())
 arr = [0] + list(read()) + [0]
 #dp[i]表示前i个数字中，以第i个数字为结尾的能构成接龙序列的数字个数
-len = [0]*10#len[i]表示以数字0结尾的，接龙数列的最大长度
+len = [0]*10#len[i]表示以数字i结尾的，接龙数列的最大长度
 len[arr[1]%10] = 1
 ans = 1
 for i in range(2,n+1):

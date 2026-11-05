@@ -177,11 +177,12 @@ version = [0] * n
 #version[x] < now_version
 #    → x 裸露以后，发生过新的染色
 now_color = 'a'
-now_version = 0
+now_version = 0#记录颜色的版本
 
 for _ in range(q):
     op = input().split()
 
+    #放置瓷砖
     if op[0] == '1':
         x = int(op[1]) - 1
 
@@ -199,9 +200,10 @@ for _ in range(q):
             # 从现在开始才重新接受染色
             version[x] = now_version
 
+    #更改颜色
     else:
         # 2 C
-        now_version += 1
+        now_version += 1#记录版本
         now_color = op[1]
 
 # 最后结算所有没有瓷砖的位置
@@ -210,3 +212,4 @@ for i in range(n):
         color[i] = now_color
 
 print(''.join(color))
+

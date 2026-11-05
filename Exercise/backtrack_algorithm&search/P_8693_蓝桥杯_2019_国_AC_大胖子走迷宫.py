@@ -79,7 +79,7 @@ while q:
     step, x, y = heappop(q)
 
     # 跳过已经被更早到达时间替代的记录
-    if step != s[x][y]:
+    if step > s[x][y]:
         continue
 
     if (x, y) == (n-3, n-3):
