@@ -17,7 +17,7 @@ typedef struct linklist{
 }linklist;
 
 linklist* create_linklist(){
-    linklist* l = (linklist*)malloc(sizeof(*l));
+    linklist* l = (linklist*)malloc(sizeof(linklist));
     if(l==nullptr) return nullptr;
     l->head = nullptr;
     l->tail = nullptr;
