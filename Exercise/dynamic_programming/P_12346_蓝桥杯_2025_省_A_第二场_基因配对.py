@@ -56,7 +56,7 @@ c,d
 import sys
 s = sys.stdin.buffer.readline().strip()
 n = len(s)
-
+#dp[i][j]表示从i位置和j位置开始能够连续相反的位数
 dp = [[0] * (n + 1) for _ in range(n + 1)]
 ans = 0
 

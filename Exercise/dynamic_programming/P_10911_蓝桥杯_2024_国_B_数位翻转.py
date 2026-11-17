@@ -111,8 +111,8 @@ max_gain = 0  # 允许不选择任何区间
 
 #恰好选择k个区间
 for k in range(1, limit + 1):
-    best = 0
-    for i in range(1, n + 1):
+    best = 0#best维护的是选取前k-1个区间所能获得的最大值
+    for i in range(k, n + 1):
         # 恰好选 k-1 个区间，且结束位置不超过 i-1
         best = max(best, end[k - 1][i - 1])
 
